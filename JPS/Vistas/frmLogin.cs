@@ -16,5 +16,18 @@ namespace JPS.Vistas
         {
             InitializeComponent();
         }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            frmPrincipal oPrincipal = new frmPrincipal();
+            oPrincipal.Show();
+            this.Close();
+        }
+
+        private void btnRegistrarse_Click(object sender, EventArgs e)
+        {
+            frmRegistro oRegistrar = new frmRegistro();
+            oRegistrar.ShowDialog();
+        }
     }
 }
