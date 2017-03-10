@@ -1,106 +1,91 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JPS.Vistas
 {
     public partial class frmPrincipal : Form
     {
-        private int childFormNumber = 0;
+        private frmConfiguracion oConfig;
+        private frmSorteo oSorteo;
+        private frmGanadores oGanadores;
+        private frmUsuarios oUsuarios;
+        private frmApostar oApostar;
+        private frmResultados oResultado;
 
         public frmPrincipal()
         {
             InitializeComponent();
+           
         }
-
-        private void ShowNewForm(object sender, EventArgs e)
+        private bool HandleForm(Form currentForm)
         {
-            Form childForm = new Form();
-            childForm.MdiParent = this;
-            childForm.Text = "Ventana " + childFormNumber++;
-            childForm.Show();
-        }
-
-        private void OpenFile(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
+            if (this.MdiChildren.Contains(currentForm))
             {
-                string FileName = openFileDialog.FileName;
+                currentForm.WindowState = FormWindowState.Maximized;
+                currentForm.Activate();
+                return false;
+            }
+            return true;
+        }
+
+        private void configuracionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.HandleForm(this.oConfig))
+            {
+                oConfig = new frmConfiguracion();
+                oConfig.MdiParent = this;
+                oConfig.Show();
             }
         }
 
-        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void sorteosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
-            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
+            if (this.HandleForm(this.oSorteo))
             {
-                string FileName = saveFileDialog.FileName;
+                oSorteo = new frmSorteo();
+                oSorteo.MdiParent = this;
+                oSorteo.Show();
             }
         }
 
-        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
+        private void ganadoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            toolStrip.Visible = toolBarToolStripMenuItem.Checked;
-        }
-
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
-        }
-
-        private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.Cascade);
-        }
-
-        private void TileVerticalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileVertical);
-        }
-
-        private void TileHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileHorizontal);
-        }
-
-        private void ArrangeIconsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.ArrangeIcons);
-        }
-
-        private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (Form childForm in MdiChildren)
+            if (this.HandleForm(this.oGanadores))
             {
-                childForm.Close();
+                oGanadores = new frmGanadores();
+                oGanadores.MdiParent = this;
+                oGanadores.Show();
+            }
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.HandleForm(this.oUsuarios))
+            {
+                oUsuarios = new frmUsuarios();
+                oUsuarios.MdiParent = this;
+                oUsuarios.Show();
+            }
+        }
+
+        private void apostarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.HandleForm(this.oApostar))
+            {
+                oApostar = new frmApostar();
+                oApostar.MdiParent = this;
+                oApostar.Show();
+            }
+        }
+
+        private void resultadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.HandleForm(this.oResultado))
+            {
+                oResultado = new frmResultados();
+                oResultado.MdiParent = this;
+                oResultado.Show();
             }
         }
     }
