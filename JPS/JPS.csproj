@@ -53,9 +53,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modelos\Apuestas.cs" />
+    <Compile Include="Controladores\Apuesta.cs" />
+    <Compile Include="Controladores\Configuracion.cs" />
+    <Compile Include="Controladores\Ganador.cs" />
+    <Compile Include="Controladores\Sorteo.cs" />
+    <Compile Include="Controladores\Usuario.cs" />
+    <Compile Include="Modelos\Apuesta.cs" />
     <Compile Include="Modelos\Configuracion.cs" />
-    <Compile Include="Modelos\Ganadores.cs" />
+    <Compile Include="Modelos\Ganador.cs" />
     <Compile Include="Modelos\Sorteo.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Vistas\frmApostar.cs">
@@ -160,9 +165,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controladores\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
