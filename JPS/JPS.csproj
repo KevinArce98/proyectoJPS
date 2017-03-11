@@ -53,7 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modelos\Apuestas.cs" />
     <Compile Include="Modelos\Configuracion.cs" />
+    <Compile Include="Modelos\Ganadores.cs" />
     <Compile Include="Modelos\Sorteo.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Vistas\frmApostar.cs">
