@@ -85,7 +85,7 @@ namespace JPS.Modelos
             parametros.Add("clave", this.clave);
 
             DataTable result = Program.da.SqlQuery("insert into usuarios (nombre, apellido, admin, correo, clave) "
-                + "values (@nombre, @apellido, @admin, @correo, @clave) returning id;", parametros);
+                + "values (@nombre, @apellido, @admin, @correo, @clave) returning id_usuario;", parametros);
             if (Program.da.isError)
             {
                 this.isError = true;
@@ -94,15 +94,15 @@ namespace JPS.Modelos
             }
             if (result.Rows.Count > 0)
             {
-                this.id = Convert.ToInt32(result.Rows[0]["id"]);
+                this.id = Convert.ToInt32(result.Rows[0]["id_usuario"]);
             }
         }
 
         public void Delete(int id)
         {
             Dictionary<string, object> parametros = new Dictionary<string, object>();
-            parametros.Add("id", id);
-            Program.da.SqlStatement("delete from usuarios where id = @id", parametros);
+            parametros.Add("id_usuario", id);
+            Program.da.SqlStatement("delete from usuarios where id_usuario = @id_usuario", parametros);
             if (Program.da.isError)
             {
                 this.isError = true;
@@ -119,9 +119,9 @@ namespace JPS.Modelos
             parametros.Add("admin", this.admin);
             parametros.Add("correo", this.correo);
             parametros.Add("clave", this.clave);
-            parametros.Add("id", id);
+            parametros.Add("id_usuario", id);
             Program.da.SqlStatement("update usuarios set nombre= @nombre, apellido=@apellido, admin=@admin, correo=@correo, clave=@clave "
-                + "where id = @id", parametros);
+                + "where id_usuario = @id_usuario", parametros);
             if (Program.da.isError)
             {
                 this.isError = true;

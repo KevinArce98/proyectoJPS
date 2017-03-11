@@ -63,6 +63,7 @@
     <Compile Include="Modelos\Ganador.cs" />
     <Compile Include="Modelos\Sorteo.cs" />
     <Compile Include="Modelos\Usuario.cs" />
+    <Compile Include="Utils\Encriptacion.cs" />
     <Compile Include="Vistas\frmApostar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,12 +96,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vistas\frmRegistro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\frmRegistro.Designer.cs">
-      <DependentUpon>frmRegistro.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\frmSorteo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +113,12 @@
     </Compile>
     <Compile Include="Vistas\frmResultados.Designer.cs">
       <DependentUpon>frmResultados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VistasEdicion\EditaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\VistasEdicion\EditaUsuario.Designer.cs">
+      <DependentUpon>EditaUsuario.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -140,9 +141,6 @@
     <EmbeddedResource Include="Vistas\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmRegistro.resx">
-      <DependentUpon>frmRegistro.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmResultados.resx">
       <DependentUpon>frmResultados.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\VistasEdicion\EditaUsuario.resx">
+      <DependentUpon>EditaUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -13,7 +13,6 @@ C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmGanadores.resources
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmResultados.resources
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmUsuarios.resources
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmRegistro.resources
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\DBAccess.dll
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\Npgsql.dll
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\MySql.Data.dll
@@ -21,3 +20,4 @@ C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\Sys
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\DBAccess.pdb
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\Npgsql.xml
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\System.Data.SQLite.xml
+C:\Users\Kevin Arias\Documents\Visual Studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.VistasEdicion.EditaUsuario.resources
