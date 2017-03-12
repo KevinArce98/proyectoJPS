@@ -63,7 +63,14 @@ namespace JPS.Vistas
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-
+            DataTable result = new DataTable();
+            result = this.oUsuario.Select(txtNombre.Text, txtApellido.Text, txtCorreo.Text);
+            if (this.oUsuario.isError)
+            {
+                MessageBox.Show(this.oUsuario.errorDescription);
+                return;
+            }
+            this.dtgUsuarios.DataSource = result;
         }
 
         private void dtgUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -58,7 +58,7 @@ namespace JPS.Vistas.VistasEdicion
             {
                 if (txtNombre.Text.Equals("") || txtApellido.Text.Equals("") ||
                     txtCorreo.Text.Equals("") || txtClave.Text.Equals("") ||
-                    txtConfirmacionClave.Text.Equals(""))
+                    txtConfirmacionClave.Text.Equals("") || cmbAdmin.SelectedIndex ==-1)
                 {
                     MessageBox.Show("Ingrese los datos");
                 }
@@ -87,7 +87,7 @@ namespace JPS.Vistas.VistasEdicion
             {
                 if (txtNombre.Text.Equals("") || txtApellido.Text.Equals("") ||
                      txtCorreo.Text.Equals("") || txtClave.Text.Equals("") ||
-                     txtConfirmacionClave.Text.Equals(""))
+                     txtConfirmacionClave.Text.Equals("") || cmbAdmin.SelectedIndex == -1)
                 {
                     MessageBox.Show("Ingrese los datos");
                 }
