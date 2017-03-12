@@ -65,5 +65,10 @@ namespace JPS.Vistas
         {
 
         }
+
+        private void dtgUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -21,3 +21,25 @@ C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\DBA
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\Npgsql.xml
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\System.Data.SQLite.xml
 C:\Users\Kevin Arias\Documents\Visual Studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.VistasEdicion.EditaUsuario.resources
+E:\proyectoProgra\proyectoJPS\JPS\bin\Debug\JPS.exe.config
+E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.exe
+E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.pdb
+E:\proyectoProgra\proyectoJPS\JPS\bin\Debug\JPS.exe
+E:\proyectoProgra\proyectoJPS\JPS\bin\Debug\JPS.pdb
+E:\proyectoProgra\proyectoJPS\JPS\bin\Debug\MySql.Data.dll
+E:\proyectoProgra\proyectoJPS\JPS\bin\Debug\System.Data.SQLite.dll
+E:\proyectoProgra\proyectoJPS\JPS\bin\Debug\DBAccess.pdb
+E:\proyectoProgra\proyectoJPS\JPS\bin\Debug\Npgsql.xml
+E:\proyectoProgra\proyectoJPS\JPS\bin\Debug\System.Data.SQLite.xml
+E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.csprojResolveAssemblyReference.cache
+E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Properties.Resources.resources
+E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.frmConfiguracion.resources
+E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.frmGanadores.resources
+E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.frmLogin.resources
+E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.frmPrincipal.resources
+E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.frmResultados.resources
+E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.frmSorteo.resources
+E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.frmUsuarios.resources
+E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.VistasEdicion.EditaUsuario.resources
+E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.csproj.GenerateResource.Cache
+E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.VistasEdicion.EditaSorteo.resources

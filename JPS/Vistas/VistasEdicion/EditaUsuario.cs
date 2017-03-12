@@ -118,5 +118,10 @@ namespace JPS.Vistas.VistasEdicion
                 }
             }
         }
+
+        private void EditaUsuario_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

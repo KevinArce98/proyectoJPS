@@ -56,5 +56,17 @@ namespace JPS.Controladores
                 this.errorDescription = this.oSorteo.errorDescription;
             }
         }
+
+        public DataTable SelecAll()
+        {
+            DataTable result = new DataTable();
+            result = this.oSorteo.selectAll();
+            if (this.oSorteo.isError)
+            {
+                this.isError = true;
+                this.errorDescription = this.oSorteo.errorDescription;
+            }
+            return result;
+        }
     }
 }
