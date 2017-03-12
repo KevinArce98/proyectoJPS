@@ -34,7 +34,7 @@ namespace JPS.Modelos
                 parametros.Add("fecha_hora", pFechaHora);
             }
 
-            if (!pActivo.Equals(""))
+            if (pActivo != ' ')
             {
                 if (parametros.Count > 0)
                 {

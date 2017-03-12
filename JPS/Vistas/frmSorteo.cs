@@ -30,7 +30,12 @@ namespace JPS.Vistas
         private void RefrescarFiltrado()
         {
             DataTable result = new DataTable();
-            result = this.oSorteo.Select(this.dtFecha.Value, char.Parse(this.cmbActivo.SelectedItem.ToString()),
+            char activo = ' ';
+            if (this.cmbActivo.SelectedIndex != -1)
+            {
+                activo = char.Parse(this.cmbActivo.SelectedItem.ToString());
+            }
+            result = this.oSorteo.Select(this.dtFecha.Value, activo,
                                 this.txtDescripcion.Text);
             if (this.oSorteo.isError)
             {
