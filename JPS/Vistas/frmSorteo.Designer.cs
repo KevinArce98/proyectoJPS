@@ -32,14 +32,14 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dtgSorteos = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnResetear = new System.Windows.Forms.Button();
+            this.cmbActivo = new System.Windows.Forms.ComboBox();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.lbl2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbActivo = new System.Windows.Forms.ComboBox();
-            this.btnResetear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgSorteos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -95,6 +95,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Búsqueda";
             // 
+            // btnResetear
+            // 
+            this.btnResetear.Location = new System.Drawing.Point(588, 65);
+            this.btnResetear.Name = "btnResetear";
+            this.btnResetear.Size = new System.Drawing.Size(75, 23);
+            this.btnResetear.TabIndex = 9;
+            this.btnResetear.Text = "Resetear";
+            this.btnResetear.UseVisualStyleBackColor = true;
+            this.btnResetear.Click += new System.EventHandler(this.btnResetear_Click);
+            // 
+            // cmbActivo
+            // 
+            this.cmbActivo.FormattingEnabled = true;
+            this.cmbActivo.Items.AddRange(new object[] {
+            "S",
+            "N"});
+            this.cmbActivo.Location = new System.Drawing.Point(257, 50);
+            this.cmbActivo.Name = "cmbActivo";
+            this.cmbActivo.Size = new System.Drawing.Size(121, 21);
+            this.cmbActivo.TabIndex = 8;
+            // 
             // btnFiltrar
             // 
             this.btnFiltrar.Location = new System.Drawing.Point(588, 26);
@@ -146,27 +167,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // cmbActivo
-            // 
-            this.cmbActivo.FormattingEnabled = true;
-            this.cmbActivo.Items.AddRange(new object[] {
-            "S",
-            "N"});
-            this.cmbActivo.Location = new System.Drawing.Point(257, 50);
-            this.cmbActivo.Name = "cmbActivo";
-            this.cmbActivo.Size = new System.Drawing.Size(121, 21);
-            this.cmbActivo.TabIndex = 8;
-            // 
-            // btnResetear
-            // 
-            this.btnResetear.Location = new System.Drawing.Point(588, 65);
-            this.btnResetear.Name = "btnResetear";
-            this.btnResetear.Size = new System.Drawing.Size(75, 23);
-            this.btnResetear.TabIndex = 9;
-            this.btnResetear.Text = "Resetear";
-            this.btnResetear.UseVisualStyleBackColor = true;
-            this.btnResetear.Click += new System.EventHandler(this.btnResetear_Click);
             // 
             // frmSorteo
             // 
