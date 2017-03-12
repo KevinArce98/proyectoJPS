@@ -71,6 +71,19 @@ namespace JPS.Modelos
             return result;
         }
 
+        public DataTable selectAll()
+        {
+            Dictionary<string, object> parametros = new Dictionary<string, object>();
+            string sql = "select * from sorteos ";
+            DataTable result = Program.da.SqlQuery(sql, parametros);
+            if (Program.da.isError)
+            {
+                this.isError = true;
+                this.errorDescription = Program.da.errorDescription;
+            }
+            return result;
+        }
+
         public void Insert()
         {
             Dictionary<string, object> parametros = new Dictionary<string, object>();
@@ -80,7 +93,7 @@ namespace JPS.Modelos
  
 
             DataTable result = Program.da.SqlQuery("insert into sorteos (fecha_hora, activo, descripcion) "
-                + "values (@fecha_hora, @activo, @descripcion) returning id;", parametros);
+                + "values (@fecha_hora, @activo, @descripcion) returning id_sorteo;", parametros);
             if (Program.da.isError)
             {
                 this.isError = true;
@@ -89,7 +102,7 @@ namespace JPS.Modelos
             }
             if (result.Rows.Count > 0)
             {
-                this.id = Convert.ToInt32(result.Rows[0]["id"]);
+                this.id = Convert.ToInt32(result.Rows[0]["id_sorteo"]);
             }
         }
 
@@ -97,7 +110,7 @@ namespace JPS.Modelos
         {
             Dictionary<string, object> parametros = new Dictionary<string, object>();
             parametros.Add("id", id);
-            Program.da.SqlStatement("delete from sorteos where id = @id", parametros);
+            Program.da.SqlStatement("delete from sorteos where id_sorteo = @id", parametros);
             if (Program.da.isError)
             {
                 this.isError = true;
@@ -114,7 +127,7 @@ namespace JPS.Modelos
             parametros.Add("descripcion", this.descripcion);
             parametros.Add("id", id);
             Program.da.SqlStatement("update sorteos set fecha_hora= @fecha_hora, activo=@activo, descripcion=@descripcion "
-                + "where id = @id", parametros);
+                + "where id_sorteo = @id", parametros);
             if (Program.da.isError)
             {
                 this.isError = true;

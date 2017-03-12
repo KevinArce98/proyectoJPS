@@ -114,6 +114,12 @@
     <Compile Include="Vistas\frmResultados.Designer.cs">
       <DependentUpon>frmResultados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\VistasEdicion\EditaSorteo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\VistasEdicion\EditaSorteo.Designer.cs">
+      <DependentUpon>EditaSorteo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\VistasEdicion\EditaUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\VistasEdicion\EditaSorteo.resx">
+      <DependentUpon>EditaSorteo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\VistasEdicion\EditaUsuario.resx">
       <DependentUpon>EditaUsuario.cs</DependentUpon>

@@ -202,6 +202,7 @@
             this.Controls.Add(this.label1);
             this.Name = "EditaUsuario";
             this.Text = "EditaUsuario";
+            this.Load += new System.EventHandler(this.EditaUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
