@@ -44,3 +44,4 @@ E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.VistasEdicion.EditaUsuari
 E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.csproj.GenerateResource.Cache
 E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.VistasEdicion.EditaSorteo.resources
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.VistasEdicion.EditaSorteo.resources
+E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.frmApostar.resources

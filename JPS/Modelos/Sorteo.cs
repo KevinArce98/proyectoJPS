@@ -23,6 +23,11 @@ namespace JPS.Modelos
 
         }
 
+        public override string ToString()
+        {
+            return this.descripcion;
+        }
+
         public DataTable Select(DateTime pFechaHora, char pActivo, string pDescripcion)
         {
             Dictionary<string, object> parametros = new Dictionary<string, object>();
