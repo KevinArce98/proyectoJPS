@@ -76,9 +76,11 @@
             // 
             // dtFecha
             // 
+            this.dtFecha.CustomFormat = "dd/MM/yyyy | hh:mm:ss tt";
+            this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtFecha.Location = new System.Drawing.Point(100, 131);
             this.dtFecha.Name = "dtFecha";
-            this.dtFecha.Size = new System.Drawing.Size(200, 20);
+            this.dtFecha.Size = new System.Drawing.Size(182, 20);
             this.dtFecha.TabIndex = 4;
             // 
             // cmbActivo
