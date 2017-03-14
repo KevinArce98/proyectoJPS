@@ -17,7 +17,8 @@ namespace JPS.Controladores
             result = this.oConfig.Select();
             if (result.Rows.Count > 0)
             {
-                monto = double.Parse(result.Rows[0].ToString());
+                DataRow row = result.Rows[0];
+                monto = double.Parse(row["monto_casa"].ToString());
             }
             if (this.oConfig.isError)
             {

@@ -10,16 +10,29 @@ namespace JPS.Controladores
         {
             this.oGanador = new Modelos.Ganador();
         }
-        public DataTable Select(Modelos.Sorteo pSorteo)
+        public Modelos.Ganador Select(int idSorteo)
         {
             DataTable result = new DataTable();
-            result = this.oGanador.Select(pSorteo);
+            result = this.oGanador.Select(idSorteo);
+            if (result.Rows.Count > 0)
+            {
+                DataRow row = result.Rows[0];
+                this.oGanador.id = int.Parse(row["id_favorecido"].ToString());
+                this.oGanador.primerNumero = int.Parse(row["primer_numero"].ToString());
+                this.oGanador.segundoNumero = int.Parse(row["segundo_numero"].ToString());
+                this.oGanador.tercerNumero = int.Parse(row["tercer_numero"].ToString());
+                this.oGanador.oSorteo.id = int.Parse(row["id_sorteo"].ToString());
+            }
+            else
+            {
+                this.oGanador.id = -1;
+            }
             if (this.oGanador.isError)
             {
                 this.isError = true;
                 this.errorDescription = this.oGanador.errorDescription;
             }
-            return result;
+            return oGanador;
         }
 
 
