@@ -22,6 +22,32 @@ namespace JPS.Controladores
             return result;
         }
 
+        public Modelos.Usuario SelectLogin(string pCorreo, string password)
+        {
+            DataTable result = new DataTable();
+            result = this.oUsuario.Login(pCorreo, password);
+            if (result.Rows.Count > 0)
+            {
+                DataRow row = result.Rows[0];
+                this.oUsuario.id = int.Parse(row["id_usuario"].ToString());
+                this.oUsuario.nombre = row["nombre"].ToString();
+                this.oUsuario.apellido = row["apellido"].ToString();
+                this.oUsuario.admin = char.Parse(row["admin"].ToString());
+                this.oUsuario.correo = row["correo"].ToString();
+                this.oUsuario.clave = row["clave"].ToString();
+            }else
+            {
+                this.oUsuario.id = -1;
+            }
+
+            if (this.oUsuario.isError)
+            {
+                this.isError = true;
+                this.errorDescription = this.oUsuario.errorDescription;
+            }
+            return oUsuario;
+        }
+
 
         public void Insert(string pNombre, string pApellido, char pAdmin, string pCorreo, string pClave)
         {

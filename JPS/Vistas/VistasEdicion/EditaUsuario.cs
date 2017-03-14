@@ -74,6 +74,7 @@ namespace JPS.Vistas.VistasEdicion
                             MessageBox.Show(this.oUsuario.errorDescription);
                             return;
                         }
+                        MessageBox.Show("Usuario Agregado");
                         this.Close();
                     }
                     else

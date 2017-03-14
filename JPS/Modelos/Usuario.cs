@@ -74,6 +74,22 @@ namespace JPS.Modelos
             }
             return result;
         }
+        public DataTable Login(string pCorreo, string password)
+        {
+            Dictionary<string, object> parametros = new Dictionary<string, object>();
+            parametros.Add("correo", pCorreo);
+            parametros.Add("clave", password);
+
+            string sql = "SELECT * FROM usuarios WHERE correo = @correo AND clave = @clave";
+            DataTable result = Program.da.SqlQuery(sql, parametros);
+            if (Program.da.isError)
+            {
+                this.isError = true;
+                this.errorDescription = Program.da.errorDescription;
+            }
+            return result;
+        }
+
 
         public void Insert()
         {
@@ -129,5 +145,6 @@ namespace JPS.Modelos
                 return;
             }
         }
+        
     }
 }

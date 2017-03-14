@@ -20,7 +20,6 @@ namespace JPS
             string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["Pg"].ConnectionString;
             Program.da = new PgAccess(connectionString);
             Application.Run(new frmLogin());
-            Application.Run(new frmPrincipal());
         }
     }
 }

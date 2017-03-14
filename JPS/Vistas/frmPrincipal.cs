@@ -88,5 +88,10 @@ namespace JPS.Vistas
                 oResultado.Show();
             }
         }
+
+        private void frmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
