@@ -22,26 +22,18 @@ namespace JPS.Modelos
         }
         public Ganador()
         {
+            this.primerNumero = -1;
+            this.segundoNumero = -1;
+            this.tercerNumero = -1;
+            this.oSorteo = new Sorteo();
 
         }
-        public DataTable Select(Sorteo pSorteo)
+       
+        public DataTable Select(int id)
         {
             Dictionary<string, object> parametros = new Dictionary<string, object>();
-            StringBuilder sql_builder = new StringBuilder();
-
-            if (pSorteo != null)
-            {
-                sql_builder.Append("id_sorteo == @id_sorteo ");
-                parametros.Add("id_sorteo", string.Format("%{0}%", pSorteo.id));
-            }
-
-            string sql = "select * from favorecidos ";
-            if (parametros.Count > 0)
-            {
-
-                sql += "where " + sql_builder.ToString();
-            }
-
+            parametros.Add("id_sorteo", id);
+            string sql = "select * from favorecidos where id_sorteo = @id_sorteo";
             DataTable result = Program.da.SqlQuery(sql, parametros);
             if (Program.da.isError)
             {
