@@ -1,27 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using JPS.Controladores;
+using JPS.Utils;
+using System.Data;
 
 namespace JPS.Vistas
 {
     public partial class frmLogin : Form
     {
+        private Usuario oUsuario;
         public frmLogin()
         {
             InitializeComponent();
+            oUsuario = new Usuario();
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            frmPrincipal oPrincipal = new frmPrincipal();
-            oPrincipal.Show();
-            this.Close();
+            if (txtCorreo.Text.Equals("") || txtPass.Text.Equals(""))
+            {
+                MessageBox.Show("Ingrese los datos");
+            }
+            else {
+                string correo = txtCorreo.Text;
+                string pass = txtPass.Text;
+                pass = Encriptacion.encriptarClave(pass);
+                RuntimeData.oUsuario = oUsuario.SelectLogin(correo, pass);
+                if (RuntimeData.oUsuario.id != -1)
+                {
+                    frmPrincipal oPrincipal = new frmPrincipal();
+                    oPrincipal.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Datos incorrectos");
+                }
+            }        
         }
 
         private void btnRegistrarse_Click(object sender, EventArgs e)
@@ -29,5 +44,6 @@ namespace JPS.Vistas
             VistasEdicion.EditaUsuario oEdita = new VistasEdicion.EditaUsuario();
             oEdita.ShowDialog();
         }
+
     }
 }
