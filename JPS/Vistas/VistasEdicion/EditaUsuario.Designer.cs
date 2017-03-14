@@ -32,7 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
@@ -43,7 +42,7 @@
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.txtClave = new System.Windows.Forms.TextBox();
             this.txtConfirmacionClave = new System.Windows.Forms.TextBox();
-            this.cmbAdmin = new System.Windows.Forms.ComboBox();
+            this.ckbAdmin = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -82,15 +81,6 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Correo:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(264, 36);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Administrador:";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -111,7 +101,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(173, 195);
+            this.btnAceptar.Location = new System.Drawing.Point(143, 204);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(77, 28);
             this.btnAceptar.TabIndex = 7;
@@ -121,7 +111,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(281, 195);
+            this.btnCancelar.Location = new System.Drawing.Point(251, 204);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(77, 28);
             this.btnCancelar.TabIndex = 8;
@@ -161,6 +151,7 @@
             // 
             this.txtClave.Location = new System.Drawing.Point(119, 129);
             this.txtClave.Name = "txtClave";
+            this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(172, 20);
             this.txtClave.TabIndex = 13;
             // 
@@ -168,23 +159,26 @@
             // 
             this.txtConfirmacionClave.Location = new System.Drawing.Point(119, 154);
             this.txtConfirmacionClave.Name = "txtConfirmacionClave";
+            this.txtConfirmacionClave.PasswordChar = '*';
             this.txtConfirmacionClave.Size = new System.Drawing.Size(172, 20);
             this.txtConfirmacionClave.TabIndex = 14;
             // 
-            // cmbAdmin
+            // ckbAdmin
             // 
-            this.cmbAdmin.FormattingEnabled = true;
-            this.cmbAdmin.Location = new System.Drawing.Point(343, 33);
-            this.cmbAdmin.Name = "cmbAdmin";
-            this.cmbAdmin.Size = new System.Drawing.Size(121, 21);
-            this.cmbAdmin.TabIndex = 15;
+            this.ckbAdmin.AutoSize = true;
+            this.ckbAdmin.Location = new System.Drawing.Point(327, 103);
+            this.ckbAdmin.Name = "ckbAdmin";
+            this.ckbAdmin.Size = new System.Drawing.Size(89, 17);
+            this.ckbAdmin.TabIndex = 15;
+            this.ckbAdmin.Text = "Administrador";
+            this.ckbAdmin.UseVisualStyleBackColor = true;
             // 
             // EditaUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 240);
-            this.Controls.Add(this.cmbAdmin);
+            this.ClientSize = new System.Drawing.Size(437, 242);
+            this.Controls.Add(this.ckbAdmin);
             this.Controls.Add(this.txtConfirmacionClave);
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.txtCorreo);
@@ -195,7 +189,6 @@
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -214,7 +207,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnAceptar;
@@ -225,6 +217,6 @@
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.TextBox txtConfirmacionClave;
-        private System.Windows.Forms.ComboBox cmbAdmin;
+        private System.Windows.Forms.CheckBox ckbAdmin;
     }
 }

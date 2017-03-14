@@ -12,10 +12,10 @@ namespace JPS.Controladores
         {
             oSorteo = new Modelos.Sorteo();
         }
-        public DataTable Select(DateTime pFechaHora, char pActivo, string pDescripcion)
+        public DataTable Select()
         {
             DataTable result = new DataTable();
-            result = this.oSorteo.Select(pFechaHora, pActivo, pDescripcion);
+            result = this.oSorteo.Select();
             if (this.oSorteo.isError)
             {
                 this.isError = true;
@@ -25,7 +25,7 @@ namespace JPS.Controladores
         }
 
 
-        public void Insert(DateTime pFechaHora, char pActivo, string pDescripcion)
+        public void Insert(DateTime pFechaHora, bool pActivo, string pDescripcion)
         {
             this.oSorteo = new Modelos.Sorteo(pFechaHora, pActivo, pDescripcion);
             this.oSorteo.Insert();
@@ -36,7 +36,7 @@ namespace JPS.Controladores
             }
         }
 
-        public void Update(int id, DateTime pFechaHora, char pActivo, string pDescripcion)
+        public void Update(int id, DateTime pFechaHora, bool pActivo, string pDescripcion)
         {
             this.oSorteo = new Modelos.Sorteo(pFechaHora, pActivo, pDescripcion);
             this.oSorteo.Update(id);

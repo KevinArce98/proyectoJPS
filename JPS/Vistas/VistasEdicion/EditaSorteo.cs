@@ -11,44 +11,34 @@ namespace JPS.Vistas.VistasEdicion
         public EditaSorteo()
         {
             InitializeComponent();
+            this.CenterToScreen();
             this.oSorteo = new Sorteo();
-            //this.txtId.Enabled = false;
-            this.cargarCombo();
         }
 
-        public EditaSorteo(int id, DateTime fecha, string activo, string descripcion)
+        public EditaSorteo(int id, DateTime fecha, bool activo, string descripcion)
         {
             InitializeComponent();
+            this.CenterToScreen();
             this.oSorteo = new Sorteo();
-            this.cargarCombo();
             this.txtId.Text = id.ToString();
             this.txtDescripcion.Text = descripcion;
             this.dtFecha.Value = fecha;
-            this.cmbActivo.SelectedItem = char.Parse(activo);
+            this.ckbActivo.Checked = activo;
 
-            //this.txtId.Enabled = false;
-
-        }
-
-        private void cargarCombo()
-        {
-            this.cmbActivo.Items.Add('S');
-            this.cmbActivo.Items.Add('N');
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (this.txtId.Text.Equals(""))
             {
-                if (this.txtDescripcion.Text.Trim().Equals("") || this.dtFecha.Value == null ||
-                this.cmbActivo.SelectedIndex == -1)
+                if (this.txtDescripcion.Text.Trim().Equals("") || this.dtFecha.Value == null)
                 {
                     MessageBox.Show("Falta datos requeridos.");
 
                 }
                 else
                 {
-                    this.oSorteo.Insert(this.dtFecha.Value, char.Parse(this.cmbActivo.SelectedItem.ToString()),
+                    this.oSorteo.Insert(this.dtFecha.Value, ckbActivo.Checked,
                                          this.txtDescripcion.Text);
                     if (this.oSorteo.isError)
                     {
@@ -60,17 +50,14 @@ namespace JPS.Vistas.VistasEdicion
             }
             else
             {
-                if (this.txtDescripcion.Text.Trim().Equals("") || this.dtFecha.Value == null ||
-                this.cmbActivo.SelectedIndex == -1)
+                if (this.txtDescripcion.Text.Trim().Equals("") || this.dtFecha.Value == null)
                 {
                     MessageBox.Show("Falta datos requeridos.");
 
                 }
                 else
                 {
-                    this.oSorteo.Update(int.Parse(this.txtId.Text), this.dtFecha.Value, 
-                        char.Parse(this.cmbActivo.SelectedItem.ToString()),
-                                   this.txtDescripcion.Text);
+                    this.oSorteo.Update(int.Parse(this.txtId.Text), this.dtFecha.Value, ckbActivo.Checked, this.txtDescripcion.Text);
                     if (this.oSorteo.isError)
                     {
                         MessageBox.Show(this.oSorteo.errorDescription);

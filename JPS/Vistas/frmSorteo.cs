@@ -12,42 +12,20 @@ namespace JPS.Vistas
         public frmSorteo()
         {
             InitializeComponent();
+            this.CenterToScreen();
             this.oSorteo = new Sorteo();
             this.Refrescar();
         }
         private void Refrescar()
         {
             DataTable result = new DataTable();
-            result = this.oSorteo.SelecAll();
+            result = this.oSorteo.Select();
             if (this.oSorteo.isError)
             {
                 MessageBox.Show(this.oSorteo.errorDescription);
                 return;
             }
             this.dtgSorteos.DataSource = result;
-        }
-
-        private void RefrescarFiltrado()
-        {
-            DataTable result = new DataTable();
-            char activo = ' ';
-            if (this.cmbActivo.SelectedIndex != -1)
-            {
-                activo = char.Parse(this.cmbActivo.SelectedItem.ToString());
-            }
-            result = this.oSorteo.Select(this.dtFecha.Value, activo,
-                                this.txtDescripcion.Text);
-            if (this.oSorteo.isError)
-            {
-                MessageBox.Show(this.oSorteo.errorDescription);
-                return;
-            }
-            this.dtgSorteos.DataSource = result;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -70,24 +48,13 @@ namespace JPS.Vistas
             this.Refrescar();
         }
 
-        private void btnFiltrar_Click(object sender, EventArgs e)
-        {
-            this.RefrescarFiltrado();
-
-        }
-
-        private void btnResetear_Click(object sender, EventArgs e)
-        {
-            this.Refrescar();
-        }
-
         private void dtgSorteos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int id = int.Parse(this.dtgSorteos.CurrentRow.Cells[0].Value.ToString());
             DateTime fecha = DateTime.Parse(this.dtgSorteos.CurrentRow.Cells[1].Value.ToString());
             string activo = (this.dtgSorteos.CurrentRow.Cells[2].Value.ToString());
             string descripcion = this.dtgSorteos.CurrentRow.Cells[3].Value.ToString();
-            EditaSorteo oEdita = new EditaSorteo(id, fecha, activo, descripcion);
+            EditaSorteo oEdita = new EditaSorteo(id, fecha, bool.Parse(activo), descripcion);
             oEdita.ShowDialog();
             this.Refrescar();
         }

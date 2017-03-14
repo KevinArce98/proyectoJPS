@@ -10,26 +10,21 @@ namespace JPS.Vistas.VistasEdicion
         public EditaUsuario()
         {
             InitializeComponent();
+            this.CenterToScreen();
             this.oUsuario = new Usuario();
             this.txtId.Enabled = false;
-            this.cargarCombo();
         }
-        public EditaUsuario(int id, string nombre, string apellido, string correo, string admin)
+        public EditaUsuario(int id, string nombre, string apellido, string correo, bool admin)
         {
             InitializeComponent();
+            this.CenterToScreen();
             this.oUsuario = new Usuario();
             this.txtId.Enabled = false;
-            this.cargarCombo();
             this.txtId.Text = Convert.ToString(id);
             this.txtNombre.Text = nombre;
             this.txtApellido.Text = apellido;
             this.txtCorreo.Text = correo;
-            this.cmbAdmin.SelectedItem = char.Parse(admin);
-        }
-        private void cargarCombo()
-        {
-            this.cmbAdmin.Items.Add('S');
-            this.cmbAdmin.Items.Add('N');
+            this.ckbAdmin.Checked = admin;
         }
         private string verificaClave()
         {
@@ -58,7 +53,7 @@ namespace JPS.Vistas.VistasEdicion
             {
                 if (txtNombre.Text.Equals("") || txtApellido.Text.Equals("") ||
                     txtCorreo.Text.Equals("") || txtClave.Text.Equals("") ||
-                    txtConfirmacionClave.Text.Equals("") || cmbAdmin.SelectedIndex ==-1)
+                    txtConfirmacionClave.Text.Equals(""))
                 {
                     MessageBox.Show("Ingrese los datos");
                 }
@@ -67,8 +62,12 @@ namespace JPS.Vistas.VistasEdicion
                     string contra = this.verificaClave();
                     if (!contra.Equals(""))
                     {
-                        this.oUsuario.Insert(txtNombre.Text, txtApellido.Text, 
-                            char.Parse(cmbAdmin.SelectedItem.ToString()), txtCorreo.Text, contra);
+                        bool admin = false;
+                        if (ckbAdmin.Checked == true)
+                        {
+                            admin = true;
+                        }
+                        this.oUsuario.Insert(txtNombre.Text, txtApellido.Text, admin, txtCorreo.Text, contra);
                         if (this.oUsuario.isError)
                         {
                             MessageBox.Show(this.oUsuario.errorDescription);
@@ -88,7 +87,7 @@ namespace JPS.Vistas.VistasEdicion
             {
                 if (txtNombre.Text.Equals("") || txtApellido.Text.Equals("") ||
                      txtCorreo.Text.Equals("") || txtClave.Text.Equals("") ||
-                     txtConfirmacionClave.Text.Equals("") || cmbAdmin.SelectedIndex == -1)
+                     txtConfirmacionClave.Text.Equals(""))
                 {
                     MessageBox.Show("Ingrese los datos");
                 }
@@ -98,7 +97,7 @@ namespace JPS.Vistas.VistasEdicion
                     string nombre = txtNombre.Text;
                     string apellido = txtApellido.Text;
                     string correo = txtCorreo.Text;
-                    char admin = char.Parse(cmbAdmin.SelectedItem.ToString());
+                    bool admin = ckbAdmin.Checked;
                     string contra = this.verificaClave();
 
                     if (!contra.Equals(""))

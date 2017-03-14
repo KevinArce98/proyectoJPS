@@ -10,16 +10,21 @@ namespace JPS.Controladores
         {
             this.oConfig = new Modelos.Configuracion();
         }
-        public DataTable Select()
+        public double Select()
         {
+            double monto = -1;
             DataTable result = new DataTable();
             result = this.oConfig.Select();
+            if (result.Rows.Count > 0)
+            {
+                monto = double.Parse(result.Rows[0].ToString());
+            }
             if (this.oConfig.isError)
             {
                 this.isError = true;
                 this.errorDescription = this.oConfig.errorDescription;
             }
-            return result;
+            return monto;
         }
 
 

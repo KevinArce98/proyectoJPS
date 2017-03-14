@@ -13,13 +13,14 @@ namespace JPS.Vistas
         public frmUsuarios()
         {
             InitializeComponent();
+            this.CenterToScreen();
             this.oUsuario = new Usuario();
             this.Refrescar();
         }
         private void Refrescar()
         {
             DataTable result = new DataTable();
-            result = this.oUsuario.Select(txtNombre.Text, txtApellido.Text, txtCorreo.Text);
+            result = this.oUsuario.Select();
             if (this.oUsuario.isError)
             {
                 MessageBox.Show(this.oUsuario.errorDescription);
@@ -34,7 +35,7 @@ namespace JPS.Vistas
             string nombre = this.dtgUsuarios.CurrentRow.Cells[1].Value.ToString();
             string apellido = this.dtgUsuarios.CurrentRow.Cells[2].Value.ToString();
             string correo = this.dtgUsuarios.CurrentRow.Cells[4].Value.ToString();
-            string administrador = this.dtgUsuarios.CurrentRow.Cells[3].Value.ToString();
+            bool administrador = bool.Parse(this.dtgUsuarios.CurrentRow.Cells[3].Value.ToString());
 
             EditaUsuario oEdita = new EditaUsuario(id,nombre,apellido,correo, administrador);
             oEdita.ShowDialog();
@@ -61,21 +62,5 @@ namespace JPS.Vistas
             this.Refrescar();
         }
 
-        private void btnFiltrar_Click(object sender, EventArgs e)
-        {
-            DataTable result = new DataTable();
-            result = this.oUsuario.Select(txtNombre.Text, txtApellido.Text, txtCorreo.Text);
-            if (this.oUsuario.isError)
-            {
-                MessageBox.Show(this.oUsuario.errorDescription);
-                return;
-            }
-            this.dtgUsuarios.DataSource = result;
-        }
-
-        private void dtgUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

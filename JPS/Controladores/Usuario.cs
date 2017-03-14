@@ -10,10 +10,10 @@ namespace JPS.Controladores
         {
             oUsuario = new Modelos.Usuario();
         }
-        public DataTable Select(string pNombre, string pApellido, string pCorreo)
+        public DataTable Select()
         {
             DataTable result = new DataTable();
-            result = this.oUsuario.Select(pNombre, pApellido, pCorreo);
+            result = this.oUsuario.Select();
             if (this.oUsuario.isError)
             {
                 this.isError = true;
@@ -32,7 +32,7 @@ namespace JPS.Controladores
                 this.oUsuario.id = int.Parse(row["id_usuario"].ToString());
                 this.oUsuario.nombre = row["nombre"].ToString();
                 this.oUsuario.apellido = row["apellido"].ToString();
-                this.oUsuario.admin = char.Parse(row["admin"].ToString());
+                this.oUsuario.admin = bool.Parse(row["admin"].ToString());
                 this.oUsuario.correo = row["correo"].ToString();
                 this.oUsuario.clave = row["clave"].ToString();
             }else
@@ -49,7 +49,7 @@ namespace JPS.Controladores
         }
 
 
-        public void Insert(string pNombre, string pApellido, char pAdmin, string pCorreo, string pClave)
+        public void Insert(string pNombre, string pApellido, bool pAdmin, string pCorreo, string pClave)
         {
             this.oUsuario = new Modelos.Usuario(pNombre, pApellido, pAdmin, pCorreo, pClave);
             this.oUsuario.Insert();
@@ -60,7 +60,7 @@ namespace JPS.Controladores
             }
         }
 
-        public void Update(int id, string pNombre, string pApellido, char pAdmin, string pCorreo, string pClave)
+        public void Update(int id, string pNombre, string pApellido, bool pAdmin, string pCorreo, string pClave)
         {
             this.oUsuario = new Modelos.Usuario(pNombre, pApellido, pAdmin, pCorreo, pClave);
             this.oUsuario.Update(id);

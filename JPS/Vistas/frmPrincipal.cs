@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
-
+using JPS.Utils;
 namespace JPS.Vistas
 {
     public partial class frmPrincipal : Form
@@ -16,7 +16,15 @@ namespace JPS.Vistas
         public frmPrincipal()
         {
             InitializeComponent();
-           
+            this.CenterToScreen();
+            this.verificaUsuario();
+        }
+
+        private void verificaUsuario() {
+            if (RuntimeData.oUsuario.admin == false)
+            {
+                adminButton.Enabled = false;
+            }
         }
         private bool HandleForm(Form currentForm)
         {

@@ -34,7 +34,7 @@
             // cmbSorteos
             // 
             this.cmbSorteos.FormattingEnabled = true;
-            this.cmbSorteos.Location = new System.Drawing.Point(46, 75);
+            this.cmbSorteos.Location = new System.Drawing.Point(269, 25);
             this.cmbSorteos.Name = "cmbSorteos";
             this.cmbSorteos.Size = new System.Drawing.Size(121, 21);
             this.cmbSorteos.TabIndex = 0;

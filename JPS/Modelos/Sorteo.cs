@@ -9,10 +9,10 @@ namespace JPS.Modelos
     {
         public int id { get; set; }
         public DateTime fecha_hora { get; set; }
-        public char activo { get; set; }
+        public bool activo { get; set; }
         public string descripcion { get; set; }
 
-        public Sorteo(DateTime pFechaHora, char pActivo, string pDescripcion)
+        public Sorteo(DateTime pFechaHora, bool pActivo, string pDescripcion)
         {
             this.fecha_hora = pFechaHora;
             this.activo = pActivo;
@@ -28,46 +28,10 @@ namespace JPS.Modelos
             return this.descripcion;
         }
 
-        public DataTable Select(DateTime pFechaHora, char pActivo, string pDescripcion)
+        public DataTable Select()
         {
-            Dictionary<string, object> parametros = new Dictionary<string, object>();
-            StringBuilder sql_builder = new StringBuilder();
-
-            if (pFechaHora != null)
-            {
-                sql_builder.Append("fecha_hora == @fecha_hora ");
-                parametros.Add("fecha_hora", pFechaHora);
-            }
-
-            if (pActivo != ' ')
-            {
-                if (parametros.Count > 0)
-                {
-                    sql_builder.Append(" and ");
-                }
-                sql_builder.Append("activo ilike @activo ");
-                parametros.Add("activo", string.Format("%{0}%", pActivo));
-            }
-
-
-            if (!string.IsNullOrEmpty(pDescripcion))
-            {
-                if (parametros.Count > 0)
-                {
-                    sql_builder.Append(" and ");
-                }
-                sql_builder.Append("descripcion ilike @descripcion ");
-                parametros.Add("descripcion", string.Format("%{0}%", pDescripcion));
-            }
-
             string sql = "select * from sorteos ";
-            if (parametros.Count > 0)
-            {
-
-                sql += "where " + sql_builder.ToString();
-            }
-
-            DataTable result = Program.da.SqlQuery(sql, parametros);
+            DataTable result = Program.da.SqlQuery(sql, new Dictionary<string, object>());
             if (Program.da.isError)
             {
                 this.isError = true;
@@ -79,7 +43,7 @@ namespace JPS.Modelos
         public DataTable selectAll()
         {
             Dictionary<string, object> parametros = new Dictionary<string, object>();
-            string sql = "select * from sorteos ";
+            string sql = "select * from sorteos where activo = TRUE";
             DataTable result = Program.da.SqlQuery(sql, parametros);
             if (Program.da.isError)
             {
@@ -139,6 +103,10 @@ namespace JPS.Modelos
                 this.errorDescription = Program.da.errorDescription;
                 return;
             }
+        }
+        public string toString()
+        {
+            return id + " - " + descripcion;
         }
     }
 }

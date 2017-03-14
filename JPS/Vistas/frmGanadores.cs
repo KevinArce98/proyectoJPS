@@ -15,6 +15,7 @@ namespace JPS.Vistas
         public frmGanadores()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
     }
 }

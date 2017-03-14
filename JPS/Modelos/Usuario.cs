@@ -10,11 +10,11 @@ namespace JPS.Modelos
         public int id { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
-        public char admin { get; set; }
+        public bool admin { get; set; }
         public string correo { get; set; }
         public string clave { get; set; }
 
-        public Usuario(string pNombre, string pApellido, char pAdmin, string pCorreo, string pClave)
+        public Usuario(string pNombre, string pApellido, bool pAdmin, string pCorreo, string pClave)
         {
             this.nombre = pNombre;
             this.apellido = pApellido;
@@ -27,46 +27,10 @@ namespace JPS.Modelos
 
         }
 
-        public DataTable Select(string pNombre, string pApellido, string pCorreo)
+        public DataTable Select()
         {
-            Dictionary<string, object> parametros = new Dictionary<string, object>();
-            StringBuilder sql_builder = new StringBuilder();
-            
-            if (!string.IsNullOrEmpty(pNombre))
-            {
-                sql_builder.Append("nombre ilike @nombre ");
-                parametros.Add("nombre", string.Format("%{0}%", pNombre));
-            }
-
-            if (!string.IsNullOrEmpty(pApellido))
-            {
-                if (parametros.Count > 0)
-                {
-                    sql_builder.Append(" and ");
-                }
-                sql_builder.Append("apellido ilike @apellido ");
-                parametros.Add("apellido", string.Format("%{0}%", pApellido));
-            }
-
-
-            if (!string.IsNullOrEmpty(pCorreo))
-            {
-                if (parametros.Count > 0)
-                {
-                    sql_builder.Append(" and ");
-                }
-                sql_builder.Append("correo ilike @correo ");
-                parametros.Add("correo", string.Format("%{0}%", pCorreo));
-            }
-
-            string sql = "select * from usuarios ";
-            if (parametros.Count > 0)
-            {
-
-                sql += "where " + sql_builder.ToString();
-            }
-
-            DataTable result = Program.da.SqlQuery(sql, parametros);
+            string sql = "SELECT id_usuario, nombre, apellido, admin, correo FROM usuarios ";
+            DataTable result = Program.da.SqlQuery(sql, new Dictionary<string, object>());
             if (Program.da.isError)
             {
                 this.isError = true;

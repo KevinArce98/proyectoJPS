@@ -12,6 +12,7 @@ namespace JPS.Vistas
         public frmLogin()
         {
             InitializeComponent();
+            this.CenterToScreen();
             oUsuario = new Usuario();
         }
 
