@@ -8,15 +8,19 @@ namespace JPS.Vistas
 {
     public partial class frmApostar : Form
     {
-            Sorteo oSorteo;
-
+        private Apuesta oApuesta;
         public frmApostar()
         {
             InitializeComponent();
             this.CenterToScreen();
-            this.oSorteo = new Sorteo();
-            
+            this.oApuesta = new Apuesta();
             this.cargarComboSorteo();
+            this.resetFields();
+        }
+        private void resetFields() {
+            txtMonto.Text = string.Empty;
+            txtNumero.Text = string.Empty;
+            cmbSorteos.SelectedIndex = -1;
         }
 
         private void cargarComboSorteo()
@@ -30,6 +34,37 @@ namespace JPS.Vistas
         private void cmbSorteos_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (txtMonto.Text.Equals("") || txtNumero.Text.Equals("") || cmbSorteos.SelectedIndex == -1)
+            {
+                MessageBox.Show("Ingrese los datos");
+            }
+            else
+            {
+                double monto = double.Parse(txtMonto.Text);
+                int num = int.Parse(txtNumero.Text);
+                Modelos.Sorteo oSorteo = (Modelos.Sorteo)cmbSorteos.SelectedItem;
+
+                Modelos.Apuesta oApuestaM = oApuesta.Select(RuntimeData.oUsuario.id, oSorteo.id, num);
+
+                if (oApuestaM.id == -1)
+                {
+                    oApuesta.Insert(RuntimeData.oUsuario, oSorteo, num, monto);
+                    this.resetFields();
+                    MessageBox.Show("Apuesta Agregada");
+                }
+                else
+                {
+                    monto = monto + oApuestaM.monto;
+                    oApuesta.Update(oApuestaM.id,RuntimeData.oUsuario, oSorteo, num, monto);
+                    this.resetFields();
+                    MessageBox.Show("Apuesta Modificada");
+                }
+                
+            }
         }
     }
 }
