@@ -28,11 +28,6 @@ namespace JPS.Vistas
             }
             this.dtgApuestas.DataSource = result;
         }
-        private void btnGuardarFavo_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             this.Refrescar();

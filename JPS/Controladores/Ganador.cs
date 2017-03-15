@@ -35,7 +35,6 @@ namespace JPS.Controladores
             return oGanador;
         }
 
-
         public void Insert(int pPrimero, int pSegundo, int pTercero, Modelos.Sorteo pSorteo)
         {
             this.oGanador = new Modelos.Ganador(pPrimero, pSegundo, pTercero, pSorteo);

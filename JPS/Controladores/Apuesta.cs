@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections;
+using System.Data;
 
 namespace JPS.Controladores
 {
@@ -44,6 +45,38 @@ namespace JPS.Controladores
                 this.errorDescription = this.oApuesta.errorDescription;
             }
             return result;
+        }
+        public ArrayList SelectPrediccion(int idUsuario)
+        {
+            ArrayList oList = new ArrayList();
+            DataTable result = new DataTable();
+            result = this.oApuesta.SelectPredciccion(idUsuario);
+
+            if (result.Rows.Count > 0)
+            {
+                for (int i = 0; i < result.Rows.Count; i++)
+                {
+                    oApuesta = new Modelos.Apuesta();
+                    DataRow row = result.Rows[i];
+                    this.oApuesta.id = int.Parse(row["id_apuesta"].ToString());
+                    this.oApuesta.oUsuario.id = int.Parse(row["id_usuario"].ToString());
+                    this.oApuesta.oSorteo.id = int.Parse(row["id_sorteo"].ToString());
+                    this.oApuesta.numero = int.Parse(row["numero"].ToString());
+                    this.oApuesta.monto = double.Parse(row["monto"].ToString());
+                    oList.Add(oApuesta);
+                }
+            }
+            else
+            {
+                oList = null;
+            }
+
+            if (this.oApuesta.isError)
+            {
+                this.isError = true;
+                this.errorDescription = this.oApuesta.errorDescription;
+            }
+            return oList;
         }
 
 
