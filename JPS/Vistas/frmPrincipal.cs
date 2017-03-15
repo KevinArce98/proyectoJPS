@@ -8,7 +8,7 @@ namespace JPS.Vistas
     {
         private frmConfiguracion oConfig;
         private frmSorteo oSorteo;
-        private frmGanadores oGanadores;
+        private frmApuestas oGanadores;
         private frmUsuarios oUsuarios;
         private frmApostar oApostar;
         private frmResultados oResultado;
@@ -61,7 +61,7 @@ namespace JPS.Vistas
         {
             if (this.HandleForm(this.oGanadores))
             {
-                oGanadores = new frmGanadores();
+                oGanadores = new frmApuestas();
                 oGanadores.MdiParent = this;
                 oGanadores.Show();
             }

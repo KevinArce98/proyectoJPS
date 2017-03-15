@@ -10,7 +10,6 @@ C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.csproj.GenerateResource.Cache
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.exe
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.pdb
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmGanadores.resources
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmResultados.resources
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmUsuarios.resources
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\DBAccess.dll
@@ -46,3 +45,4 @@ E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.VistasEdicion.EditaSorteo
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.VistasEdicion.EditaSorteo.resources
 E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.frmApostar.resources
 C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmApostar.resources
+C:\Users\Kevin Arias\Documents\Visual Studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmApuestas.resources

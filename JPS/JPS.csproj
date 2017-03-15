@@ -77,11 +77,11 @@
     <Compile Include="Vistas\frmConfiguracion.Designer.cs">
       <DependentUpon>frmConfiguracion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmGanadores.cs">
+    <Compile Include="Vistas\frmApuestas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmGanadores.Designer.cs">
-      <DependentUpon>frmGanadores.cs</DependentUpon>
+    <Compile Include="Vistas\frmApuestas.Designer.cs">
+      <DependentUpon>frmApuestas.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\frmLogin.cs">
       <SubType>Form</SubType>
@@ -142,8 +142,8 @@
     <EmbeddedResource Include="Vistas\frmConfiguracion.resx">
       <DependentUpon>frmConfiguracion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmGanadores.resx">
-      <DependentUpon>frmGanadores.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\frmApuestas.resx">
+      <DependentUpon>frmApuestas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

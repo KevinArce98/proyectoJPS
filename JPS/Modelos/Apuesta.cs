@@ -22,36 +22,16 @@ namespace JPS.Modelos
         }
         public Apuesta()
         {
-
+            oUsuario = new Usuario();
+            oSorteo = new Sorteo();
         }
-        public DataTable Select(string pNombre, string pApellido)
+        public DataTable Select(int idUsuario, int idSorteo, int numero)
         {
             Dictionary<string, object> parametros = new Dictionary<string, object>();
-            StringBuilder sql_builder = new StringBuilder();
-
-            //if (!string.IsNullOrEmpty(pNombre))
-            //{
-            //    sql_builder.Append("nombre ilike @nombre ");
-            //    parametros.Add("nombre", string.Format("%{0}%", pNombre));
-            //}
-
-            //if (!string.IsNullOrEmpty(pApellido))
-            //{
-            //    if (parametros.Count > 0)
-            //    {
-            //        sql_builder.Append(" and ");
-            //    }
-            //    sql_builder.Append("apellido ilike @apellido ");
-            //    parametros.Add("apellido", string.Format("%{0}%", pApellido));
-            //}
-
-            string sql = "select * from apuestas ";
-            if (parametros.Count > 0)
-            {
-
-                sql += "where " + sql_builder.ToString();
-            }
-
+            parametros.Add("id_usuario", idUsuario);
+            parametros.Add("id_sorteo", idSorteo);
+            parametros.Add("numero", numero);
+            string sql = "select * from apuestas where id_usuario = @id_usuario AND id_sorteo = @id_sorteo AND numero = @numero";
             DataTable result = Program.da.SqlQuery(sql, parametros);
             if (Program.da.isError)
             {
@@ -62,9 +42,9 @@ namespace JPS.Modelos
         }
         public DataTable SelectTable()
         {
-            string sql = "select ap.id_apuesta, ap.numero, ap.monto, so.descripcion AS sorteo, us.nombre, us.apellido" 
+            string sql = "select ap.id_apuesta, ap.numero, ap.monto, so.descripcion AS sorteo, us.nombre, us.apellido " 
                 +"from apuestas ap, sorteos so, usuarios us"
-                +" where ap.id_usuario = us.id_usuario AND ap.id_sorteo = so.id_sorteo;";
+                +" where ap.id_usuario = us.id_usuario AND ap.id_sorteo = so.id_sorteo ORDER BY ap.id_apuesta ASC;";
 
             DataTable result = Program.da.SqlQuery(sql, new Dictionary<string, object>());
             if (Program.da.isError)

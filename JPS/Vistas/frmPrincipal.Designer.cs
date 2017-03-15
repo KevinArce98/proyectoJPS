@@ -67,7 +67,7 @@
             // sorteosToolStripMenuItem
             // 
             this.sorteosToolStripMenuItem.Name = "sorteosToolStripMenuItem";
-            this.sorteosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sorteosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.sorteosToolStripMenuItem.Text = "Sorteos";
             this.sorteosToolStripMenuItem.Click += new System.EventHandler(this.sorteosToolStripMenuItem_Click);
             // 
@@ -75,20 +75,20 @@
             // 
             this.ganadoresToolStripMenuItem.Name = "ganadoresToolStripMenuItem";
             this.ganadoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.ganadoresToolStripMenuItem.Text = "Ganadores";
+            this.ganadoresToolStripMenuItem.Text = "Apuestas";
             this.ganadoresToolStripMenuItem.Click += new System.EventHandler(this.ganadoresToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // configuracionToolStripMenuItem
             // 
             this.configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
-            this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.configuracionToolStripMenuItem.Text = "Configuracion";
             this.configuracionToolStripMenuItem.Click += new System.EventHandler(this.configuracionToolStripMenuItem_Click);
             // 
