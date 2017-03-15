@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using JPS.Controladores;
+using JPS.Utils;
 
 namespace JPS.Vistas
 {
@@ -31,6 +32,12 @@ namespace JPS.Vistas
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             this.Refrescar();
+        }
+
+        private void btnCorreo_Click(object sender, EventArgs e)
+        {
+            MailHandler oMail = new MailHandler();
+            oMail.sendEmail();
         }
     }
 }
