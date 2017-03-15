@@ -43,7 +43,7 @@ namespace JPS.Modelos
         public DataTable selectAll()
         {
             Dictionary<string, object> parametros = new Dictionary<string, object>();
-            string sql = "select * from sorteos where activo = TRUE";
+            string sql = "select * from sorteos where activo = TRUE AND fecha_hora >= now();";
             DataTable result = Program.da.SqlQuery(sql, parametros);
             if (Program.da.isError)
             {

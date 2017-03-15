@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dtgApuestas = new System.Windows.Forms.DataGridView();
-            this.btnPrediccion = new System.Windows.Forms.Button();
             this.btnRefrescar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgApuestas)).BeginInit();
             this.SuspendLayout();
@@ -42,18 +41,9 @@
             this.dtgApuestas.Size = new System.Drawing.Size(724, 322);
             this.dtgApuestas.TabIndex = 0;
             // 
-            // btnPrediccion
-            // 
-            this.btnPrediccion.Location = new System.Drawing.Point(21, 23);
-            this.btnPrediccion.Name = "btnPrediccion";
-            this.btnPrediccion.Size = new System.Drawing.Size(75, 23);
-            this.btnPrediccion.TabIndex = 1;
-            this.btnPrediccion.Text = "Predicción";
-            this.btnPrediccion.UseVisualStyleBackColor = true;
-            // 
             // btnRefrescar
             // 
-            this.btnRefrescar.Location = new System.Drawing.Point(626, 23);
+            this.btnRefrescar.Location = new System.Drawing.Point(12, 21);
             this.btnRefrescar.Name = "btnRefrescar";
             this.btnRefrescar.Size = new System.Drawing.Size(75, 23);
             this.btnRefrescar.TabIndex = 2;
@@ -67,7 +57,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 401);
             this.Controls.Add(this.btnRefrescar);
-            this.Controls.Add(this.btnPrediccion);
             this.Controls.Add(this.dtgApuestas);
             this.Name = "frmApuestas";
             this.Text = "Apuestas";
@@ -79,7 +68,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dtgApuestas;
-        private System.Windows.Forms.Button btnPrediccion;
         private System.Windows.Forms.Button btnRefrescar;
     }
 }

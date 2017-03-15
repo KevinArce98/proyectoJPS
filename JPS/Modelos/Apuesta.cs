@@ -55,6 +55,21 @@ namespace JPS.Modelos
             return result;
         }
 
+        public DataTable SelectPredciccion(int idUsuario)
+        {
+            Dictionary<string, object> parametros = new Dictionary<string, object>();
+            parametros.Add("id_usuario", idUsuario);
+            string sql = "select * from apuestas WHERE id_usuario = @id_usuario";
+
+            DataTable result = Program.da.SqlQuery(sql, parametros);
+            if (Program.da.isError)
+            {
+                this.isError = true;
+                this.errorDescription = Program.da.errorDescription;
+            }
+            return result;
+        }
+
         public void Insert()
         {
             Dictionary<string, object> parametros = new Dictionary<string, object>();
