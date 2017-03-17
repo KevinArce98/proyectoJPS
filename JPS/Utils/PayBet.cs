@@ -10,21 +10,21 @@ namespace JPS.Utils
 {
     class PayBet
     {
-        public static void pagar(int idSorteo)
+        public static void pagar()
         {
-            Ganador oGanador = new Ganador();
+
+        }
+        public static void enviarCorreo(int num1, int num2, int num3, int idSorteo)
+        {
+            MailHandler oEmail = new MailHandler();
             Apuesta oApuesta = new Apuesta();
-           
-            ArrayList oList = oApuesta.SelectPrediccion(idSorteo);
-            for (int i = 0; i < oList.Count; i++)
+            Usuario oUsuario = new Usuario();
+            ArrayList olist = oApuesta.SelectPay(num1, num2, num3, idSorteo);
+            for (int i = 0; i < olist.Count; i++)
             {
-                if (true)
-                {
-
-                }
+                Modelos.Apuesta oApuestaM = (Modelos.Apuesta)olist[i];
+                oEmail.sendEmail(oApuestaM.numero, oUsuario.SelectCorreo(oApuestaM.oUsuario.id).correo);
             }
-            Modelos.Ganador oGanadorM = oGanador.Select(idSorteo);
-
         }
 
     }

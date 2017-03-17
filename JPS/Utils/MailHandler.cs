@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Mail;
+using System.Net;
+
 
 
 namespace JPS.Utils
@@ -12,9 +14,9 @@ namespace JPS.Utils
     {
 
         MailMessage mmsg;
-        string emailTo;
+        //string emailTo;
         string subject;
-        string body;
+        //string body;
         MailAddress mailFrom;
         SmtpClient cliente;
 
@@ -22,29 +24,29 @@ namespace JPS.Utils
         {
             this.mmsg = new MailMessage();
             //EMAILTO PONE AL QUE LO VA A MANDAR
-            this.emailTo = "aa-kevin@hotmail.com";
+            //this.emailTo = "aa-kevin@hotmail.com";
             this.subject = "Notificación JPS";
-            this.body = "Usted ha salido favorecido para el número X";
+            //this.body = "Usted ha salido favorecido para el número X";
             //MAILFROM DESDE QUE CORREO LO VA A MANDAR
-            this.mailFrom = new MailAddress("wcarvajal17@gmail.com");
+            this.mailFrom = new MailAddress("wcarvajal17@gmail.com", "Warren Carvajal", Encoding.UTF8);
             this.cliente = new SmtpClient();
         }
 
-        public void sendEmail()
+        public void sendEmail(int numero, string correo)
         {
 
-            this.mmsg.To.Add(this.emailTo);
+            this.mmsg.To.Add(correo);
             this.mmsg.Subject = this.subject;
             this.mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
             //EL BCC ES COMO UNA COPIA ADJUNTA DEL CORREO.. ES ALGO DE LOS CORREOS EN SI
             this.mmsg.Bcc.Add("wcarvajal17@gmail.com");
-            this.mmsg.Body = this.body;
+            this.mmsg.Body = "Usted salió favorecido con el numero " + numero;
             this.mmsg.BodyEncoding = System.Text.Encoding.UTF8;
             this.mmsg.IsBodyHtml = true;
             this.mmsg.From = this.mailFrom;
             //AQUI EN CREDENTIALS PONE SUS CREDENCIALES DE SU CORREO POR SI QUIERE PROBARLO
             this.cliente.Credentials = new System.Net.NetworkCredential("wcarvajal17@gmail.com",
-                                                                        "");
+                                                                        "Narutolol2747715");
             //PUERTO DE GMAIL POR SI QUIERE PROBAR CON OTRO LO CAMBIA
             this.cliente.Port = 587;
             this.cliente.EnableSsl = true;

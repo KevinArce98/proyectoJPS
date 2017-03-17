@@ -46,30 +46,10 @@ namespace JPS.Controladores
             }
             return result;
         }
-        public ArrayList SelectPrediccion(int idUsuario)
+        public ArrayList SelectPay(int num1, int num2, int num3, int idSorteo)
         {
             ArrayList oList = new ArrayList();
-            DataTable result = new DataTable();
-            result = this.oApuesta.SelectPredciccion(idUsuario);
-
-            if (result.Rows.Count > 0)
-            {
-                for (int i = 0; i < result.Rows.Count; i++)
-                {
-                    oApuesta = new Modelos.Apuesta();
-                    DataRow row = result.Rows[i];
-                    this.oApuesta.id = int.Parse(row["id_apuesta"].ToString());
-                    this.oApuesta.oUsuario.id = int.Parse(row["id_usuario"].ToString());
-                    this.oApuesta.oSorteo.id = int.Parse(row["id_sorteo"].ToString());
-                    this.oApuesta.numero = int.Parse(row["numero"].ToString());
-                    this.oApuesta.monto = double.Parse(row["monto"].ToString());
-                    oList.Add(oApuesta);
-                }
-            }
-            else
-            {
-                oList = null;
-            }
+            oList = this.oApuesta.SelectPay(num1, num2, num3, idSorteo);
 
             if (this.oApuesta.isError)
             {

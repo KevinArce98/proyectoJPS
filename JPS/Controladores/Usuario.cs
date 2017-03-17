@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections;
+using System.Data;
 
 namespace JPS.Controladores
 {
@@ -38,6 +39,25 @@ namespace JPS.Controladores
             }else
             {
                 this.oUsuario.id = -1;
+            }
+
+            if (this.oUsuario.isError)
+            {
+                this.isError = true;
+                this.errorDescription = this.oUsuario.errorDescription;
+            }
+            return oUsuario;
+        }
+
+        public Modelos.Usuario SelectCorreo(int id)
+        {
+            ArrayList oListCorreos = new ArrayList();
+            DataTable result = new DataTable();
+            result = this.oUsuario.SelectCorreo(id);
+            if (result.Rows.Count > 0)
+            {
+                DataRow row = result.Rows[0];
+                this.oUsuario.correo = row["correo"].ToString();
             }
 
             if (this.oUsuario.isError)

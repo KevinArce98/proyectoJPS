@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
@@ -55,19 +56,55 @@ namespace JPS.Modelos
             return result;
         }
 
-        public DataTable SelectPredciccion(int idUsuario)
+        public ArrayList SelectPay(int numero1, int numero2, int numero3, int idSorteo)
         {
-            Dictionary<string, object> parametros = new Dictionary<string, object>();
-            parametros.Add("id_usuario", idUsuario);
-            string sql = "select * from apuestas WHERE id_usuario = @id_usuario";
-
-            DataTable result = Program.da.SqlQuery(sql, parametros);
-            if (Program.da.isError)
+            DataTable result = null;
+            ArrayList oList = new ArrayList();
+            Dictionary<string, object> parametros;
+            
+            for (int i = 0; i <= 2; i++)
             {
-                this.isError = true;
-                this.errorDescription = Program.da.errorDescription;
+                parametros = new Dictionary<string, object>();
+                parametros.Add("id_sorteo", idSorteo);
+
+                if (i==0)
+                {
+                    parametros.Add("numero", numero1);
+                }
+                else if(i==1)
+                {
+                    parametros.Add("numero", numero2);
+                }
+                else if(i ==2)
+                {
+                    parametros.Add("numero", numero3);
+                }
+                string sql = "Select * from apuestas where numero = @numero AND id_sorteo = @id_sorteo";
+
+                result = Program.da.SqlQuery(sql, parametros);
+                if (Program.da.isError)
+                {
+                    this.isError = true;
+                    this.errorDescription = Program.da.errorDescription;
+                }
+
+                if (result.Rows.Count > 0)
+                {
+                    for (int j = 0; j < result.Rows.Count; j++)
+                    {
+                        DataRow row = result.Rows[j];
+                        Apuesta oApuesta = new Apuesta();
+                        oApuesta.id = int.Parse(row["id_apuesta"].ToString());
+                        oApuesta.oUsuario.id = int.Parse(row["id_usuario"].ToString());
+                        oApuesta.oSorteo.id = int.Parse(row["id_sorteo"].ToString());
+                        oApuesta.numero = int.Parse(row["numero"].ToString());
+                        oApuesta.monto = double.Parse(row["monto"].ToString());
+                        oList.Add(oApuesta);
+                    }  
+                }
+
             }
-            return result;
+            return oList;
         }
 
         public void Insert()

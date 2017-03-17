@@ -37,7 +37,7 @@ namespace JPS.Vistas
         private void btnCorreo_Click(object sender, EventArgs e)
         {
             MailHandler oMail = new MailHandler();
-            oMail.sendEmail();
+            //oMail.sendEmail();
         }
     }
 }

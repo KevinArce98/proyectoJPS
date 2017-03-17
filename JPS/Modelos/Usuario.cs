@@ -53,6 +53,19 @@ namespace JPS.Modelos
             }
             return result;
         }
+        public DataTable SelectCorreo(int id)
+        {
+            Dictionary<string, object> parametros = new Dictionary<string, object>();
+            parametros.Add("id_usuario", id);
+            string sql = "SELECT correo FROM usuarios WHERE id_usuario = @id_usuario;";
+            DataTable result = Program.da.SqlQuery(sql, parametros);
+            if (Program.da.isError)
+            {
+                this.isError = true;
+                this.errorDescription = Program.da.errorDescription;
+            }
+            return result;
+        }
 
 
         public void Insert()
