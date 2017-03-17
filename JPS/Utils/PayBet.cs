@@ -8,7 +8,7 @@ using System.Collections;
 
 namespace JPS.Utils
 {
-    class PayBet
+    public class PayBet
     {
         public static void pagar()
         {
@@ -23,8 +23,28 @@ namespace JPS.Utils
             for (int i = 0; i < olist.Count; i++)
             {
                 Modelos.Apuesta oApuestaM = (Modelos.Apuesta)olist[i];
-                oEmail.sendEmail(oApuestaM.numero, oUsuario.SelectCorreo(oApuestaM.oUsuario.id).correo);
+                double monto = montoTotal(oApuestaM.numero, oApuestaM.monto, oApuestaM.oSorteo.id);
+                oEmail.sendEmail(oApuestaM.numero, monto,oUsuario.SelectCorreo(oApuestaM.oUsuario.id).correo);
             }
+        }
+        private static double montoTotal(int num, double monto, int sorteo)
+        {
+            double total = 0;
+            Ganador oGanador = new Ganador();
+            Modelos.Ganador oGanadorM = oGanador.Select(sorteo);
+            if (num == oGanadorM.primerNumero)
+            {
+                total = monto * 60;
+            }
+            else if(num == oGanadorM.segundoNumero)
+            {
+                total = monto * 10;
+            }
+            else if (num == oGanadorM.tercerNumero)
+            {
+                total = monto * 5;
+            }
+            return total;
         }
 
     }

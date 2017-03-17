@@ -32,7 +32,7 @@ namespace JPS.Utils
             this.cliente = new SmtpClient();
         }
 
-        public void sendEmail(int numero, string correo)
+        public void sendEmail(int numero, double monto, string correo)
         {
 
             this.mmsg.To.Add(correo);
@@ -40,7 +40,8 @@ namespace JPS.Utils
             this.mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
             //EL BCC ES COMO UNA COPIA ADJUNTA DEL CORREO.. ES ALGO DE LOS CORREOS EN SI
             this.mmsg.Bcc.Add("wcarvajal17@gmail.com");
-            this.mmsg.Body = "Usted salió favorecido con el numero " + numero;
+            string mensaje = "Usted salió favorecido con el numero " + numero +" y ha ganado " + monto;
+            this.mmsg.Body = mensaje;
             this.mmsg.BodyEncoding = System.Text.Encoding.UTF8;
             this.mmsg.IsBodyHtml = true;
             this.mmsg.From = this.mailFrom;
