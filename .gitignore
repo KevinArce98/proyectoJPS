@@ -19,6 +19,8 @@
 [Xx]86/
 [Bb]uild/
 bld/
+obj/
+.vs/
 [Bb]in/
 [Oo]bj/
 
