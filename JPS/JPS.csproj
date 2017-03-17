@@ -65,7 +65,7 @@
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Utils\Encriptacion.cs" />
     <Compile Include="Utils\MailHandler.cs" />
-    <Compile Include="Utils\PayBet.cs" />
+    <Compile Include="Utils\Bets.cs" />
     <Compile Include="Utils\RuntimeData.cs" />
     <Compile Include="Vistas\frmApostar.cs">
       <SubType>Form</SubType>

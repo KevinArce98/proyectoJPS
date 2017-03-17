@@ -8,11 +8,36 @@ using System.Collections;
 
 namespace JPS.Utils
 {
-    public class PayBet
+    public class Bets
     {
-        public static void pagar()
+
+        public static void payBet()
         {
 
+        }
+        public static double calcularApuesta(int num, double monto, int sorteo)
+        {
+            Apuesta oApuesta = new Apuesta();
+            double total = 0;
+            Configuracion oConfig = new Configuracion();
+            double casa = oConfig.Select();
+            ArrayList olist = oApuesta.SelectCalcula(num, sorteo);
+
+            for (int i = 0; i < olist.Count; i++)
+            {
+                Modelos.Apuesta oApuestaM = (Modelos.Apuesta)olist[i];
+                total += oApuestaM.monto * 60;
+            }
+            total += monto * 60;
+            casa = casa - total;
+            if (casa < 0)
+            {
+                monto = -1;
+            }
+            else {
+                monto = 0;
+            }
+            return monto;
         }
         public static void enviarCorreo(int num1, int num2, int num3, int idSorteo)
         {
