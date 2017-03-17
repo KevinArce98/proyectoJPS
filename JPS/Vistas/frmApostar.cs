@@ -47,23 +47,29 @@ namespace JPS.Vistas
                 double monto = double.Parse(txtMonto.Text);
                 int num = int.Parse(txtNumero.Text);
                 Modelos.Sorteo oSorteo = (Modelos.Sorteo)cmbSorteos.SelectedItem;
-
-                Modelos.Apuesta oApuestaM = oApuesta.Select(RuntimeData.oUsuario.id, oSorteo.id, num);
-
-                if (oApuestaM.id == -1)
+                double verifica = Bets.calcularApuesta(num,monto, oSorteo.id);
+                if (verifica == 0)
                 {
-                    oApuesta.Insert(RuntimeData.oUsuario, oSorteo, num, monto);
-                    this.resetFields();
-                    MessageBox.Show("Apuesta Agregada");
+                    Modelos.Apuesta oApuestaM = oApuesta.Select(RuntimeData.oUsuario.id, oSorteo.id, num);
+
+                    if (oApuestaM.id == -1)
+                    {
+                        oApuesta.Insert(RuntimeData.oUsuario, oSorteo, num, monto);
+                        this.resetFields();
+                        MessageBox.Show("Apuesta Agregada");
+                    }
+                    else
+                    {
+                        monto = monto + oApuestaM.monto;
+                        oApuesta.Update(oApuestaM.id, RuntimeData.oUsuario, oSorteo, num, monto);
+                        this.resetFields();
+                        MessageBox.Show("Apuesta Modificada");
+                    }
                 }
-                else
+                else if (verifica == -1)
                 {
-                    monto = monto + oApuestaM.monto;
-                    oApuesta.Update(oApuestaM.id,RuntimeData.oUsuario, oSorteo, num, monto);
-                    this.resetFields();
-                    MessageBox.Show("Apuesta Modificada");
+                    MessageBox.Show("Apuesta Denegada (La casa nunca pierde)");
                 }
-                
             }
         }
     }

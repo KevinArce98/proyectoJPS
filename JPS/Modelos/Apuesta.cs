@@ -106,6 +106,22 @@ namespace JPS.Modelos
             }
             return oList;
         }
+        public DataTable SelectCalcula(int numero, int idSorteo)
+        {
+            DataTable result = null;
+            Dictionary<string, object> parametros = new Dictionary<string, object>();
+            parametros.Add("id_sorteo", idSorteo);
+            parametros.Add("numero", numero);
+            string sql = "Select * from apuestas where numero = @numero AND id_sorteo = @id_sorteo";
+
+                result = Program.da.SqlQuery(sql, parametros);
+                if (Program.da.isError)
+                {
+                    this.isError = true;
+                    this.errorDescription = Program.da.errorDescription;
+                }
+            return result;
+        }
 
         public void Insert()
         {

@@ -84,7 +84,7 @@ namespace JPS.Vistas
                     oGanador.Insert(num1, num2, num3, oSorteo);
                     this.resetFields();
                     MessageBox.Show("Numeros Agregados para " + oSorteo.descripcion );
-                    PayBet.enviarCorreo(num1,num2, num3, idSorteo);
+                    Bets.enviarCorreo(num1,num2, num3, idSorteo);
                 }
                 else
                 {
