@@ -11,8 +11,22 @@ namespace JPS.Utils
     public class Bets
     {
 
-        public static void payBet()
+        public static ArrayList mostrarGanadas(int idUsuario)
         {
+            Apuesta oApuesta = new Apuesta();
+            ArrayList oListGanada = new ArrayList();
+            ArrayList olist = oApuesta.SelectCalcula(-1, idUsuario, -1);
+            for (int i = 0; i < olist.Count; i++)
+            {
+                Modelos.Apuesta oApuestaM = (Modelos.Apuesta)olist[i];
+                double monto = montoTotal(oApuestaM.numero, oApuestaM.monto, oApuestaM.oSorteo.id);
+                if (monto != -1)
+                {
+                    oApuestaM.monto = monto;
+                    oListGanada.Add(oApuestaM);
+                }
+            }
+            return oListGanada;
 
         }
         public static double calcularApuesta(int num, double monto, int sorteo)
@@ -21,7 +35,7 @@ namespace JPS.Utils
             double total = 0;
             Configuracion oConfig = new Configuracion();
             double casa = oConfig.Select();
-            ArrayList olist = oApuesta.SelectCalcula(num, sorteo);
+            ArrayList olist = oApuesta.SelectCalcula(sorteo, -1, num);
 
             for (int i = 0; i < olist.Count; i++)
             {
@@ -54,7 +68,7 @@ namespace JPS.Utils
         }
         private static double montoTotal(int num, double monto, int sorteo)
         {
-            double total = 0;
+            double total = -1;
             Ganador oGanador = new Ganador();
             Modelos.Ganador oGanadorM = oGanador.Select(sorteo);
             if (num == oGanadorM.primerNumero)

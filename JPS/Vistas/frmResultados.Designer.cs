@@ -28,19 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dtgResultados = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgResultados)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dtgResultados
+            // 
+            this.dtgResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgResultados.Location = new System.Drawing.Point(12, 12);
+            this.dtgResultados.Name = "dtgResultados";
+            this.dtgResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgResultados.Size = new System.Drawing.Size(603, 405);
+            this.dtgResultados.TabIndex = 0;
             // 
             // frmResultados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 300);
+            this.ClientSize = new System.Drawing.Size(627, 429);
+            this.Controls.Add(this.dtgResultados);
             this.Name = "frmResultados";
             this.Text = "Resultados";
+            ((System.ComponentModel.ISupportInitialize)(this.dtgResultados)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dtgResultados;
     }
 }

@@ -41,6 +41,22 @@ namespace JPS.Modelos
             }
             return result;
         }
+
+        public DataTable SelectGanadas(int idUsuario)
+        {
+            Dictionary<string, object> parametros = new Dictionary<string, object>();
+            parametros.Add("id_usuario", idUsuario);
+            string sql = "select ap.id_apuesta, ap.id_usuario, ap.id_sorteo, ap.numero, ap.monto "+
+                         "from apuestas ap, sorteos so "+
+                         "where ap.id_usuario = @id_usuario AND ap.id_sorteo = so.id_sorteo AND so.fecha_hora < NOW(); ";
+            DataTable result = Program.da.SqlQuery(sql, parametros);
+            if (Program.da.isError)
+            {
+                this.isError = true;
+                this.errorDescription = Program.da.errorDescription;
+            }
+            return result;
+        }
         public DataTable SelectTable()
         {
             string sql = "select ap.id_apuesta, ap.numero, ap.monto, so.descripcion AS sorteo, us.nombre, us.apellido " 
