@@ -77,7 +77,7 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
             this.Name = "frmSorteo";
-            this.Text = "frmSorteo";
+            this.Text = "Sorteo";
             ((System.ComponentModel.ISupportInitialize)(this.dtgSorteos)).EndInit();
             this.ResumeLayout(false);
 

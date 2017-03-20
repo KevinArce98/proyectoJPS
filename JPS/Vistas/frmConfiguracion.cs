@@ -81,10 +81,18 @@ namespace JPS.Vistas
                     int num1 = int.Parse(txtNumero1.Text);
                     int num2 = int.Parse(txtNumero2.Text);
                     int num3 = int.Parse(txtNumero3.Text);
-                    oGanador.Insert(num1, num2, num3, oSorteo);
-                    this.resetFields();
-                    MessageBox.Show("Numeros Agregados para " + oSorteo.descripcion );
-                    Bets.enviarCorreo(num1,num2, num3, idSorteo);
+                    if ((num1 != num2) && (num2 != num3) && (num3 != num1))
+                    {
+                        oGanador.Insert(num1, num2, num3, oSorteo);
+                        this.resetFields();
+                        MessageBox.Show("Numeros Agregados para " + oSorteo.descripcion);
+                        Bets.enviarCorreo(num1, num2, num3, idSorteo);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Los numero no pueden ser iguales");
+                    }
+                   
                 }
                 else
                 {

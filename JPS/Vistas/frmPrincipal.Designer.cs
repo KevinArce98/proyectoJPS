@@ -74,7 +74,7 @@
             // ganadoresToolStripMenuItem
             // 
             this.ganadoresToolStripMenuItem.Name = "ganadoresToolStripMenuItem";
-            this.ganadoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ganadoresToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.ganadoresToolStripMenuItem.Text = "Apuestas";
             this.ganadoresToolStripMenuItem.Click += new System.EventHandler(this.ganadoresToolStripMenuItem_Click);
             // 
@@ -123,7 +123,7 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.Name = "frmPrincipal";
-            this.Text = "frmPrincipal";
+            this.Text = "Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPrincipal_FormClosed);
             this.menuStrip1.ResumeLayout(false);

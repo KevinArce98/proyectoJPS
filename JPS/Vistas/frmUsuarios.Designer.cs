@@ -123,7 +123,7 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
             this.Name = "frmUsuarios";
-            this.Text = "frmUsuarios";
+            this.Text = "Usuarios";
             ((System.ComponentModel.ISupportInitialize)(this.dtgUsuarios)).EndInit();
             this.ResumeLayout(false);
 

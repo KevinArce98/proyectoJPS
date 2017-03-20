@@ -135,7 +135,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "EditaSorteo";
-            this.Text = "EditaSorteo";
+            this.Text = "Editar Sorteo";
             this.ResumeLayout(false);
             this.PerformLayout();
 
