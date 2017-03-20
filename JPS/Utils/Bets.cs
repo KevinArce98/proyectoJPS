@@ -22,7 +22,7 @@ namespace JPS.Utils
                 double monto = montoTotal(oApuestaM.numero, oApuestaM.monto, oApuestaM.oSorteo.id);
                 if (monto != -1)
                 {
-                    oApuestaM.monto = monto;
+                    oApuestaM.montoGanado = monto;
                     oListGanada.Add(oApuestaM);
                 }
             }

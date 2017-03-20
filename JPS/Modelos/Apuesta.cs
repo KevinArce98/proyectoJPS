@@ -13,6 +13,7 @@ namespace JPS.Modelos
         public Sorteo oSorteo { get; set; }
         public int numero { get; set; }
         public double monto { get; set; }
+        public double montoGanado { get; set; }
 
         public Apuesta(Usuario pUsuario, Sorteo pSorteo, int pNumero, double pMonto)
         {

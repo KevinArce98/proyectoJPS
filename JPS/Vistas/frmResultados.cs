@@ -32,11 +32,17 @@ namespace JPS.Vistas
             DataTable dt = new DataTable();
             dt.Columns.Add(new DataColumn("Id Apuesta"));
             dt.Columns.Add(new DataColumn("Id Sorteo"));
-            dt.Columns.Add(new DataColumn("Numero"));
-            dt.Columns.Add(new DataColumn("Monto"));
+            dt.Columns.Add(new DataColumn("Numero Favorecido"));
+            dt.Columns.Add(new DataColumn("Monto Apostado"));
+            dt.Columns.Add(new DataColumn("Monto Ganado"));
+
             Modelos.Sorteo oSorteo = (Modelos.Sorteo)cmbSorteos.SelectedItem;
 
             ArrayList oList = Bets.mostrarGanadas(oSorteo.id, RuntimeData.oUsuario.id);
+            if (oList.Count == 0)
+            {
+                MessageBox.Show("Gracias por participar");
+            }
             for (int i = 0; i < oList.Count; i++)
             {
                 Modelos.Apuesta oApuesta= (Modelos.Apuesta)oList[i];
@@ -45,6 +51,7 @@ namespace JPS.Vistas
                 dr[1] = oApuesta.oSorteo.id.ToString();
                 dr[2] = oApuesta.numero.ToString();
                 dr[3] = oApuesta.monto.ToString();
+                dr[4] = oApuesta.montoGanado.ToString();
                 dt.Rows.Add(dr);
             }
             this.dtgResultados.DataSource = dt;
