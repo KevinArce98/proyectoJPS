@@ -94,6 +94,34 @@ namespace JPS.Controladores
             return oList;
         }
 
+        public ArrayList SelectTotal()
+        {
+            DataTable result = new DataTable();
+            ArrayList oList = new ArrayList();
+            result = this.oApuesta.SelectTotal();
+            if (result.Rows.Count > 0)
+            {
+                for (int j = 0; j < result.Rows.Count; j++)
+                {
+                    DataRow row = result.Rows[j];
+                    oApuesta = new Modelos.Apuesta();
+                    oApuesta.id = int.Parse(row["id_apuesta"].ToString());
+                    oApuesta.oUsuario.id = int.Parse(row["id_usuario"].ToString());
+                    oApuesta.oSorteo.id = int.Parse(row["id_sorteo"].ToString());
+                    oApuesta.numero = int.Parse(row["numero"].ToString());
+                    oApuesta.monto = double.Parse(row["monto"].ToString());
+                    oList.Add(oApuesta);
+                }
+            }
+
+            if (this.oApuesta.isError)
+            {
+                this.isError = true;
+                this.errorDescription = this.oApuesta.errorDescription;
+            }
+            return oList;
+        }
+
         public void Insert(Modelos.Usuario pUsuario, Modelos.Sorteo pSorteo, int pNumero, double pMonto)
         {
             this.oApuesta = new Modelos.Apuesta(pUsuario, pSorteo, pNumero, pMonto);

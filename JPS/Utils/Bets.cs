@@ -85,6 +85,45 @@ namespace JPS.Utils
             }
             return total;
         }
+        public static ArrayList apuestasTotales()
+        {
+            Apuesta oApuesta = new Apuesta();
+            ArrayList oList = oApuesta.SelectTotal();
+            ArrayList oListTotal = new ArrayList();
+            ApuestasTotales oTotales = new ApuestasTotales();
+            bool bandera = false;
+            int posicion = -1;
+            for (int i = 0; i < oList.Count; i++)
+            {
+                Modelos.Apuesta oApuestaM = (Modelos.Apuesta)oList[i];
+                bandera = false;
+                for (int j = 0; j < oListTotal.Count; j++)
+                {
+                    oTotales = (ApuestasTotales)oListTotal[j];
+                    if (oTotales.numero == oApuestaM.numero)
+                      {
+                            bandera = true;
+                            posicion = j;
+                      }
+                }
+                if (bandera == false)
+                {
+                    oTotales = new ApuestasTotales();
+                    oTotales.numero = oApuestaM.numero;
+                    oTotales.monto = oApuestaM.monto;
+                    oListTotal.Add(oTotales);
+                }
+                else
+                {
+                    oTotales = (ApuestasTotales)oListTotal[posicion];
+                    oTotales.monto += oApuestaM.monto;
+                    oListTotal[posicion] = oTotales;
+                }
+
+            }
+
+            return oListTotal;
+        }
 
     }
 }

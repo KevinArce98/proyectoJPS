@@ -42,6 +42,18 @@ namespace JPS.Modelos
             }
             return result;
         }
+        public DataTable SelectTotal()
+        {
+            string sql = "select * from apuestas";
+
+            DataTable result = Program.da.SqlQuery(sql, new Dictionary<string, object>());
+            if (Program.da.isError)
+            {
+                this.isError = true;
+                this.errorDescription = Program.da.errorDescription;
+            }
+            return result;
+        }
 
         public DataTable SelectGanadas(int idUsuario, int idSorteo)
         {

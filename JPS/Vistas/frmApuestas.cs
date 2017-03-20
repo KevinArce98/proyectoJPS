@@ -4,6 +4,7 @@ using System.Data;
 using System.Windows.Forms;
 using JPS.Controladores;
 using JPS.Utils;
+using System.Collections;
 
 namespace JPS.Vistas
 {
@@ -34,10 +35,28 @@ namespace JPS.Vistas
             this.Refrescar();
         }
 
-        private void btnCorreo_Click(object sender, EventArgs e)
+        private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            MailHandler oMail = new MailHandler();
-            //oMail.sendEmail();
+            DataTable dt = new DataTable();
+            dt.Columns.Add(new DataColumn("Numero"));
+            dt.Columns.Add(new DataColumn("Total Apostado"));
+
+            ArrayList oList = Bets.apuestasTotales();
+
+            if (oList.Count == 0)
+            {
+                MessageBox.Show("No hay apuestas");
+            }
+            for (int i = 0; i < oList.Count; i++)
+            {
+               ApuestasTotales oApuesta = (ApuestasTotales)oList[i];
+                DataRow dr = dt.NewRow();
+                dr[0] = oApuesta.numero;
+                dr[1] = oApuesta.monto;
+                dt.Rows.Add(dr);
+            }
+            this.dtgApuestas.DataSource = dt;
         }
+    
     }
 }
