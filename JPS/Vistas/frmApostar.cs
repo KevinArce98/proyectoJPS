@@ -50,21 +50,9 @@ namespace JPS.Vistas
                 double verifica = Bets.calcularApuesta(num,monto, oSorteo.id);
                 if (verifica == 0)
                 {
-                    Modelos.Apuesta oApuestaM = oApuesta.Select(RuntimeData.oUsuario.id, oSorteo.id, num);
-
-                    if (oApuestaM.id == -1)
-                    {
                         oApuesta.Insert(RuntimeData.oUsuario, oSorteo, num, monto);
                         this.resetFields();
-                        MessageBox.Show("Apuesta Agregada");
-                    }
-                    else
-                    {
-                        monto = monto + oApuestaM.monto;
-                        oApuesta.Update(oApuestaM.id, RuntimeData.oUsuario, oSorteo, num, monto);
-                        this.resetFields();
-                        MessageBox.Show("Apuesta Modificada");
-                    }
+                        MessageBox.Show("Apuesta Agregada");                  
                 }
                 else if (verifica == -1)
                 {
