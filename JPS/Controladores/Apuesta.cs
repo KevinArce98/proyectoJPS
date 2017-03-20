@@ -59,13 +59,13 @@ namespace JPS.Controladores
             return oList;
         }
 
-        public ArrayList SelectCalcula(int idSorteo = -1, int idUsuario = -1, int num = -1)
+        public ArrayList SelectCalcula(int idSorteo, int idUsuario = -1, int num = -1)
         {
             DataTable result = new DataTable();
             ArrayList oList = new ArrayList();
             if (num == -1)
             {
-                result = this.oApuesta.SelectGanadas(idUsuario);
+                result = this.oApuesta.SelectGanadas(idUsuario, idSorteo);
             }
             else if (idUsuario == -1)
             {

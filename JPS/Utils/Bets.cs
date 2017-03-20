@@ -11,11 +11,11 @@ namespace JPS.Utils
     public class Bets
     {
 
-        public static ArrayList mostrarGanadas(int idUsuario)
+        public static ArrayList mostrarGanadas(int idUsuario, int idSorteo)
         {
             Apuesta oApuesta = new Apuesta();
             ArrayList oListGanada = new ArrayList();
-            ArrayList olist = oApuesta.SelectCalcula(-1, idUsuario, -1);
+            ArrayList olist = oApuesta.SelectCalcula(idSorteo, idUsuario, -1);
             for (int i = 0; i < olist.Count; i++)
             {
                 Modelos.Apuesta oApuestaM = (Modelos.Apuesta)olist[i];

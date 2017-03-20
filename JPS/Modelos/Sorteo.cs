@@ -53,6 +53,18 @@ namespace JPS.Modelos
             return result;
         }
 
+        public DataTable selectInactive()
+        {
+            Dictionary<string, object> parametros = new Dictionary<string, object>();
+            string sql = "select * from sorteos where activo = FALSE AND fecha_hora < now();";
+            DataTable result = Program.da.SqlQuery(sql, parametros);
+            if (Program.da.isError)
+            {
+                this.isError = true;
+                this.errorDescription = Program.da.errorDescription;
+            }
+            return result;
+        }
         public void Insert()
         {
             Dictionary<string, object> parametros = new Dictionary<string, object>();

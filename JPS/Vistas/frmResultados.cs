@@ -18,7 +18,14 @@ namespace JPS.Vistas
         {
             InitializeComponent();
             this.CenterToScreen();
-            this.llenarGanadas();
+            cargarComboSorteo();
+        }
+        private void cargarComboSorteo()
+        {
+            foreach (var item in RuntimeData.cargarComboSorteoInactivo())
+            {
+                cmbSorteos.Items.Add(item);
+            }
         }
         private void llenarGanadas()
         {
@@ -27,8 +34,9 @@ namespace JPS.Vistas
             dt.Columns.Add(new DataColumn("Id Sorteo"));
             dt.Columns.Add(new DataColumn("Numero"));
             dt.Columns.Add(new DataColumn("Monto"));
+            Modelos.Sorteo oSorteo = (Modelos.Sorteo)cmbSorteos.SelectedItem;
 
-            ArrayList oList = Bets.mostrarGanadas(RuntimeData.oUsuario.id);
+            ArrayList oList = Bets.mostrarGanadas(oSorteo.id, RuntimeData.oUsuario.id);
             for (int i = 0; i < oList.Count; i++)
             {
                 Modelos.Apuesta oApuesta= (Modelos.Apuesta)oList[i];
@@ -40,6 +48,18 @@ namespace JPS.Vistas
                 dt.Rows.Add(dr);
             }
             this.dtgResultados.DataSource = dt;
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (cmbSorteos.SelectedIndex != -1)
+            {
+                llenarGanadas();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un sorteo");
+            }
         }
     }
 }
