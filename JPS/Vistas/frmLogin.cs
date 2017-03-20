@@ -25,7 +25,7 @@ namespace JPS.Vistas
             else {
                 string correo = txtCorreo.Text;
                 string pass = txtPass.Text;
-                pass = Encriptacion.encriptarClave(pass);
+                pass = Encriptacion.EncriptarMd5(pass);
                 RuntimeData.oUsuario = oUsuario.SelectLogin(correo, pass);
                 if (RuntimeData.oUsuario.id != -1)
                 {

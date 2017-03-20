@@ -33,7 +33,7 @@ namespace JPS.Vistas.VistasEdicion
 
             if (clave1.Equals(clave2))
             {
-                clave1 = Utils.Encriptacion.encriptarClave(clave2);
+                clave1 = Utils.Encriptacion.EncriptarMd5(clave2);
             }
             else
             {
