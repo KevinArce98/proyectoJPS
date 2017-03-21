@@ -35,21 +35,38 @@ namespace JPS.Utils
             double total = 0;
             Configuracion oConfig = new Configuracion();
             double casa = oConfig.Select();
+            int valor = 0;
             ArrayList olist = oApuesta.SelectCalcula(sorteo, -1, num);
+            for (int j = 0; j < 3; j++)
+            {
+                if (j == 0)
+                {
+                    valor = 60;
+                }
+                else if (j == 1)
+                {
+                    valor = 10;
+                }
+                else if (j == 2)
+                {
+                    valor = 5;
+                }
 
-            for (int i = 0; i < olist.Count; i++)
-            {
-                Modelos.Apuesta oApuestaM = (Modelos.Apuesta)olist[i];
-                total += oApuestaM.monto * 60;
-            }
-            total += monto * 60;
-            casa = casa - total;
-            if (casa < 0)
-            {
-                monto = -1;
-            }
-            else {
-                monto = 0;
+                for (int i = 0; i < olist.Count; i++)
+                {
+                    Modelos.Apuesta oApuestaM = (Modelos.Apuesta)olist[i];
+                    total += oApuestaM.monto * 60;
+                }
+                total += monto * 60;
+                casa = casa - total;
+                if (casa < 0)
+                {
+                    return monto = -1;
+                }
+                else
+                {
+                    monto = 0;
+                }
             }
             return monto;
         }
