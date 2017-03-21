@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.dtgApuestas = new System.Windows.Forms.DataGridView();
-            this.btnRefrescar = new System.Windows.Forms.Button();
+            this.btnTodas = new System.Windows.Forms.Button();
             this.btnFiltrar = new System.Windows.Forms.Button();
+            this.cmbSorteos = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgApuestas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,19 +43,19 @@
             this.dtgApuestas.Size = new System.Drawing.Size(724, 322);
             this.dtgApuestas.TabIndex = 0;
             // 
-            // btnRefrescar
+            // btnTodas
             // 
-            this.btnRefrescar.Location = new System.Drawing.Point(12, 21);
-            this.btnRefrescar.Name = "btnRefrescar";
-            this.btnRefrescar.Size = new System.Drawing.Size(75, 23);
-            this.btnRefrescar.TabIndex = 2;
-            this.btnRefrescar.Text = "Refrescar";
-            this.btnRefrescar.UseVisualStyleBackColor = true;
-            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
+            this.btnTodas.Location = new System.Drawing.Point(176, 21);
+            this.btnTodas.Name = "btnTodas";
+            this.btnTodas.Size = new System.Drawing.Size(143, 23);
+            this.btnTodas.TabIndex = 2;
+            this.btnTodas.Text = "Todas las Apuestas";
+            this.btnTodas.UseVisualStyleBackColor = true;
+            this.btnTodas.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(102, 21);
+            this.btnFiltrar.Location = new System.Drawing.Point(325, 21);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(151, 23);
             this.btnFiltrar.TabIndex = 5;
@@ -62,13 +63,23 @@
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
+            // cmbSorteos
+            // 
+            this.cmbSorteos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSorteos.FormattingEnabled = true;
+            this.cmbSorteos.Location = new System.Drawing.Point(30, 23);
+            this.cmbSorteos.Name = "cmbSorteos";
+            this.cmbSorteos.Size = new System.Drawing.Size(121, 21);
+            this.cmbSorteos.TabIndex = 6;
+            // 
             // frmApuestas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 401);
+            this.Controls.Add(this.cmbSorteos);
             this.Controls.Add(this.btnFiltrar);
-            this.Controls.Add(this.btnRefrescar);
+            this.Controls.Add(this.btnTodas);
             this.Controls.Add(this.dtgApuestas);
             this.Name = "frmApuestas";
             this.Text = "Apuestas";
@@ -80,7 +91,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dtgApuestas;
-        private System.Windows.Forms.Button btnRefrescar;
+        private System.Windows.Forms.Button btnTodas;
         private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.ComboBox cmbSorteos;
     }
 }

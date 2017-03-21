@@ -42,11 +42,13 @@ namespace JPS.Modelos
             }
             return result;
         }
-        public DataTable SelectTotal()
+        public DataTable SelectTotal(int idSorteo)
         {
-            string sql = "select * from apuestas";
+            Dictionary<string, object> parametros = new Dictionary<string, object>();
+            parametros.Add("id_sorteo", idSorteo);
+            string sql = "select * from apuestas where id_sorteo = @id_sorteo";
 
-            DataTable result = Program.da.SqlQuery(sql, new Dictionary<string, object>());
+            DataTable result = Program.da.SqlQuery(sql, parametros);
             if (Program.da.isError)
             {
                 this.isError = true;
@@ -71,13 +73,17 @@ namespace JPS.Modelos
             }
             return result;
         }
-        public DataTable SelectTable()
+        public DataTable SelectTable(int idSorteo)
         {
+            Dictionary<string, object> parametros = new Dictionary<string, object>();
+            parametros.Add("id_sorteo", idSorteo);
+
             string sql = "select ap.id_apuesta, ap.numero, ap.monto, so.descripcion AS sorteo, us.nombre, us.apellido " 
                 +"from apuestas ap, sorteos so, usuarios us"
-                +" where ap.id_usuario = us.id_usuario AND ap.id_sorteo = so.id_sorteo ORDER BY ap.id_apuesta ASC;";
+                + " where ap.id_usuario = us.id_usuario AND ap.id_sorteo = so.id_sorteo AND ap.id_sorteo = @id_sorteo"
+                +" ORDER BY ap.id_apuesta ASC;";
 
-            DataTable result = Program.da.SqlQuery(sql, new Dictionary<string, object>());
+            DataTable result = Program.da.SqlQuery(sql, parametros);
             if (Program.da.isError)
             {
                 this.isError = true;

@@ -44,13 +44,17 @@ namespace JPS.Vistas
             }
             else
             {
+                Configuracion oConfig = new Configuracion();
                 double monto = double.Parse(txtMonto.Text);
                 int num = int.Parse(txtNumero.Text);
+                double montoCasa = -1;
                 Modelos.Sorteo oSorteo = (Modelos.Sorteo)cmbSorteos.SelectedItem;
                 double verifica = Bets.calcularApuesta(num,monto, oSorteo.id);
                 if (verifica == 0)
                 {
                         oApuesta.Insert(RuntimeData.oUsuario, oSorteo, num, monto);
+                        montoCasa = oConfig.Select() + monto;
+                        oConfig.Update(montoCasa);
                         this.resetFields();
                         MessageBox.Show("Apuesta Agregada");                  
                 }

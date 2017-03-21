@@ -86,6 +86,8 @@ namespace JPS.Vistas
                         oGanador.Insert(num1, num2, num3, oSorteo);
                         this.resetFields();
                         MessageBox.Show("Numeros Agregados para " + oSorteo.descripcion);
+                        double montoCasa = oConfig.Select() - Bets.restarMontoCasa(num1, num2, num3, idSorteo);
+                        oConfig.Update(montoCasa);
                         Bets.enviarCorreo(num1, num2, num3, idSorteo);
                     }
                     else

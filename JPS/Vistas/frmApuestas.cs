@@ -17,18 +17,35 @@ namespace JPS.Vistas
             InitializeComponent();
             this.CenterToScreen();
             this.oApuesta = new Apuesta();
-            this.Refrescar();
+            this.cargarComboSorteo();
+        }
+
+        private void cargarComboSorteo()
+        {
+            foreach (var item in RuntimeData.cargarComboSorteo())
+            {
+                cmbSorteos.Items.Add(item);
+            }
         }
         private void Refrescar()
         {
-            DataTable result = new DataTable();
-            result = this.oApuesta.SelectTable();
-            if (this.oApuesta.isError)
+            if (cmbSorteos.SelectedIndex != -1)
             {
-                MessageBox.Show(this.oApuesta.errorDescription);
-                return;
+                Modelos.Sorteo oSorteo = (Modelos.Sorteo)cmbSorteos.SelectedItem;
+                DataTable result = new DataTable();
+                result = this.oApuesta.SelectTable(oSorteo.id);
+                if (this.oApuesta.isError)
+                {
+                    MessageBox.Show(this.oApuesta.errorDescription);
+                    return;
+                }
+                this.dtgApuestas.DataSource = result;
             }
-            this.dtgApuestas.DataSource = result;
+            else
+            {
+                MessageBox.Show("Seleccione un sorteo");
+            }
+            
         }
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
@@ -40,22 +57,25 @@ namespace JPS.Vistas
             DataTable dt = new DataTable();
             dt.Columns.Add(new DataColumn("Numero"));
             dt.Columns.Add(new DataColumn("Total Apostado"));
-
-            ArrayList oList = Bets.apuestasTotales();
-
-            if (oList.Count == 0)
+            if (cmbSorteos.SelectedIndex != -1)
             {
-                MessageBox.Show("No hay apuestas");
+                Modelos.Sorteo oSorteo = (Modelos.Sorteo)cmbSorteos.SelectedItem;
+                ArrayList oList = Bets.apuestasTotales(oSorteo.id);
+
+                if (oList.Count == 0)
+                {
+                    MessageBox.Show("No hay apuestas");
+                }
+                for (int i = 0; i < oList.Count; i++)
+                {
+                    ApuestasTotales oApuesta = (ApuestasTotales)oList[i];
+                    DataRow dr = dt.NewRow();
+                    dr[0] = oApuesta.numero;
+                    dr[1] = oApuesta.monto;
+                    dt.Rows.Add(dr);
+                }
+                this.dtgApuestas.DataSource = dt;
             }
-            for (int i = 0; i < oList.Count; i++)
-            {
-               ApuestasTotales oApuesta = (ApuestasTotales)oList[i];
-                DataRow dr = dt.NewRow();
-                dr[0] = oApuesta.numero;
-                dr[1] = oApuesta.monto;
-                dt.Rows.Add(dr);
-            }
-            this.dtgApuestas.DataSource = dt;
         }
     
     }

@@ -11,10 +11,10 @@ namespace JPS.Controladores
             oApuesta = new Modelos.Apuesta();
         }
         
-        public DataTable SelectTable()
+        public DataTable SelectTable(int idSorteo)
         {
             DataTable result = new DataTable();
-            result = this.oApuesta.SelectTable();
+            result = this.oApuesta.SelectTable(idSorteo);
             if (this.oApuesta.isError)
             {
                 this.isError = true;
@@ -70,11 +70,11 @@ namespace JPS.Controladores
             return oList;
         }
 
-        public ArrayList SelectTotal()
+        public ArrayList SelectTotal(int idSorteo)
         {
             DataTable result = new DataTable();
             ArrayList oList = new ArrayList();
-            result = this.oApuesta.SelectTotal();
+            result = this.oApuesta.SelectTotal(idSorteo);
             if (result.Rows.Count > 0)
             {
                 for (int j = 0; j < result.Rows.Count; j++)

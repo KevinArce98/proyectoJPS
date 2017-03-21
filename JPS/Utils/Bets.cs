@@ -66,6 +66,19 @@ namespace JPS.Utils
                 oEmail.sendEmail(oApuestaM.numero, monto,oUsuario.SelectCorreo(oApuestaM.oUsuario.id).correo);
             }
         }
+        public static double restarMontoCasa(int num1, int num2, int num3, int idSorteo)
+        {
+            double restar = 0;
+            Apuesta oApuesta = new Apuesta();
+            Usuario oUsuario = new Usuario();
+            ArrayList olist = oApuesta.SelectPay(num1, num2, num3, idSorteo);
+            for (int i = 0; i < olist.Count; i++)
+            {
+                Modelos.Apuesta oApuestaM = (Modelos.Apuesta)olist[i];
+               restar += montoTotal(oApuestaM.numero, oApuestaM.monto, oApuestaM.oSorteo.id);
+            }
+            return restar;
+        }
         private static double montoTotal(int num, double monto, int sorteo)
         {
             double total = -1;
@@ -85,10 +98,10 @@ namespace JPS.Utils
             }
             return total;
         }
-        public static ArrayList apuestasTotales()
+        public static ArrayList apuestasTotales(int idSorteo)
         {
             Apuesta oApuesta = new Apuesta();
-            ArrayList oList = oApuesta.SelectTotal();
+            ArrayList oList = oApuesta.SelectTotal(idSorteo);
             ArrayList oListTotal = new ArrayList();
             ApuestasTotales oTotales = new ApuestasTotales();
             bool bandera = false;
