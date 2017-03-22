@@ -45,23 +45,43 @@ namespace JPS.Vistas
             else
             {
                 Configuracion oConfig = new Configuracion();
-                double monto = double.Parse(txtMonto.Text);
-                int num = int.Parse(txtNumero.Text);
-                double montoCasa = -1;
-                Modelos.Sorteo oSorteo = (Modelos.Sorteo)cmbSorteos.SelectedItem;
-                double verifica = Bets.calcularApuesta(num,monto, oSorteo.id);
-                if (verifica == 0)
+                double montoCasa = oConfig.Select();
+                double montoApuestaOriginal = double.Parse(this.txtMonto.Text);
+                
+                if (montoApuestaOriginal * 60 > montoCasa)
                 {
-                        oApuesta.Insert(RuntimeData.oUsuario, oSorteo, num, monto);
-                        montoCasa = oConfig.Select() + monto;
-                        oConfig.Update(montoCasa);
-                        this.resetFields();
-                        MessageBox.Show("Apuesta Agregada");                  
+                    double aproximado = Bets.apuestaAproximada(montoCasa, montoApuestaOriginal);
+                    MessageBox.Show("Apuesta no permitida(La casa nunca pierde)" + "\n" +
+                                      "Podria apostar: " + aproximado);
                 }
-                else if (verifica == -1)
+                else
                 {
-                    MessageBox.Show("Apuesta Denegada (La casa nunca pierde)");
+                    Modelos.Sorteo oSorteo = (Modelos.Sorteo)cmbSorteos.SelectedItem;
+                    int num = int.Parse(txtNumero.Text);
+                    oApuesta.Insert(RuntimeData.oUsuario, oSorteo, num, montoApuestaOriginal);
+                    montoCasa = oConfig.Select() + montoApuestaOriginal;
+                    oConfig.Update(montoCasa);
+                    this.resetFields();
+                    MessageBox.Show("Apuesta Agregada");
                 }
+                //double monto = double.Parse(txtMonto.Text);
+                //int num = int.Parse(txtNumero.Text);
+                //double montoCasa = -1;
+                //Modelos.Sorteo oSorteo = (Modelos.Sorteo)cmbSorteos.SelectedItem;
+                //double verifica = Bets.calcularApuesta(num,monto, oSorteo.id);
+                //if (verifica == 0)
+                //{
+                //        oApuesta.Insert(RuntimeData.oUsuario, oSorteo, num, monto);
+                //        montoCasa = oConfig.Select() + monto;
+                //        oConfig.Update(montoCasa);
+                //        this.resetFields();
+                //        MessageBox.Show("Apuesta Agregada");                  
+                //}
+                //else if (verifica == -1)
+                //{
+                //    MessageBox.Show("Apuesta Denegada (La casa nunca pierde)");
+                //}
+
             }
         }
     }

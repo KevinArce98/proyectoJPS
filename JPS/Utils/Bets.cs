@@ -155,5 +155,22 @@ namespace JPS.Utils
             return oListTotal;
         }
 
+        public static double apuestaAproximada(double montoCasa, double montoApuestaOriginal)
+        {
+            double montoApuesta = montoApuestaOriginal;
+            double montoAproximado = montoApuesta * 60;
+
+            if (montoAproximado > montoCasa)
+            {
+                while (montoAproximado > montoCasa)
+                {
+                    montoApuesta -= 100;
+                    montoAproximado = montoApuesta * 60;
+                }
+            }
+
+            return montoApuesta;
+        }
+
     }
 }
