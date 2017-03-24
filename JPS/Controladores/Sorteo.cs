@@ -68,10 +68,10 @@ namespace JPS.Controladores
             }
             return result;
         }
-        public DataTable SelectInactive()
+        public DataTable SelectInactive(int idSorteo)
         {
             DataTable result = new DataTable();
-            result = this.oSorteo.selectInactive();
+            result = this.oSorteo.selectInactive(idSorteo);
             if (this.oSorteo.isError)
             {
                 this.isError = true;

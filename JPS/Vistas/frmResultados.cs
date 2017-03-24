@@ -22,7 +22,7 @@ namespace JPS.Vistas
         }
         private void cargarComboSorteo()
         {
-            foreach (var item in RuntimeData.cargarComboSorteoInactivo())
+            foreach (var item in RuntimeData.cargarComboSorteo())
             {
                 cmbSorteos.Items.Add(item);
             }

@@ -43,7 +43,7 @@ namespace JPS.Modelos
         public DataTable selectAll()
         {
             Dictionary<string, object> parametros = new Dictionary<string, object>();
-            string sql = "select * from sorteos where activo = TRUE AND fecha_hora >= now();";
+            string sql = "select * from sorteos where activo = TRUE";
             DataTable result = Program.da.SqlQuery(sql, parametros);
             if (Program.da.isError)
             {
@@ -53,10 +53,11 @@ namespace JPS.Modelos
             return result;
         }
 
-        public DataTable selectInactive()
+        public DataTable selectInactive(int idSorteo)
         {
             Dictionary<string, object> parametros = new Dictionary<string, object>();
-            string sql = "select * from sorteos where activo = FALSE AND fecha_hora < now();";
+            parametros.Add("id_sorteo", idSorteo);
+            string sql = "select * from sorteos where id_sorteo = @id_sorteo AND fecha_hora > now();";
             DataTable result = Program.da.SqlQuery(sql, parametros);
             if (Program.da.isError)
             {

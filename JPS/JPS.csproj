@@ -63,6 +63,7 @@
     <Compile Include="Modelos\Ganador.cs" />
     <Compile Include="Modelos\Sorteo.cs" />
     <Compile Include="Modelos\Usuario.cs" />
+    <Compile Include="Modelos\Verificacion.cs" />
     <Compile Include="Utils\ApuestasTotales.cs" />
     <Compile Include="Utils\Encriptacion.cs" />
     <Compile Include="Utils\MailHandler.cs" />
