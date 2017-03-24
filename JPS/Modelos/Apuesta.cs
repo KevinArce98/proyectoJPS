@@ -46,11 +46,23 @@ namespace JPS.Modelos
         {
             Dictionary<string, object> parametros = new Dictionary<string, object>();
             parametros.Add("id_sorteo", idSorteo);
-            string sql = "select ap.id_apuesta, ap.id_usuario, ap.id_sorteo, ap.numero, ap.monto "
-               + "from apuestas ap, sorteos so, usuarios us, favorecidos fa " +
-               "where ap.id_usuario = us.id_usuario AND ap.id_sorteo = so.id_sorteo AND ap.id_sorteo = @id_sorteo " +
-               "AND(ap.numero = fa.primer_numero OR ap.numero = fa.segundo_numero OR ap.numero = fa.tercer_numero) " +
-               "AND fa.id_sorteo = @id_sorteo ";
+            string sql = "SELECT numero, Sum(monto) AS monto FROM apuestas WHERE id_sorteo = @id_sorteo Group By numero ORDER BY monto DESC";
+
+            DataTable result = Program.da.SqlQuery(sql, parametros);
+            if (Program.da.isError)
+            {
+                this.isError = true;
+                this.errorDescription = Program.da.errorDescription;
+            }
+            return result;
+        }
+        public DataTable SelectPrueba(int idSorteo)
+        {
+            Dictionary<string, object> parametros = new Dictionary<string, object>();
+            parametros.Add("id_sorteo", idSorteo);
+            string sql = "SELECT numero, Sum(monto) AS monto "
+                +"FROM apuestas WHERE id_sorteo = @id_sorteo "
+                +"Group By numero ORDER BY monto DESC LIMIT 3";
 
             DataTable result = Program.da.SqlQuery(sql, parametros);
             if (Program.da.isError)

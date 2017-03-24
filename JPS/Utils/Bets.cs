@@ -29,46 +29,28 @@ namespace JPS.Utils
             return oListGanada;
 
         }
-        public static double calcularApuesta(int num, double monto, int sorteo)
+        public static double calcularApuesta()
         {
             Apuesta oApuesta = new Apuesta();
             double total = 0;
             Configuracion oConfig = new Configuracion();
             double casa = oConfig.Select();
-            int valor = 0;
-            ArrayList olist = oApuesta.SelectCalcula(sorteo, -1, num);
-            for (int j = 0; j < 3; j++)
+            double valor = 0;
+           Sorteo oSorteo = new Sorteo();
+            ArrayList olistS = oSorteo.SelectPrueba();
+            for (int i = 0; i < olistS.Count; i++)
             {
-                if (j == 0)
+                Modelos.Sorteo oSorteoM = (Modelos.Sorteo)olistS[i];
+                ArrayList olistA = oApuesta.SelectPrueba(oSorteoM.id);
+                valor = 0;
+                for (int j = 0; j < olistA.Count; j++)
                 {
-                    valor = 60;
+                    valor += (double)olistA[j];
                 }
-                else if (j == 1)
-                {
-                    valor = 10;
-                }
-                else if (j == 2)
-                {
-                    valor = 5;
-                }
-
-                for (int i = 0; i < olist.Count; i++)
-                {
-                    Modelos.Apuesta oApuestaM = (Modelos.Apuesta)olist[i];
-                    total += oApuestaM.monto * 60;
-                }
-                total += monto * 60;
-                casa = casa - total;
-                if (casa < 0)
-                {
-                    return monto = -1;
-                }
-                else
-                {
-                    monto = 0;
-                }
+                total += valor;
             }
-            return monto;
+            casa = casa - total;
+            return casa;
         }
         public static void enviarCorreo(int num1, int num2, int num3, int idSorteo)
         {
@@ -96,7 +78,7 @@ namespace JPS.Utils
             }
             return restar;
         }
-        private static double montoTotal(int num, double monto, int sorteo)
+        public static double montoTotal(int num, double monto, int sorteo)
         {
             double total = -1;
             Ganador oGanador = new Ganador();
@@ -114,62 +96,6 @@ namespace JPS.Utils
                 total = monto * 5;
             }
             return total;
-        }
-        public static ArrayList apuestasTotales(int idSorteo)
-        {
-            Apuesta oApuesta = new Apuesta();
-            ArrayList oList = oApuesta.SelectTotal(idSorteo);
-            ArrayList oListTotal = new ArrayList();
-            ApuestasTotales oTotales = new ApuestasTotales();
-            bool bandera = false;
-            int posicion = -1;
-            for (int i = 0; i < oList.Count; i++)
-            {
-                Modelos.Apuesta oApuestaM = (Modelos.Apuesta)oList[i];
-                bandera = false;
-                for (int j = 0; j < oListTotal.Count; j++)
-                {
-                    oTotales = (ApuestasTotales)oListTotal[j];
-                    if (oTotales.numero == oApuestaM.numero)
-                      {
-                            bandera = true;
-                            posicion = j;
-                      }
-                }
-                if (bandera == false)
-                {
-                    oTotales = new ApuestasTotales();
-                    oTotales.numero = oApuestaM.numero;
-                    oTotales.monto = oApuestaM.monto;
-                    oListTotal.Add(oTotales);
-                }
-                else
-                {
-                    oTotales = (ApuestasTotales)oListTotal[posicion];
-                    oTotales.monto += oApuestaM.monto;
-                    oListTotal[posicion] = oTotales;
-                }
-
-            }
-
-            return oListTotal;
-        }
-
-        public static double apuestaAproximada(double montoCasa, double montoApuestaOriginal)
-        {
-            double montoApuesta = montoApuestaOriginal;
-            double montoAproximado = montoApuesta * 60;
-
-            if (montoAproximado > montoCasa)
-            {
-                while (montoAproximado > montoCasa)
-                {
-                    montoApuesta -= 100;
-                    montoAproximado = montoApuesta * 60;
-                }
-            }
-
-            return montoApuesta;
         }
 
     }

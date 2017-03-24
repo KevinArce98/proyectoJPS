@@ -40,7 +40,7 @@
             this.dtgApuestas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgApuestas.Location = new System.Drawing.Point(12, 67);
             this.dtgApuestas.Name = "dtgApuestas";
-            this.dtgApuestas.Size = new System.Drawing.Size(724, 322);
+            this.dtgApuestas.Size = new System.Drawing.Size(790, 322);
             this.dtgApuestas.TabIndex = 0;
             // 
             // btnTodas
@@ -76,7 +76,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(748, 401);
+            this.ClientSize = new System.Drawing.Size(814, 405);
             this.Controls.Add(this.cmbSorteos);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.btnTodas);

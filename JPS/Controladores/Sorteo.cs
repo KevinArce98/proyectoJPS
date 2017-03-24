@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Data;
 
 
@@ -68,6 +69,32 @@ namespace JPS.Controladores
             }
             return result;
         }
+        public ArrayList SelectPrueba()
+        {
+            DataTable result = new DataTable();
+            ArrayList oList = new ArrayList();
+            result = this.oSorteo.selectAll();
+            if (result.Rows.Count > 0)
+            {
+                for (int j = 0; j < result.Rows.Count; j++)
+                {
+                    DataRow row = result.Rows[j];
+                    oSorteo = new Modelos.Sorteo();
+                    oSorteo.id = int.Parse(row["id_sorteo"].ToString());
+                    oSorteo.fecha_hora = DateTime.Parse(row["fecha_hora"].ToString());
+                    oSorteo.activo = bool.Parse(row["activo"].ToString());
+                    oSorteo.descripcion = row["descripcion"].ToString();
+                    oList.Add(oSorteo);
+                }
+            }
+            if (this.oSorteo.isError)
+            {
+                this.isError = true;
+                this.errorDescription = this.oSorteo.errorDescription;
+            }
+            return oList;
+        }
+
         public DataTable SelectInactive(int idSorteo)
         {
             DataTable result = new DataTable();

@@ -51,23 +51,29 @@ namespace JPS.Vistas
                 double montoCasa = -1;
                 Modelos.Sorteo oSorteoM = (Modelos.Sorteo)cmbSorteos.SelectedItem;
     
-                double verifica = Bets.calcularApuesta(num, monto, oSorteoM.id);
+                
                 if (oSorteo.SelectInactive(oSorteoM.id).Rows.Count == 0)
                 {
                     MessageBox.Show("La fecha del sorteo ha expirado");
+                    resetFields();
                 }
                 else
                 {
-                    if (verifica == 0)
+                    Program.da.BeginTransaction();
+                    oApuesta.Insert(RuntimeData.oUsuario, oSorteoM, num, monto);
+                    montoCasa = oConfig.Select() + monto;
+                    oConfig.Update(montoCasa);
+                    double verifica = Bets.calcularApuesta();
+                    if (verifica >= 0)
                     {
-                        oApuesta.Insert(RuntimeData.oUsuario, oSorteoM, num, monto);
-                        montoCasa = oConfig.Select() + monto;
-                        oConfig.Update(montoCasa);
+                        Program.da.CommitTransaction();
                         this.resetFields();
                         MessageBox.Show("Apuesta Agregada");
                     }
-                    else if (verifica == -1)
+                    else
                     {
+                        Program.da.RollbackTransaction();
+                        this.resetFields();
                         MessageBox.Show("Apuesta Denegada (La casa nunca pierde)");
                     }
                 }

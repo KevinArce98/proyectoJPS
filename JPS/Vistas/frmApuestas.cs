@@ -32,14 +32,36 @@ namespace JPS.Vistas
             if (cmbSorteos.SelectedIndex != -1)
             {
                 Modelos.Sorteo oSorteo = (Modelos.Sorteo)cmbSorteos.SelectedItem;
-                DataTable result = new DataTable();
-                result = this.oApuesta.SelectTable(oSorteo.id);
-                if (this.oApuesta.isError)
-                {
-                    MessageBox.Show(this.oApuesta.errorDescription);
-                    return;
-                }
-                this.dtgApuestas.DataSource = result;
+                ArrayList oList = this.oApuesta.SelectTable(oSorteo.id);
+
+                DataTable dt = new DataTable();
+                dt.Columns.Add(new DataColumn("Id Apuesta"));
+                dt.Columns.Add(new DataColumn("Sorteo"));
+                dt.Columns.Add(new DataColumn("Nombre Usuario"));
+                dt.Columns.Add(new DataColumn("Apellido Usuario"));
+                dt.Columns.Add(new DataColumn("Numero"));
+                dt.Columns.Add(new DataColumn("Monto Apostado"));
+                dt.Columns.Add(new DataColumn("Monto Ganado"));
+
+                    if (oList.Count == 0)
+                    {
+                        MessageBox.Show("No hay apuestas");
+                    }
+                    for (int i = 0; i < oList.Count; i++)
+                    {
+                        Modelos.Apuesta oApuesta = (Modelos.Apuesta)oList[i];
+                        DataRow dr = dt.NewRow();
+                    dr[0] = oApuesta.id;
+                    dr[1] = oApuesta.oSorteo.descripcion;
+                    dr[2] = oApuesta.oUsuario.nombre;
+                    dr[3] = oApuesta.oUsuario.apellido;
+                    dr[4] = oApuesta.numero;
+                    dr[5] = oApuesta.monto;
+                    dr[6] = oApuesta.montoGanado;
+
+                    dt.Rows.Add(dr);
+                    }
+                    this.dtgApuestas.DataSource = dt;   
             }
             else
             {
@@ -60,7 +82,7 @@ namespace JPS.Vistas
             if (cmbSorteos.SelectedIndex != -1)
             {
                 Modelos.Sorteo oSorteo = (Modelos.Sorteo)cmbSorteos.SelectedItem;
-                ArrayList oList = Bets.apuestasTotales(oSorteo.id);
+                ArrayList oList = oApuesta.SelectTotal(oSorteo.id);
 
                 if (oList.Count == 0)
                 {
@@ -68,7 +90,7 @@ namespace JPS.Vistas
                 }
                 for (int i = 0; i < oList.Count; i++)
                 {
-                    ApuestasTotales oApuesta = (ApuestasTotales)oList[i];
+                    Modelos.Apuesta oApuesta = (Modelos.Apuesta)oList[i];
                     DataRow dr = dt.NewRow();
                     dr[0] = oApuesta.numero;
                     dr[1] = oApuesta.monto;

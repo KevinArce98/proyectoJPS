@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JPS.Utils;
+using System.Collections;
 using System.Data;
 
 namespace JPS.Controladores
@@ -11,16 +12,34 @@ namespace JPS.Controladores
             oApuesta = new Modelos.Apuesta();
         }
         
-        public DataTable SelectTable(int idSorteo)
+        public ArrayList SelectTable(int idSorteo)
         {
             DataTable result = new DataTable();
+            ArrayList oList = new ArrayList();
             result = this.oApuesta.SelectTable(idSorteo);
+
+            if (result.Rows.Count > 0)
+            {
+                for (int j = 0; j < result.Rows.Count; j++)
+                {
+                    DataRow row = result.Rows[j];
+                    oApuesta = new Modelos.Apuesta();
+                    oApuesta.id = int.Parse(row["id_apuesta"].ToString());
+                    oApuesta.oUsuario.nombre = row["nombre"].ToString();
+                    oApuesta.oUsuario.apellido = row["apellido"].ToString();
+                    oApuesta.oSorteo.descripcion = row["sorteo"].ToString();
+                    oApuesta.numero = int.Parse(row["numero"].ToString());
+                    oApuesta.monto = double.Parse(row["monto"].ToString());
+                    oApuesta.montoGanado = Bets.montoTotal(oApuesta.numero,oApuesta.monto, idSorteo);
+                    oList.Add(oApuesta);
+                }
+            }
             if (this.oApuesta.isError)
             {
                 this.isError = true;
                 this.errorDescription = this.oApuesta.errorDescription;
             }
-            return result;
+            return oList;
         }
         public ArrayList SelectPay(int num1, int num2, int num3, int idSorteo)
         {
@@ -81,12 +100,46 @@ namespace JPS.Controladores
                 {
                     DataRow row = result.Rows[j];
                     oApuesta = new Modelos.Apuesta();
-                    oApuesta.id = int.Parse(row["id_apuesta"].ToString());
-                    oApuesta.oUsuario.id = int.Parse(row["id_usuario"].ToString());
-                    oApuesta.oSorteo.id = int.Parse(row["id_sorteo"].ToString());
                     oApuesta.numero = int.Parse(row["numero"].ToString());
                     oApuesta.monto = double.Parse(row["monto"].ToString());
                     oList.Add(oApuesta);
+                }
+            }
+
+            if (this.oApuesta.isError)
+            {
+                this.isError = true;
+                this.errorDescription = this.oApuesta.errorDescription;
+            }
+            return oList;
+        }
+
+        public ArrayList SelectPrueba(int idSorteo)
+        {
+            DataTable result = new DataTable();
+            ArrayList oList = new ArrayList();
+            result = this.oApuesta.SelectPrueba(idSorteo);
+            if (result.Rows.Count > 0)
+            {
+                double montoTotal = 0;
+                for (int j = 0; j < result.Rows.Count; j++)
+                {
+                    montoTotal = 0;
+                    DataRow row = result.Rows[j];
+                    if (j==0)
+                    {
+                        montoTotal += double.Parse(row["monto"].ToString()) * 60;
+                    }
+                    else if (j == 1)
+                    {
+                        montoTotal += double.Parse(row["monto"].ToString()) * 10;
+                    }
+                    else if (j == 2)
+                    {
+                        montoTotal += double.Parse(row["monto"].ToString()) * 5;
+                    }
+
+                    oList.Add(montoTotal);
                 }
             }
 
