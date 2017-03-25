@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using JPS.Controladores;
 using JPS.Utils;
 using System.Collections;
+using System.Drawing;
 
 namespace JPS.Vistas
 {

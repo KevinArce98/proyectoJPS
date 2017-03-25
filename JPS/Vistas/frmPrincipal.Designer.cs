@@ -50,7 +50,7 @@
             this.votacionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(778, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(778, 31);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -61,35 +61,40 @@
             this.ganadoresToolStripMenuItem,
             this.usuariosToolStripMenuItem,
             this.configuracionToolStripMenuItem});
+            this.adminButton.Font = new System.Drawing.Font("Segoe Print", 9.75F);
             this.adminButton.Name = "adminButton";
-            this.adminButton.Size = new System.Drawing.Size(100, 20);
+            this.adminButton.Size = new System.Drawing.Size(125, 27);
             this.adminButton.Text = "Administracion";
             // 
             // sorteosToolStripMenuItem
             // 
+            this.sorteosToolStripMenuItem.Font = new System.Drawing.Font("Segoe Print", 9.75F);
             this.sorteosToolStripMenuItem.Name = "sorteosToolStripMenuItem";
-            this.sorteosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.sorteosToolStripMenuItem.Size = new System.Drawing.Size(171, 28);
             this.sorteosToolStripMenuItem.Text = "Sorteos";
             this.sorteosToolStripMenuItem.Click += new System.EventHandler(this.sorteosToolStripMenuItem_Click);
             // 
             // ganadoresToolStripMenuItem
             // 
+            this.ganadoresToolStripMenuItem.Font = new System.Drawing.Font("Segoe Print", 9.75F);
             this.ganadoresToolStripMenuItem.Name = "ganadoresToolStripMenuItem";
-            this.ganadoresToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.ganadoresToolStripMenuItem.Size = new System.Drawing.Size(171, 28);
             this.ganadoresToolStripMenuItem.Text = "Apuestas";
             this.ganadoresToolStripMenuItem.Click += new System.EventHandler(this.ganadoresToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
+            this.usuariosToolStripMenuItem.Font = new System.Drawing.Font("Segoe Print", 9.75F);
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(171, 28);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // configuracionToolStripMenuItem
             // 
+            this.configuracionToolStripMenuItem.Font = new System.Drawing.Font("Segoe Print", 9.75F);
             this.configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
-            this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(171, 28);
             this.configuracionToolStripMenuItem.Text = "Configuracion";
             this.configuracionToolStripMenuItem.Click += new System.EventHandler(this.configuracionToolStripMenuItem_Click);
             // 
@@ -98,21 +103,22 @@
             this.votacionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.apostarToolStripMenuItem,
             this.resultadoToolStripMenuItem});
+            this.votacionToolStripMenuItem.Font = new System.Drawing.Font("Segoe Print", 9.75F);
             this.votacionToolStripMenuItem.Name = "votacionToolStripMenuItem";
-            this.votacionToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.votacionToolStripMenuItem.Size = new System.Drawing.Size(76, 27);
             this.votacionToolStripMenuItem.Text = "Tiempos";
             // 
             // apostarToolStripMenuItem
             // 
             this.apostarToolStripMenuItem.Name = "apostarToolStripMenuItem";
-            this.apostarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.apostarToolStripMenuItem.Size = new System.Drawing.Size(144, 28);
             this.apostarToolStripMenuItem.Text = "Apostar";
             this.apostarToolStripMenuItem.Click += new System.EventHandler(this.apostarToolStripMenuItem_Click);
             // 
             // resultadoToolStripMenuItem
             // 
             this.resultadoToolStripMenuItem.Name = "resultadoToolStripMenuItem";
-            this.resultadoToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.resultadoToolStripMenuItem.Size = new System.Drawing.Size(144, 28);
             this.resultadoToolStripMenuItem.Text = "Resultado";
             this.resultadoToolStripMenuItem.Click += new System.EventHandler(this.resultadoToolStripMenuItem_Click);
             // 
@@ -120,6 +126,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(778, 559);
             this.Controls.Add(this.menuStrip1);

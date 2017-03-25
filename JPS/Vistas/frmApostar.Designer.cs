@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmApostar));
             this.cmbSorteos = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,61 +41,75 @@
             // cmbSorteos
             // 
             this.cmbSorteos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSorteos.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.cmbSorteos.FormattingEnabled = true;
-            this.cmbSorteos.Location = new System.Drawing.Point(144, 27);
+            this.cmbSorteos.Location = new System.Drawing.Point(113, 32);
+            this.cmbSorteos.Margin = new System.Windows.Forms.Padding(4);
             this.cmbSorteos.Name = "cmbSorteos";
-            this.cmbSorteos.Size = new System.Drawing.Size(121, 21);
+            this.cmbSorteos.Size = new System.Drawing.Size(160, 28);
             this.cmbSorteos.TabIndex = 0;
             this.cmbSorteos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbSorteos_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 30);
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 11.25F);
+            this.label1.Location = new System.Drawing.Point(28, 39);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.Size = new System.Drawing.Size(50, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Sorteo:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 67);
+            this.label2.Font = new System.Drawing.Font("Modern No. 20", 11.25F);
+            this.label2.Location = new System.Drawing.Point(28, 88);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.Size = new System.Drawing.Size(59, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Numero:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 103);
+            this.label3.Font = new System.Drawing.Font("Modern No. 20", 11.25F);
+            this.label3.Location = new System.Drawing.Point(28, 135);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.Size = new System.Drawing.Size(51, 17);
             this.label3.TabIndex = 3;
             this.label3.Text = "Monto:";
             // 
             // txtNumero
             // 
-            this.txtNumero.Location = new System.Drawing.Point(144, 67);
+            this.txtNumero.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.txtNumero.Location = new System.Drawing.Point(113, 85);
+            this.txtNumero.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumero.Mask = "99";
             this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(121, 20);
+            this.txtNumero.Size = new System.Drawing.Size(160, 27);
             this.txtNumero.TabIndex = 4;
             // 
             // txtMonto
             // 
-            this.txtMonto.Location = new System.Drawing.Point(144, 100);
+            this.txtMonto.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.txtMonto.Location = new System.Drawing.Point(113, 128);
+            this.txtMonto.Margin = new System.Windows.Forms.Padding(4);
             this.txtMonto.Mask = "999999999";
             this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(121, 20);
+            this.txtMonto.Size = new System.Drawing.Size(160, 27);
             this.txtMonto.TabIndex = 5;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(144, 140);
+            this.button1.Font = new System.Drawing.Font("Segoe Print", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(104, 189);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 23);
+            this.button1.Size = new System.Drawing.Size(105, 30);
             this.button1.TabIndex = 6;
             this.button1.Text = "Apostar";
             this.button1.UseVisualStyleBackColor = true;
@@ -102,9 +117,9 @@
             // 
             // frmApostar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 204);
+            this.ClientSize = new System.Drawing.Size(309, 267);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtMonto);
             this.Controls.Add(this.txtNumero);
@@ -112,6 +127,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbSorteos);
+            this.Font = new System.Drawing.Font("Modern No. 20", 11.25F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmApostar";
             this.Text = "Apostar";
             this.ResumeLayout(false);

@@ -124,5 +124,18 @@ namespace JPS.Utils
             return total;
         }
 
+        public static double PeorCasosSorteo(int idSorteo)
+        {
+            Apuesta oApuesta = new Apuesta();
+            Configuracion oConfig = new Configuracion();
+            double total = 0;
+            ArrayList olistA = oApuesta.SelectPeorCaso(idSorteo, 0);
+            for (int j = 0; j < olistA.Count; j++)
+            {
+                total += (double)olistA[j];
+            }
+            return total;
+        }
+
     }
 }
