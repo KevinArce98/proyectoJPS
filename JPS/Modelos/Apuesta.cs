@@ -56,13 +56,30 @@ namespace JPS.Modelos
             }
             return result;
         }
-        public DataTable SelectPrueba(int idSorteo)
+        public DataTable SelectPeorCaso(int idSorteo)
         {
             Dictionary<string, object> parametros = new Dictionary<string, object>();
             parametros.Add("id_sorteo", idSorteo);
             string sql = "SELECT numero, Sum(monto) AS monto "
                 +"FROM apuestas WHERE id_sorteo = @id_sorteo "
                 +"Group By numero ORDER BY monto DESC LIMIT 3";
+
+            DataTable result = Program.da.SqlQuery(sql, parametros);
+            if (Program.da.isError)
+            {
+                this.isError = true;
+                this.errorDescription = Program.da.errorDescription;
+            }
+            return result;
+        }
+
+        public DataTable SelectGananciaMaxima(int idSorteo)
+        {
+            Dictionary<string, object> parametros = new Dictionary<string, object>();
+            parametros.Add("id_sorteo", idSorteo);
+            string sql = "SELECT numero, Sum(monto) AS monto "
+                + "FROM apuestas WHERE id_sorteo = @id_sorteo "
+                + "Group By numero ORDER BY monto ASC LIMIT 3";
 
             DataTable result = Program.da.SqlQuery(sql, parametros);
             if (Program.da.isError)

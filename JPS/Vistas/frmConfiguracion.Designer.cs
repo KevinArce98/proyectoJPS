@@ -42,8 +42,20 @@
             this.txtNumero3 = new System.Windows.Forms.MaskedTextBox();
             this.txtNumero1 = new System.Windows.Forms.MaskedTextBox();
             this.txtNumero2 = new System.Windows.Forms.MaskedTextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtPeor = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cmbSor = new System.Windows.Forms.ComboBox();
+            this.btnProbar = new System.Windows.Forms.Button();
+            this.txtMaxima = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtMinima = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -182,11 +194,112 @@
             this.txtNumero2.Size = new System.Drawing.Size(197, 20);
             this.txtNumero2.TabIndex = 13;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtPeor);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Location = new System.Drawing.Point(231, 12);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(334, 70);
+            this.groupBox3.TabIndex = 20;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Montos";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 32);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(180, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Para premios en el peor de los casos";
+            // 
+            // txtPeor
+            // 
+            this.txtPeor.Location = new System.Drawing.Point(199, 29);
+            this.txtPeor.Name = "txtPeor";
+            this.txtPeor.ReadOnly = true;
+            this.txtPeor.Size = new System.Drawing.Size(129, 20);
+            this.txtPeor.TabIndex = 1;
+            this.txtPeor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.txtMinima);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.txtMaxima);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.btnProbar);
+            this.groupBox4.Controls.Add(this.cmbSor);
+            this.groupBox4.Location = new System.Drawing.Point(315, 94);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(250, 198);
+            this.groupBox4.TabIndex = 21;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Ganancias";
+            // 
+            // cmbSor
+            // 
+            this.cmbSor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSor.FormattingEnabled = true;
+            this.cmbSor.Location = new System.Drawing.Point(9, 43);
+            this.cmbSor.Name = "cmbSor";
+            this.cmbSor.Size = new System.Drawing.Size(121, 21);
+            this.cmbSor.TabIndex = 0;
+            // 
+            // btnProbar
+            // 
+            this.btnProbar.Location = new System.Drawing.Point(154, 41);
+            this.btnProbar.Name = "btnProbar";
+            this.btnProbar.Size = new System.Drawing.Size(82, 23);
+            this.btnProbar.TabIndex = 1;
+            this.btnProbar.Text = "Probalidades";
+            this.btnProbar.UseVisualStyleBackColor = true;
+            this.btnProbar.Click += new System.EventHandler(this.btnProbar_Click);
+            // 
+            // txtMaxima
+            // 
+            this.txtMaxima.Location = new System.Drawing.Point(107, 89);
+            this.txtMaxima.Name = "txtMaxima";
+            this.txtMaxima.ReadOnly = true;
+            this.txtMaxima.Size = new System.Drawing.Size(129, 20);
+            this.txtMaxima.TabIndex = 3;
+            this.txtMaxima.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 92);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(95, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Ganancia Maxima:";
+            // 
+            // txtMinima
+            // 
+            this.txtMinima.Location = new System.Drawing.Point(107, 118);
+            this.txtMinima.Name = "txtMinima";
+            this.txtMinima.ReadOnly = true;
+            this.txtMinima.Size = new System.Drawing.Size(129, 20);
+            this.txtMinima.TabIndex = 5;
+            this.txtMinima.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 121);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(92, 13);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Ganancia Minima:";
+            // 
             // frmConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(321, 307);
+            this.ClientSize = new System.Drawing.Size(586, 307);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmConfiguracion";
@@ -195,6 +308,10 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -215,5 +332,15 @@
         private System.Windows.Forms.MaskedTextBox txtNumero3;
         private System.Windows.Forms.MaskedTextBox txtNumero1;
         private System.Windows.Forms.MaskedTextBox txtNumero2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtPeor;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox txtMinima;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtMaxima;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnProbar;
+        private System.Windows.Forms.ComboBox cmbSor;
     }
 }

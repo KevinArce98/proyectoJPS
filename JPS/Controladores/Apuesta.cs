@@ -114,11 +114,19 @@ namespace JPS.Controladores
             return oList;
         }
 
-        public ArrayList SelectPrueba(int idSorteo)
+        public ArrayList SelectPeorCaso(int idSorteo, int MinOMax)
         {
             DataTable result = new DataTable();
             ArrayList oList = new ArrayList();
-            result = this.oApuesta.SelectPrueba(idSorteo);
+            if (MinOMax == 0)
+            {
+                result = this.oApuesta.SelectPeorCaso(idSorteo);
+            }
+            else if(MinOMax == 1)
+            {
+                result = this.oApuesta.SelectGananciaMaxima(idSorteo);
+            }
+            
             if (result.Rows.Count > 0)
             {
                 double montoTotal = 0;

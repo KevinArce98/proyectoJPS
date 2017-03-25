@@ -63,8 +63,10 @@ namespace JPS.Vistas
                     oApuesta.Insert(RuntimeData.oUsuario, oSorteoM, num, monto);
                     montoCasa = oConfig.Select() + monto;
                     oConfig.Update(montoCasa);
-                    double verifica = Bets.calcularApuesta();
-                    if (verifica >= 0)
+                    double peorCaso = Bets.calcularApuesta();
+                    montoCasa = montoCasa - peorCaso;
+
+                    if (montoCasa >= 0)
                     {
                         Program.da.CommitTransaction();
                         this.resetFields();

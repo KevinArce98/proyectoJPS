@@ -33,15 +33,13 @@ namespace JPS.Utils
         {
             Apuesta oApuesta = new Apuesta();
             double total = 0;
-            Configuracion oConfig = new Configuracion();
-            double casa = oConfig.Select();
             double valor = 0;
            Sorteo oSorteo = new Sorteo();
             ArrayList olistS = oSorteo.SelectPrueba();
             for (int i = 0; i < olistS.Count; i++)
             {
                 Modelos.Sorteo oSorteoM = (Modelos.Sorteo)olistS[i];
-                ArrayList olistA = oApuesta.SelectPrueba(oSorteoM.id);
+                ArrayList olistA = oApuesta.SelectPeorCaso(oSorteoM.id, 0);
                 valor = 0;
                 for (int j = 0; j < olistA.Count; j++)
                 {
@@ -49,9 +47,10 @@ namespace JPS.Utils
                 }
                 total += valor;
             }
-            casa = casa - total;
-            return casa;
+            return total;
         }
+
+       
         public static void enviarCorreo(int num1, int num2, int num3, int idSorteo)
         {
             MailHandler oEmail = new MailHandler();
@@ -95,6 +94,33 @@ namespace JPS.Utils
             {
                 total = monto * 5;
             }
+            return total;
+        }
+
+        public static double GananciaMaximaPorSorteo(int idSorteo)
+        {
+            Apuesta oApuesta = new Apuesta();
+            double total = 0;
+            Configuracion oConfig = new Configuracion();
+            ArrayList olistA = oApuesta.SelectPeorCaso(idSorteo, 1);
+            for (int j = 0; j < olistA.Count; j++)
+            {
+                total += (double)olistA[j];
+            }
+           total = oConfig.Select() - total;
+            return total;
+        }
+        public static double GananciaMinimaPorSorteo(int idSorteo)
+        {
+            Apuesta oApuesta = new Apuesta();
+            Configuracion oConfig = new Configuracion();
+            double total = 0;
+            ArrayList olistA = oApuesta.SelectPeorCaso(idSorteo,0);
+            for (int j = 0; j < olistA.Count; j++)
+            {
+                total += (double)olistA[j];
+            }
+            total = oConfig.Select() - total;
             return total;
         }
 

@@ -18,6 +18,7 @@ namespace JPS.Vistas
             oGanador = new Ganador();
             this.cargarComboSorteo();
             this.checkConfig();
+            this.peorCaso();
         }
         private void resetFields()
         {
@@ -32,8 +33,29 @@ namespace JPS.Vistas
             foreach (var item in RuntimeData.cargarComboSorteo())
             {
                 cmbSorteo.Items.Add(item);
+                cmbSor.Items.Add(item);
             }
         }
+
+        private void peorCaso()
+        {
+            txtPeor.Text = Bets.calcularApuesta().ToString();
+        }
+        private void GananciaPorSorteo()
+        {
+            if (cmbSor.SelectedIndex != -1)
+            {
+                Modelos.Sorteo oSorteo = (Modelos.Sorteo)cmbSor.SelectedItem;
+                txtMaxima.Text = Convert.ToString(Bets.GananciaMaximaPorSorteo(oSorteo.id));
+                txtMinima.Text = Convert.ToString(Bets.GananciaMinimaPorSorteo(oSorteo.id));
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un sorteo");
+            }
+           
+        }
+       
         private void checkConfig()
         {
             double monto = oConfig.Select();
@@ -104,5 +126,9 @@ namespace JPS.Vistas
             }
         }
 
+        private void btnProbar_Click(object sender, EventArgs e)
+        {
+            this.GananciaPorSorteo();
+        }
     }
 }
