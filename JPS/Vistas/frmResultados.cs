@@ -38,7 +38,7 @@ namespace JPS.Vistas
 
             Modelos.Sorteo oSorteo = (Modelos.Sorteo)cmbSorteos.SelectedItem;
 
-            ArrayList oList = Bets.mostrarGanadas(oSorteo.id, RuntimeData.oUsuario.id);
+            ArrayList oList = Bets.mostrarGanadas( RuntimeData.oUsuario.id, oSorteo.id);
             if (oList.Count == 0)
             {
                 MessageBox.Show("Gracias por participar");

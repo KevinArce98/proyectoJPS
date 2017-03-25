@@ -96,8 +96,10 @@ namespace JPS.Modelos
             parametros.Add("id_usuario", idUsuario);
             parametros.Add("id_sorteo", idSorteo);
             string sql = "select ap.id_apuesta, ap.id_usuario, ap.id_sorteo, ap.numero, ap.monto "+
-                         "from apuestas ap, sorteos so "+
-                         "where ap.id_usuario = @id_usuario AND ap.id_sorteo = @id_sorteo AND so.fecha_hora < NOW(); ";
+                         "from apuestas ap, sorteos so, favorecidos fa "+
+                         "where ap.id_usuario = @id_usuario AND ap.id_sorteo = so.id_sorteo AND ap.id_sorteo = @id_sorteo "+
+                         "AND(ap.numero = fa.primer_numero OR ap.numero = fa.segundo_numero OR ap.numero = fa.tercer_numero) "+
+                         "AND fa.id_sorteo = @id_sorteo; ";
             DataTable result = Program.da.SqlQuery(sql, parametros);
             if (Program.da.isError)
             {
