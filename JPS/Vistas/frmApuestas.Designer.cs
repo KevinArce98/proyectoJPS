@@ -71,22 +71,28 @@
             // btnTodas
             // 
             this.btnTodas.Font = new System.Drawing.Font("Segoe Print", 9.75F);
+            this.btnTodas.Image = global::JPS.Properties.Resources._1490598541_system_search;
+            this.btnTodas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTodas.Location = new System.Drawing.Point(221, 16);
             this.btnTodas.Name = "btnTodas";
-            this.btnTodas.Size = new System.Drawing.Size(181, 31);
+            this.btnTodas.Size = new System.Drawing.Size(181, 37);
             this.btnTodas.TabIndex = 2;
             this.btnTodas.Text = "Todas las Apuestas";
+            this.btnTodas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTodas.UseVisualStyleBackColor = true;
             this.btnTodas.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
             // btnFiltrar
             // 
             this.btnFiltrar.Font = new System.Drawing.Font("Segoe Print", 9.75F);
+            this.btnFiltrar.Image = global::JPS.Properties.Resources._1490598541_system_search;
+            this.btnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFiltrar.Location = new System.Drawing.Point(408, 16);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(151, 31);
+            this.btnFiltrar.Size = new System.Drawing.Size(157, 37);
             this.btnFiltrar.TabIndex = 5;
             this.btnFiltrar.Text = "Apuestas totales";
+            this.btnFiltrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 

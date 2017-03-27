@@ -40,22 +40,28 @@
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Segoe Print", 9.75F);
+            this.btnAgregar.Image = global::JPS.Properties.Resources._1490596929_Add1;
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregar.Location = new System.Drawing.Point(21, 20);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(85, 30);
+            this.btnAgregar.Size = new System.Drawing.Size(106, 30);
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Segoe Print", 9.75F);
-            this.btnEliminar.Location = new System.Drawing.Point(129, 20);
+            this.btnEliminar.Image = global::JPS.Properties.Resources._1490596986_draw_08;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(148, 20);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(85, 30);
+            this.btnEliminar.Size = new System.Drawing.Size(119, 30);
             this.btnEliminar.TabIndex = 1;
             this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 

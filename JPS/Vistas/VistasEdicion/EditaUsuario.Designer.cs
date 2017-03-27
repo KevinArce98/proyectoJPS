@@ -115,24 +115,30 @@
             // btnAceptar
             // 
             this.btnAceptar.Font = new System.Drawing.Font("Segoe Print", 9.75F);
+            this.btnAceptar.Image = global::JPS.Properties.Resources._1490597060_tick_16;
+            this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAceptar.Location = new System.Drawing.Point(191, 267);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(103, 37);
             this.btnAceptar.TabIndex = 7;
             this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Segoe Print", 9.75F);
+            this.btnCancelar.Image = global::JPS.Properties.Resources._1490597068_delete_16;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.Location = new System.Drawing.Point(301, 267);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(103, 37);
             this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 

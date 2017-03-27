@@ -33,19 +33,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
-            this.btnRegistrarse = new System.Windows.Forms.Button();
             this.btnIngresar = new System.Windows.Forms.Button();
+            this.btnRegistrarse = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(26, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 17);
+            this.label1.Size = new System.Drawing.Size(59, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Correo:";
             // 
@@ -53,11 +53,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Perpetua Titling MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(26, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 17);
+            this.label2.Size = new System.Drawing.Size(89, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Contraseña:";
             // 
@@ -78,34 +78,40 @@
             this.txtPass.Size = new System.Drawing.Size(222, 24);
             this.txtPass.TabIndex = 3;
             // 
-            // btnRegistrarse
-            // 
-            this.btnRegistrarse.Font = new System.Drawing.Font("Segoe Print", 9.75F);
-            this.btnRegistrarse.Location = new System.Drawing.Point(197, 109);
-            this.btnRegistrarse.Name = "btnRegistrarse";
-            this.btnRegistrarse.Size = new System.Drawing.Size(95, 34);
-            this.btnRegistrarse.TabIndex = 4;
-            this.btnRegistrarse.Text = "Registrarse";
-            this.btnRegistrarse.UseVisualStyleBackColor = true;
-            this.btnRegistrarse.Click += new System.EventHandler(this.btnRegistrarse_Click);
-            // 
             // btnIngresar
             // 
             this.btnIngresar.Font = new System.Drawing.Font("Segoe Print", 9.75F);
-            this.btnIngresar.Location = new System.Drawing.Point(298, 109);
+            this.btnIngresar.Image = global::JPS.Properties.Resources._1490598141_login;
+            this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIngresar.Location = new System.Drawing.Point(346, 109);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(75, 34);
+            this.btnIngresar.Size = new System.Drawing.Size(112, 46);
             this.btnIngresar.TabIndex = 5;
             this.btnIngresar.Text = "Ingresar";
+            this.btnIngresar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
+            // 
+            // btnRegistrarse
+            // 
+            this.btnRegistrarse.Font = new System.Drawing.Font("Segoe Print", 9.75F);
+            this.btnRegistrarse.Image = global::JPS.Properties.Resources._1490598239_list_add_user;
+            this.btnRegistrarse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistrarse.Location = new System.Drawing.Point(197, 109);
+            this.btnRegistrarse.Name = "btnRegistrarse";
+            this.btnRegistrarse.Size = new System.Drawing.Size(126, 46);
+            this.btnRegistrarse.TabIndex = 4;
+            this.btnRegistrarse.Text = "Registrarse";
+            this.btnRegistrarse.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRegistrarse.UseVisualStyleBackColor = true;
+            this.btnRegistrarse.Click += new System.EventHandler(this.btnRegistrarse_Click);
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(391, 167);
+            this.ClientSize = new System.Drawing.Size(504, 167);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.btnRegistrarse);
             this.Controls.Add(this.txtPass);

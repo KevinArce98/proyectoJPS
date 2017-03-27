@@ -80,11 +80,15 @@
             // btnAceptar
             // 
             this.btnAceptar.Font = new System.Drawing.Font("Segoe Print", 9.75F);
-            this.btnAceptar.Location = new System.Drawing.Point(186, 21);
+            this.btnAceptar.Image = global::JPS.Properties.Resources._1490597060_tick_16;
+            this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAceptar.Location = new System.Drawing.Point(186, 13);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(90, 31);
+            this.btnAceptar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnAceptar.Size = new System.Drawing.Size(99, 47);
             this.btnAceptar.TabIndex = 2;
             this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 

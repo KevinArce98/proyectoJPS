@@ -138,6 +138,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Vistas\frmApostar.resx">
       <DependentUpon>frmApostar.cs</DependentUpon>
@@ -183,7 +184,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Imagenes\1490596929_Add.png" />
+    <Content Include="Imagenes\1490596986_draw-08.png" />
+    <Content Include="Imagenes\1490597060_tick_16.png" />
+    <Content Include="Imagenes\1490597068_delete_16.png" />
+    <Content Include="Imagenes\1490598141_login.png" />
+    <Content Include="Imagenes\1490598239_list-add-user.png" />
+    <Content Include="Imagenes\1490598392_floppy_disk_save.png" />
+    <Content Include="Imagenes\1490598541_system-search.png" />
     <Content Include="Imagenes\Logo.ico" />
+    <Content Include="Imagenes\newsmall_big_photo_71128.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -88,12 +88,15 @@
             // btnGuardarDinero
             // 
             this.btnGuardarDinero.Font = new System.Drawing.Font("Segoe Print", 9.75F);
-            this.btnGuardarDinero.Location = new System.Drawing.Point(159, 54);
+            this.btnGuardarDinero.Image = global::JPS.Properties.Resources._1490598392_floppy_disk_save;
+            this.btnGuardarDinero.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardarDinero.Location = new System.Drawing.Point(151, 54);
             this.btnGuardarDinero.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardarDinero.Name = "btnGuardarDinero";
-            this.btnGuardarDinero.Size = new System.Drawing.Size(100, 38);
+            this.btnGuardarDinero.Size = new System.Drawing.Size(108, 38);
             this.btnGuardarDinero.TabIndex = 2;
             this.btnGuardarDinero.Text = "Guardar";
+            this.btnGuardarDinero.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardarDinero.UseVisualStyleBackColor = true;
             this.btnGuardarDinero.Click += new System.EventHandler(this.btnGuardarDinero_Click);
             // 
@@ -132,12 +135,15 @@
             // btnGuardarFavo
             // 
             this.btnGuardarFavo.Font = new System.Drawing.Font("Segoe Print", 9.75F);
+            this.btnGuardarFavo.Image = global::JPS.Properties.Resources._1490598392_floppy_disk_save;
+            this.btnGuardarFavo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardarFavo.Location = new System.Drawing.Point(159, 172);
             this.btnGuardarFavo.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardarFavo.Name = "btnGuardarFavo";
-            this.btnGuardarFavo.Size = new System.Drawing.Size(108, 31);
+            this.btnGuardarFavo.Size = new System.Drawing.Size(108, 38);
             this.btnGuardarFavo.TabIndex = 15;
             this.btnGuardarFavo.Text = "Guardar";
+            this.btnGuardarFavo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardarFavo.UseVisualStyleBackColor = true;
             this.btnGuardarFavo.Click += new System.EventHandler(this.btnGuardarFavo_Click);
             // 
