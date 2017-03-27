@@ -35,6 +35,8 @@
             this.txtPass = new System.Windows.Forms.TextBox();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.btnRegistrarse = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -64,7 +66,7 @@
             // txtCorreo
             // 
             this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreo.Location = new System.Drawing.Point(151, 37);
+            this.txtCorreo.Location = new System.Drawing.Point(122, 38);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(222, 24);
             this.txtCorreo.TabIndex = 2;
@@ -72,7 +74,7 @@
             // txtPass
             // 
             this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass.Location = new System.Drawing.Point(151, 63);
+            this.txtPass.Location = new System.Drawing.Point(122, 64);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(222, 24);
@@ -83,7 +85,7 @@
             this.btnIngresar.Font = new System.Drawing.Font("Segoe Print", 9.75F);
             this.btnIngresar.Image = global::JPS.Properties.Resources._1490598141_login;
             this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngresar.Location = new System.Drawing.Point(346, 109);
+            this.btnIngresar.Location = new System.Drawing.Point(225, 124);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(112, 46);
             this.btnIngresar.TabIndex = 5;
@@ -97,7 +99,7 @@
             this.btnRegistrarse.Font = new System.Drawing.Font("Segoe Print", 9.75F);
             this.btnRegistrarse.Image = global::JPS.Properties.Resources._1490598239_list_add_user;
             this.btnRegistrarse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistrarse.Location = new System.Drawing.Point(197, 109);
+            this.btnRegistrarse.Location = new System.Drawing.Point(86, 124);
             this.btnRegistrarse.Name = "btnRegistrarse";
             this.btnRegistrarse.Size = new System.Drawing.Size(126, 46);
             this.btnRegistrarse.TabIndex = 4;
@@ -106,12 +108,22 @@
             this.btnRegistrarse.UseVisualStyleBackColor = true;
             this.btnRegistrarse.Click += new System.EventHandler(this.btnRegistrarse_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(377, 38);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 124);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(504, 167);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.ClientSize = new System.Drawing.Size(530, 205);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.btnRegistrarse);
             this.Controls.Add(this.txtPass);
@@ -122,6 +134,7 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,5 +148,6 @@
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Button btnRegistrarse;
         private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

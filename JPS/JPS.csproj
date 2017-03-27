@@ -192,8 +192,19 @@
     <Content Include="Imagenes\1490598239_list-add-user.png" />
     <Content Include="Imagenes\1490598392_floppy_disk_save.png" />
     <Content Include="Imagenes\1490598541_system-search.png" />
+    <Content Include="Imagenes\314118.png" />
+    <Content Include="Imagenes\administration.png" />
+    <Content Include="Imagenes\candado.png" />
+    <Content Include="Imagenes\delete.png" />
+    <Content Include="Imagenes\deletee.png" />
+    <Content Include="Imagenes\HEADER_TIEMPOS_LOGO.png" />
     <Content Include="Imagenes\Logo.ico" />
+    <Content Include="Imagenes\loteria.png" />
+    <Content Include="Imagenes\money.png" />
     <Content Include="Imagenes\newsmall_big_photo_71128.jpg" />
+    <Content Include="Imagenes\patatas.png" />
+    <Content Include="Imagenes\personal.png" />
+    <Content Include="Imagenes\user_group.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

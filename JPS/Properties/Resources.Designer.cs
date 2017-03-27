@@ -153,6 +153,16 @@ namespace JPS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap deletee {
+            get {
+                object obj = ResourceManager.GetObject("deletee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap newsmall_big_photo_71128 {
             get {
                 object obj = ResourceManager.GetObject("newsmall_big_photo_71128", resourceCulture);

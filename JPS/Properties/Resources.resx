@@ -124,6 +124,9 @@
   <data name="1490598541_system-search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\1490598541_system-search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="newsmall_big_photo_71128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\newsmall_big_photo_71128.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="1490597060_tick_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\1490597060_tick_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -145,7 +148,7 @@
   <data name="1490596929_Add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\1490596929_Add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="newsmall_big_photo_71128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\newsmall_big_photo_71128.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="deletee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\deletee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

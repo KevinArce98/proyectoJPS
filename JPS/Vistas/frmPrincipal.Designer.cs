@@ -50,7 +50,7 @@
             this.votacionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(778, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(778, 34);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -61,40 +61,45 @@
             this.ganadoresToolStripMenuItem,
             this.usuariosToolStripMenuItem,
             this.configuracionToolStripMenuItem});
-            this.adminButton.Font = new System.Drawing.Font("Segoe Print", 9.75F);
+            this.adminButton.Font = new System.Drawing.Font("Segoe Print", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminButton.Image = ((System.Drawing.Image)(resources.GetObject("adminButton.Image")));
             this.adminButton.Name = "adminButton";
-            this.adminButton.Size = new System.Drawing.Size(125, 27);
+            this.adminButton.Size = new System.Drawing.Size(155, 30);
             this.adminButton.Text = "Administracion";
             // 
             // sorteosToolStripMenuItem
             // 
             this.sorteosToolStripMenuItem.Font = new System.Drawing.Font("Segoe Print", 9.75F);
+            this.sorteosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sorteosToolStripMenuItem.Image")));
             this.sorteosToolStripMenuItem.Name = "sorteosToolStripMenuItem";
-            this.sorteosToolStripMenuItem.Size = new System.Drawing.Size(171, 28);
+            this.sorteosToolStripMenuItem.Size = new System.Drawing.Size(173, 28);
             this.sorteosToolStripMenuItem.Text = "Sorteos";
             this.sorteosToolStripMenuItem.Click += new System.EventHandler(this.sorteosToolStripMenuItem_Click);
             // 
             // ganadoresToolStripMenuItem
             // 
             this.ganadoresToolStripMenuItem.Font = new System.Drawing.Font("Segoe Print", 9.75F);
+            this.ganadoresToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ganadoresToolStripMenuItem.Image")));
             this.ganadoresToolStripMenuItem.Name = "ganadoresToolStripMenuItem";
-            this.ganadoresToolStripMenuItem.Size = new System.Drawing.Size(171, 28);
+            this.ganadoresToolStripMenuItem.Size = new System.Drawing.Size(173, 28);
             this.ganadoresToolStripMenuItem.Text = "Apuestas";
             this.ganadoresToolStripMenuItem.Click += new System.EventHandler(this.ganadoresToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Font = new System.Drawing.Font("Segoe Print", 9.75F);
+            this.usuariosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("usuariosToolStripMenuItem.Image")));
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(171, 28);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(173, 28);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // configuracionToolStripMenuItem
             // 
             this.configuracionToolStripMenuItem.Font = new System.Drawing.Font("Segoe Print", 9.75F);
+            this.configuracionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("configuracionToolStripMenuItem.Image")));
             this.configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
-            this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(171, 28);
+            this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(173, 28);
             this.configuracionToolStripMenuItem.Text = "Configuracion";
             this.configuracionToolStripMenuItem.Click += new System.EventHandler(this.configuracionToolStripMenuItem_Click);
             // 
@@ -103,22 +108,25 @@
             this.votacionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.apostarToolStripMenuItem,
             this.resultadoToolStripMenuItem});
-            this.votacionToolStripMenuItem.Font = new System.Drawing.Font("Segoe Print", 9.75F);
+            this.votacionToolStripMenuItem.Font = new System.Drawing.Font("Segoe Print", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.votacionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("votacionToolStripMenuItem.Image")));
             this.votacionToolStripMenuItem.Name = "votacionToolStripMenuItem";
-            this.votacionToolStripMenuItem.Size = new System.Drawing.Size(76, 27);
+            this.votacionToolStripMenuItem.Size = new System.Drawing.Size(101, 30);
             this.votacionToolStripMenuItem.Text = "Tiempos";
             // 
             // apostarToolStripMenuItem
             // 
+            this.apostarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("apostarToolStripMenuItem.Image")));
             this.apostarToolStripMenuItem.Name = "apostarToolStripMenuItem";
-            this.apostarToolStripMenuItem.Size = new System.Drawing.Size(144, 28);
+            this.apostarToolStripMenuItem.Size = new System.Drawing.Size(156, 30);
             this.apostarToolStripMenuItem.Text = "Apostar";
             this.apostarToolStripMenuItem.Click += new System.EventHandler(this.apostarToolStripMenuItem_Click);
             // 
             // resultadoToolStripMenuItem
             // 
+            this.resultadoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("resultadoToolStripMenuItem.Image")));
             this.resultadoToolStripMenuItem.Name = "resultadoToolStripMenuItem";
-            this.resultadoToolStripMenuItem.Size = new System.Drawing.Size(144, 28);
+            this.resultadoToolStripMenuItem.Size = new System.Drawing.Size(156, 30);
             this.resultadoToolStripMenuItem.Text = "Resultado";
             this.resultadoToolStripMenuItem.Click += new System.EventHandler(this.resultadoToolStripMenuItem_Click);
             // 
