@@ -59,24 +59,25 @@ namespace JPS.Vistas
                 }
                 else
                 {
-                    Program.da.BeginTransaction();
-                    oApuesta.Insert(RuntimeData.oUsuario, oSorteoM, num, monto);
-                    montoCasa = oConfig.Select() + monto;
-                    oConfig.Update(montoCasa);
-                    double peorCaso = Bets.calcularApuesta();
-                    montoCasa = montoCasa - peorCaso;
 
-                    if (montoCasa >= 0)
+                    double peorCaso = Bets.calcularApuesta();
+                    montoCasa = oConfig.Select();
+                    montoCasa = montoCasa - peorCaso;
+                    double maximo = montoCasa / 60;
+
+                    if (monto <= maximo)
                     {
-                        Program.da.CommitTransaction();
+                        oApuesta.Insert(RuntimeData.oUsuario, oSorteoM, num, monto);
+                        montoCasa = oConfig.Select() + monto;
+                        oConfig.Update(montoCasa);
                         this.resetFields();
                         MessageBox.Show("Apuesta Agregada");
                     }
                     else
                     {
-                        Program.da.RollbackTransaction();
+                        maximo = Math.Round(maximo,0);
                         this.resetFields();
-                        MessageBox.Show("Apuesta Denegada (La casa nunca pierde)");
+                        MessageBox.Show("Apuesta Denegada (La casa nunca pierde)" + " Puede apostar ₡" + maximo);
                     }
                 }
 
