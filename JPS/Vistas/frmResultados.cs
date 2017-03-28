@@ -1,13 +1,8 @@
-﻿using JPS.Utils;
+﻿using JPS.Controladores;
+using JPS.Utils;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JPS.Vistas
@@ -29,6 +24,7 @@ namespace JPS.Vistas
         }
         private void llenarGanadas()
         {
+            Ganador OGanador = new Ganador();
             DataTable dt = new DataTable();
             dt.Columns.Add(new DataColumn("Id Apuesta"));
             dt.Columns.Add(new DataColumn("Id Sorteo"));
@@ -39,22 +35,29 @@ namespace JPS.Vistas
             Modelos.Sorteo oSorteo = (Modelos.Sorteo)cmbSorteos.SelectedItem;
 
             ArrayList oList = Bets.mostrarGanadas( RuntimeData.oUsuario.id, oSorteo.id);
-            if (oList.Count == 0)
+            if (OGanador.Select(oSorteo.id).id == -1)
             {
-                MessageBox.Show("Gracias por participar");
+                MessageBox.Show("No se han registrado los numeros favorecidos");
             }
-            for (int i = 0; i < oList.Count; i++)
+            else
             {
-                Modelos.Apuesta oApuesta= (Modelos.Apuesta)oList[i];
-                DataRow dr = dt.NewRow();
-                dr[0] = oApuesta.id.ToString();
-                dr[1] = oApuesta.oSorteo.id.ToString();
-                dr[2] = oApuesta.numero.ToString();
-                dr[3] = oApuesta.monto.ToString();
-                dr[4] = oApuesta.montoGanado.ToString();
-                dt.Rows.Add(dr);
+                if (oList.Count == 0)
+                {
+                    MessageBox.Show("Gracias por participar");
+                }
+                for (int i = 0; i < oList.Count; i++)
+                {
+                    Modelos.Apuesta oApuesta = (Modelos.Apuesta)oList[i];
+                    DataRow dr = dt.NewRow();
+                    dr[0] = oApuesta.id.ToString();
+                    dr[1] = oApuesta.oSorteo.id.ToString();
+                    dr[2] = oApuesta.numero.ToString();
+                    dr[3] = oApuesta.monto.ToString();
+                    dr[4] = oApuesta.montoGanado.ToString();
+                    dt.Rows.Add(dr);
+                }
+                this.dtgResultados.DataSource = dt;
             }
-            this.dtgResultados.DataSource = dt;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

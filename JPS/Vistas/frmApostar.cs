@@ -75,7 +75,7 @@ namespace JPS.Vistas
                     }
                     else
                     {
-                        maximo = Math.Round(maximo,0);
+                        maximo = Math.Truncate(maximo);
                         this.resetFields();
                         MessageBox.Show("Apuesta Denegada (La casa nunca pierde)" + " Puede apostar ₡" + maximo);
                     }

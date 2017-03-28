@@ -110,7 +110,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(128, 17);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Confirmacion clave:";
+            this.label7.Text = "Confirmación clave:";
             // 
             // btnAceptar
             // 

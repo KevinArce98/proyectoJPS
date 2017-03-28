@@ -65,7 +65,7 @@
             this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.Location = new System.Drawing.Point(116, 74);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(188, 27);
+            this.txtDescripcion.Size = new System.Drawing.Size(199, 27);
             this.txtDescripcion.TabIndex = 3;
             // 
             // dtFecha
@@ -75,7 +75,7 @@
             this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtFecha.Location = new System.Drawing.Point(116, 131);
             this.dtFecha.Name = "dtFecha";
-            this.dtFecha.Size = new System.Drawing.Size(188, 27);
+            this.dtFecha.Size = new System.Drawing.Size(199, 27);
             this.dtFecha.TabIndex = 4;
             // 
             // label4
@@ -84,9 +84,9 @@
             this.label4.Font = new System.Drawing.Font("Modern No. 20", 11.25F);
             this.label4.Location = new System.Drawing.Point(25, 28);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 17);
+            this.label4.Size = new System.Drawing.Size(24, 17);
             this.label4.TabIndex = 8;
-            this.label4.Text = "ID:";
+            this.label4.Text = "Id:";
             // 
             // txtId
             // 
@@ -94,7 +94,7 @@
             this.txtId.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(116, 28);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(188, 27);
+            this.txtId.Size = new System.Drawing.Size(199, 27);
             this.txtId.TabIndex = 9;
             // 
             // ckbActivo
@@ -140,7 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(326, 293);
+            this.ClientSize = new System.Drawing.Size(348, 293);
             this.Controls.Add(this.ckbActivo);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label4);

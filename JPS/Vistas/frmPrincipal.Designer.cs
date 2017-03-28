@@ -65,7 +65,7 @@
             this.adminButton.Image = ((System.Drawing.Image)(resources.GetObject("adminButton.Image")));
             this.adminButton.Name = "adminButton";
             this.adminButton.Size = new System.Drawing.Size(155, 30);
-            this.adminButton.Text = "Administracion";
+            this.adminButton.Text = "Administración";
             // 
             // sorteosToolStripMenuItem
             // 
@@ -100,7 +100,7 @@
             this.configuracionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("configuracionToolStripMenuItem.Image")));
             this.configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
             this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(173, 28);
-            this.configuracionToolStripMenuItem.Text = "Configuracion";
+            this.configuracionToolStripMenuItem.Text = "Configuración";
             this.configuracionToolStripMenuItem.Click += new System.EventHandler(this.configuracionToolStripMenuItem_Click);
             // 
             // votacionToolStripMenuItem

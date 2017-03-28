@@ -341,7 +341,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(122, 17);
             this.label8.TabIndex = 4;
-            this.label8.Text = "Ganancia Minima:";
+            this.label8.Text = "Ganancia Mínima:";
             // 
             // txtMaxima
             // 
@@ -363,7 +363,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(123, 17);
             this.label7.TabIndex = 2;
-            this.label7.Text = "Ganancia Maxima:";
+            this.label7.Text = "Ganancia Máxima:";
             // 
             // cmbSor
             // 

@@ -34,7 +34,6 @@ namespace JPS.Vistas
             {
                 Modelos.Sorteo oSorteo = (Modelos.Sorteo)cmbSorteos.SelectedItem;
                 ArrayList oList = this.oApuesta.SelectTable(oSorteo.id);
-
                 DataTable dt = new DataTable();
                 dt.Columns.Add(new DataColumn("Id Apuesta"));
                 dt.Columns.Add(new DataColumn("Sorteo"));
@@ -46,7 +45,7 @@ namespace JPS.Vistas
 
                     if (oList.Count == 0)
                     {
-                        MessageBox.Show("No hay apuestas");
+                        MessageBox.Show("No se han registrado los ganadores");
                     }
                     for (int i = 0; i < oList.Count; i++)
                     {
