@@ -47,18 +47,26 @@ namespace JPS.Vistas
         }
         private void btnGuardarDinero_Click(object sender, EventArgs e)
         {
-            if (oConfig.Select() == -1)
+            if (!txtMonto.Text.Equals(""))
             {
-                oConfig.Insert(double.Parse(txtMonto.Text));
-                this.resetFields();
-                MessageBox.Show("Monto agregado");
+                if (oConfig.Select() == -1)
+                {
+                    oConfig.Insert(double.Parse(txtMonto.Text));
+                    this.resetFields();
+                    MessageBox.Show("Monto agregado", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    oConfig.Update(double.Parse(txtMonto.Text));
+                    this.resetFields();
+                    MessageBox.Show("Monto modificado", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
-                oConfig.Update(double.Parse(txtMonto.Text));
-                this.resetFields();
-                MessageBox.Show("Monto modificado");
+                MessageBox.Show("Ingrese el monto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
                 
            
         }
@@ -73,7 +81,7 @@ namespace JPS.Vistas
             if (cmbSorteo.SelectedIndex == -1 || txtNumero1.Text.Equals("")
                 || txtNumero2.Text.Equals("") || txtNumero3.Text.Equals(""))
             {
-                MessageBox.Show("Ingrese los datos");
+                MessageBox.Show("Faltan datos requeridos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -88,20 +96,21 @@ namespace JPS.Vistas
                     {
                         oGanador.Insert(num1, num2, num3, oSorteo);
                         this.resetFields();
-                        MessageBox.Show("Numeros Agregados para " + oSorteo.descripcion);
+                        MessageBox.Show("Numeros Agregados para " + oSorteo.descripcion, "INFO", MessageBoxButtons.OK, 
+                            MessageBoxIcon.Information);
                         double montoCasa = oConfig.Select() - Bets.restarMontoCasa(num1, num2, num3, idSorteo);
                         oConfig.Update(montoCasa);
                         Bets.enviarCorreo(num1, num2, num3, idSorteo);
                     }
                     else
                     {
-                        MessageBox.Show("Los numero no pueden ser iguales");
+                        MessageBox.Show("Los numero no pueden ser iguales", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                    
                 }
                 else
                 {
-                    MessageBox.Show("El sorteo ya tiene numeros favorecidos");
+                    MessageBox.Show("El sorteo ya tiene numeros favorecidos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     this.resetFields();
                 }  
             }

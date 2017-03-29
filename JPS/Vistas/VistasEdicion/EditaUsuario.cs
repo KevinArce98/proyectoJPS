@@ -55,7 +55,7 @@ namespace JPS.Vistas.VistasEdicion
                     txtCorreo.Text.Equals("") || txtClave.Text.Equals("") ||
                     txtConfirmacionClave.Text.Equals(""))
                 {
-                    MessageBox.Show("Ingrese los datos");
+                    MessageBox.Show("Faltan datos requeridos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -73,12 +73,12 @@ namespace JPS.Vistas.VistasEdicion
                             MessageBox.Show(this.oUsuario.errorDescription);
                             return;
                         }
-                        MessageBox.Show("Usuario Agregado");
+                        MessageBox.Show("Usuario Agregado", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Contraseñas distintas");
+                        MessageBox.Show("Contraseñas distintas", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
@@ -89,7 +89,7 @@ namespace JPS.Vistas.VistasEdicion
                      txtCorreo.Text.Equals("") || txtClave.Text.Equals("") ||
                      txtConfirmacionClave.Text.Equals(""))
                 {
-                    MessageBox.Show("Ingrese los datos");
+                    MessageBox.Show("Faltan datos requeridos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -112,7 +112,7 @@ namespace JPS.Vistas.VistasEdicion
                     }
                     else
                     {
-                        MessageBox.Show("Contraseñas distintas");
+                        MessageBox.Show("Contraseñas distintas", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }

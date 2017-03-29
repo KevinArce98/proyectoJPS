@@ -37,13 +37,13 @@ namespace JPS.Vistas
             ArrayList oList = Bets.mostrarGanadas( RuntimeData.oUsuario.id, oSorteo.id);
             if (OGanador.Select(oSorteo.id).id == -1)
             {
-                MessageBox.Show("No se han registrado los numeros favorecidos");
+                MessageBox.Show("No se han registrado los numeros favorecidos", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 if (oList.Count == 0)
                 {
-                    MessageBox.Show("Gracias por participar");
+                    MessageBox.Show("Gracias por participar", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 for (int i = 0; i < oList.Count; i++)
                 {
@@ -68,7 +68,7 @@ namespace JPS.Vistas
             }
             else
             {
-                MessageBox.Show("Seleccione un sorteo");
+                MessageBox.Show("Seleccione un sorteo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

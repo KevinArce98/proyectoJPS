@@ -40,7 +40,7 @@ namespace JPS.Vistas
         {
             if (txtMonto.Text.Equals("") || txtNumero.Text.Equals("") || cmbSorteos.SelectedIndex == -1)
             {
-                MessageBox.Show("Ingrese los datos");
+                MessageBox.Show("Faltan datos requeridos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -54,7 +54,7 @@ namespace JPS.Vistas
                 
                 if (oSorteo.SelectInactive(oSorteoM.id).Rows.Count == 0)
                 {
-                    MessageBox.Show("La fecha del sorteo ha expirado");
+                    MessageBox.Show("La fecha del sorteo ha expirado", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     resetFields();
                 }
                 else
@@ -71,13 +71,14 @@ namespace JPS.Vistas
                         montoCasa = oConfig.Select() + monto;
                         oConfig.Update(montoCasa);
                         this.resetFields();
-                        MessageBox.Show("Apuesta Agregada");
+                        MessageBox.Show("Apuesta Agregada", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
                         maximo = Math.Truncate(maximo);
                         this.resetFields();
-                        MessageBox.Show("Apuesta Denegada (La casa nunca pierde)" + " Puede apostar ₡" + maximo);
+                        MessageBox.Show("Apuesta Denegada (La casa nunca pierde)" + " \nPuede apostar ₡" + maximo, "ERROR",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 

@@ -33,7 +33,7 @@ namespace JPS.Vistas.VistasEdicion
             {
                 if (this.txtDescripcion.Text.Trim().Equals("") || this.dtFecha.Value == null)
                 {
-                    MessageBox.Show("Falta datos requeridos.");
+                    MessageBox.Show("Falta datos requeridos.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
                 else
@@ -52,7 +52,7 @@ namespace JPS.Vistas.VistasEdicion
             {
                 if (this.txtDescripcion.Text.Trim().Equals("") || this.dtFecha.Value == null)
                 {
-                    MessageBox.Show("Falta datos requeridos.");
+                    MessageBox.Show("Falta datos requeridos.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
                 else

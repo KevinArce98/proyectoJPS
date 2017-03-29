@@ -3,9 +3,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using JPS.Controladores;
-using JPS.Utils;
 using System.Collections;
-using System.Drawing;
 
 namespace JPS.Vistas
 {
@@ -43,9 +41,9 @@ namespace JPS.Vistas
                 dt.Columns.Add(new DataColumn("Monto Apostado"));
                 dt.Columns.Add(new DataColumn("Monto Ganado"));
 
-                    if (oList.Count == 0)
-                    {
-                        MessageBox.Show("No se han registrado los ganadores");
+                if (oList.Count == 0)
+                {
+                    MessageBox.Show("No se han registrado los ganadores", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     for (int i = 0; i < oList.Count; i++)
                     {
@@ -65,7 +63,7 @@ namespace JPS.Vistas
             }
             else
             {
-                MessageBox.Show("Seleccione un sorteo");
+                MessageBox.Show("Seleccione un sorteo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
         }
@@ -86,7 +84,7 @@ namespace JPS.Vistas
 
                 if (oList.Count == 0)
                 {
-                    MessageBox.Show("No hay apuestas");
+                    MessageBox.Show("No hay apuestas", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 for (int i = 0; i < oList.Count; i++)
                 {
@@ -97,6 +95,10 @@ namespace JPS.Vistas
                     dt.Rows.Add(dr);
                 }
                 this.dtgApuestas.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un sorteo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     

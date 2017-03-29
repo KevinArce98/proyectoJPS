@@ -20,7 +20,7 @@ namespace JPS.Vistas
         {
             if (txtCorreo.Text.Equals("") || txtPass.Text.Equals(""))
             {
-                MessageBox.Show("Ingrese los datos");
+                MessageBox.Show("Faltan datos requeridos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else {
                 string correo = txtCorreo.Text;
@@ -35,7 +35,7 @@ namespace JPS.Vistas
                 }
                 else
                 {
-                    MessageBox.Show("Datos incorrectos");
+                    MessageBox.Show("Datos incorrectos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }        
         }

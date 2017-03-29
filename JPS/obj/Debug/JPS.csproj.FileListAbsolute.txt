@@ -1,25 +1,3 @@
-c:\users\kevin arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\JPS.exe.config
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\JPS.exe
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\JPS.pdb
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.csprojResolveAssemblyReference.cache
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Properties.Resources.resources
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmConfiguracion.resources
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmLogin.resources
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmPrincipal.resources
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmSorteo.resources
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.csproj.GenerateResource.Cache
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.exe
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.pdb
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmResultados.resources
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmUsuarios.resources
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\DBAccess.dll
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\Npgsql.dll
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\MySql.Data.dll
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\System.Data.SQLite.dll
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\DBAccess.pdb
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\Npgsql.xml
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\System.Data.SQLite.xml
-C:\Users\Kevin Arias\Documents\Visual Studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.VistasEdicion.EditaUsuario.resources
 E:\proyectoProgra\proyectoJPS\JPS\bin\Debug\JPS.exe.config
 E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.exe
 E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.pdb
@@ -41,8 +19,30 @@ E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.frmUsuarios.resources
 E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.VistasEdicion.EditaUsuario.resources
 E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.csproj.GenerateResource.Cache
 E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.VistasEdicion.EditaSorteo.resources
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.VistasEdicion.EditaSorteo.resources
 E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.frmApostar.resources
-C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmApostar.resources
-C:\Users\Kevin Arias\Documents\Visual Studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmApuestas.resources
 E:\proyectoProgra\proyectoJPS\JPS\obj\Debug\JPS.Vistas.frmApuestas.resources
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\JPS.exe.config
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\JPS.exe
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\JPS.pdb
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\DBAccess.dll
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\Npgsql.dll
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\MySql.Data.dll
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\System.Data.SQLite.dll
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\DBAccess.pdb
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\Npgsql.xml
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\bin\Debug\System.Data.SQLite.xml
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.csprojResolveAssemblyReference.cache
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Properties.Resources.resources
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmApostar.resources
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmConfiguracion.resources
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmApuestas.resources
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmLogin.resources
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmPrincipal.resources
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmResultados.resources
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmSorteo.resources
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.frmUsuarios.resources
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.VistasEdicion.EditaSorteo.resources
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.Vistas.VistasEdicion.EditaUsuario.resources
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.csproj.GenerateResource.Cache
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.exe
+C:\Users\Kevin Arias\documents\visual studio 2015\Projects\JPS\JPS\obj\Debug\JPS.pdb

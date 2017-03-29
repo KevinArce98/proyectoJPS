@@ -23,10 +23,7 @@ namespace JPS.Utils
         public MailHandler()
         {
             this.mmsg = new MailMessage();
-            //EMAILTO PONE AL QUE LO VA A MANDAR
-            //this.emailTo = "aa-kevin@hotmail.com";
             this.subject = "Notificación JPS";
-            //this.body = "Usted ha salido favorecido para el número X";
             //MAILFROM DESDE QUE CORREO LO VA A MANDAR
             this.mailFrom = new MailAddress("wcarvajal17@gmail.com", "Warren Carvajal", Encoding.UTF8);
             this.cliente = new SmtpClient();
