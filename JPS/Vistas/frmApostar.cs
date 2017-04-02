@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using JPS.Controladores;
 using JPS.Utils;
+using System.Globalization;
 
 namespace JPS.Vistas
 {
@@ -38,51 +39,98 @@ namespace JPS.Vistas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtMonto.Text.Equals("") || txtNumero.Text.Equals("") || cmbSorteos.SelectedIndex == -1)
+            if (txtMonto.Text.Equals("") || txtNumero.Text.Equals("") || 
+                cmbSorteos.SelectedIndex == -1 || txtMonto.Text.Trim().Equals("."))
             {
                 MessageBox.Show("Faltan datos requeridos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                Configuracion oConfig = new Configuracion();
+                if (this.verificaString(txtMonto.Text))
+                {
+                    Configuracion oConfig = new Configuracion();
                 Sorteo oSorteo = new Sorteo();
                 double monto = double.Parse(txtMonto.Text);
                 int num = int.Parse(txtNumero.Text);
                 double montoCasa = -1;
                 Modelos.Sorteo oSorteoM = (Modelos.Sorteo)cmbSorteos.SelectedItem;
-    
-                
-                if (oSorteo.SelectInactive(oSorteoM.id).Rows.Count == 0)
-                {
-                    MessageBox.Show("La fecha del sorteo ha expirado", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    resetFields();
-                }
-                else
-                {
 
-                    double peorCaso = Bets.calcularApuesta();
-                    montoCasa = oConfig.Select();
-                    montoCasa = montoCasa - peorCaso;
-                    double maximo = montoCasa / 60;
 
-                    if (monto <= maximo)
+                    if (oSorteo.SelectInactive(oSorteoM.id).Rows.Count == 0)
                     {
-                        oApuesta.Insert(RuntimeData.oUsuario, oSorteoM, num, monto);
-                        montoCasa = oConfig.Select() + monto;
-                        oConfig.Update(montoCasa);
-                        this.resetFields();
-                        MessageBox.Show("Apuesta Agregada", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("La fecha del sorteo ha expirado", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        resetFields();
                     }
                     else
                     {
-                        maximo = Math.Truncate(maximo);
-                        this.resetFields();
-                        MessageBox.Show("Apuesta Denegada (La casa nunca pierde)" + " \nPuede apostar ₡" + maximo, "ERROR",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Program.da.BeginTransaction();
+                        
+                        oApuesta.Insert(RuntimeData.oUsuario, oSorteoM, num, monto);
+                        montoCasa = oConfig.Select() + monto;
+                        oConfig.Update(montoCasa);
+                        MessageBox.Show( oConfig.Select().ToString());
+                        double peorCaso = Bets.calcularApuesta();
+                        if (montoCasa >= peorCaso)
+                        {
+                            Program.da.CommitTransaction();
+                            this.resetFields();
+                            MessageBox.Show("Apuesta Agregada", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            Program.da.RollbackTransaction();
+                            double maxima = Bets.mostarApuestaMaxima(oSorteoM.id);
+                            this.resetFields();
+                            MessageBox.Show("Apuesta Denegada (La casa nunca pierde)" + " \nPuede apostar ₡" + maxima, "ERROR",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Solo ingrese un punto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
             }
+        }
+
+        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CultureInfo cc = System.Threading.Thread.CurrentThread.CurrentCulture;
+            if (char.IsNumber(e.KeyChar) ||
+                e.KeyChar.ToString() == cc.NumberFormat.NumberDecimalSeparator || (e.KeyChar == (char)Keys.Back)
+                )
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private bool verificaString(string texto)
+        {
+            bool encotrado = false;
+            int contador = 0;
+            foreach (char item in texto)
+            {
+                if (item == '.')
+                {
+                    contador++;
+                }
+            }
+            if (contador == 1 || contador == 0)
+            {
+                encotrado = true;
+
+            }
+            return encotrado;
+        }
+
+        private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CultureInfo cc = System.Threading.Thread.CurrentThread.CurrentCulture;
+            if (char.IsNumber(e.KeyChar) || (e.KeyChar == (char)Keys.Back))
+                e.Handled = false;
+            else
+                e.Handled = true;
         }
     }
 }

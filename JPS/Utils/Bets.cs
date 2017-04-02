@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using JPS.Controladores;
+﻿using JPS.Controladores;
 using System.Collections;
 
 namespace JPS.Utils
@@ -49,6 +44,7 @@ namespace JPS.Utils
             }
             return total;
         }
+
 
        
         public static void enviarCorreo(int num1, int num2, int num3, int idSorteo)
@@ -127,7 +123,6 @@ namespace JPS.Utils
         public static double PeorCasosSorteo(int idSorteo)
         {
             Apuesta oApuesta = new Apuesta();
-            Configuracion oConfig = new Configuracion();
             double total = 0;
             ArrayList olistA = oApuesta.SelectPeorCaso(idSorteo, 0);
             for (int j = 0; j < olistA.Count; j++)
@@ -136,6 +131,27 @@ namespace JPS.Utils
             }
             return total;
         }
-
+        public static double mostarApuestaMaxima(int idSorteo)
+        {
+            Apuesta oApuesta = new Apuesta();
+            Configuracion oConfig = new Configuracion();
+            double montoCasa = oConfig.Select();
+            double peorCaso = calcularApuesta();
+            int division = oApuesta.SelectMostrarApuestaMaxima(idSorteo);
+            if (division == 0 || division == 3)
+            {
+                division = 60;
+            }
+            else if(division == 1)
+            {
+                division = 10;
+            }
+            else if (division == 2)
+            {
+                division = 5;
+            }
+            peorCaso = (montoCasa - peorCaso) / division;
+            return peorCaso;
+        }
     }
 }

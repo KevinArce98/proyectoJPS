@@ -113,6 +113,31 @@ namespace JPS.Controladores
             }
             return oList;
         }
+        public int SelectMostrarApuestaMaxima(int idSorteo)
+        {
+            DataTable result = new DataTable();
+            int rows = 0;
+            result = this.oApuesta.SelectTotal(idSorteo);
+            if (result.Rows.Count == 1)
+            {
+                rows = 1;
+            }
+            else if (result.Rows.Count == 2)
+            {
+                rows = 2;
+            }
+            else if (result.Rows.Count == 3)
+            {
+                rows = 3;
+            }
+
+            if (this.oApuesta.isError)
+            {
+                this.isError = true;
+                this.errorDescription = this.oApuesta.errorDescription;
+            }
+            return rows;
+        }
 
         public ArrayList SelectPeorCaso(int idSorteo, int MinOMax)
         {

@@ -3,6 +3,7 @@ using JPS.Controladores;
 using System.Windows.Forms;
 using System.Data;
 using JPS.Utils;
+using System.Globalization;
 
 namespace JPS.Vistas
 {
@@ -45,21 +46,60 @@ namespace JPS.Vistas
                 txtMonto.Text = monto.ToString();
             }
         }
+        private bool verificaString(string texto)
+        {
+            bool encotrado = false;
+            int contador = 0;
+            foreach (char item in texto)
+            {
+                if (item == '.')
+                {
+                    contador++;
+                }
+            }
+            if (contador == 1 || contador == 0)
+            {
+                encotrado = true;
+
+            }
+            return encotrado;
+        }
         private void btnGuardarDinero_Click(object sender, EventArgs e)
         {
-            if (!txtMonto.Text.Equals(""))
+           
+            if (!txtMonto.Text.Equals("") && !txtMonto.Text.Trim().Equals("."))
             {
-                if (oConfig.Select() == -1)
+                if (this.verificaString(txtMonto.Text))
                 {
-                    oConfig.Insert(double.Parse(txtMonto.Text));
-                    this.resetFields();
-                    MessageBox.Show("Monto agregado", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (oConfig.Select() == -1)
+                    {
+                        oConfig.Insert(double.Parse(txtMonto.Text));
+                        this.resetFields();
+                        MessageBox.Show("Monto agregado", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtMonto.Text = oConfig.Select().ToString();
+                    }
+                    else
+                    {
+                        double monto = double.Parse(txtMonto.Text);
+                        if (oConfig.Select() <= monto)
+                        {
+                            oConfig.Update(monto);
+                            this.resetFields();
+                            MessageBox.Show("Monto modificado", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txtMonto.Text = oConfig.Select().ToString();
+                        }
+                        else
+                        {
+                            this.resetFields();
+                            MessageBox.Show("El monto no puede ser menor al de casa: " + oConfig.Select(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtMonto.Text = oConfig.Select().ToString();
+                        }
+                        
+                    }
                 }
                 else
                 {
-                    oConfig.Update(double.Parse(txtMonto.Text));
-                    this.resetFields();
-                    MessageBox.Show("Monto modificado", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Solo ingrese un punto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
@@ -127,6 +167,26 @@ namespace JPS.Vistas
         {
             Modelos.Sorteo oSorteo = (Modelos.Sorteo)cmbSorteoPeor.SelectedItem;
             txtPeor.Text = Convert.ToString(Bets.PeorCasosSorteo(oSorteo.id));
+        }
+
+        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CultureInfo cc = System.Threading.Thread.CurrentThread.CurrentCulture;
+            if (char.IsNumber(e.KeyChar) ||
+                e.KeyChar.ToString() == cc.NumberFormat.NumberDecimalSeparator || (e.KeyChar == (char)Keys.Back)
+                )
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void txtNumero1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CultureInfo cc = System.Threading.Thread.CurrentThread.CurrentCulture;
+            if (char.IsNumber(e.KeyChar) || (e.KeyChar == (char)Keys.Back))
+                e.Handled = false;
+            else
+                e.Handled = true;
         }
     }
 }

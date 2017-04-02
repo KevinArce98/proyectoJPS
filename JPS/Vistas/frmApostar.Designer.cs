@@ -34,8 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNumero = new System.Windows.Forms.MaskedTextBox();
-            this.txtMonto = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.txtMonto = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // cmbSorteos
@@ -92,16 +92,7 @@
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(160, 27);
             this.txtNumero.TabIndex = 4;
-            // 
-            // txtMonto
-            // 
-            this.txtMonto.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.txtMonto.Location = new System.Drawing.Point(113, 128);
-            this.txtMonto.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMonto.Mask = "999999999";
-            this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(160, 27);
-            this.txtMonto.TabIndex = 5;
+            this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_KeyPress);
             // 
             // button1
             // 
@@ -118,13 +109,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // txtMonto
+            // 
+            this.txtMonto.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.txtMonto.Location = new System.Drawing.Point(113, 135);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(160, 27);
+            this.txtMonto.TabIndex = 7;
+            this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
+            // 
             // frmApostar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(309, 267);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtMonto);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -147,7 +147,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox txtNumero;
-        private System.Windows.Forms.MaskedTextBox txtMonto;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtMonto;
     }
 }

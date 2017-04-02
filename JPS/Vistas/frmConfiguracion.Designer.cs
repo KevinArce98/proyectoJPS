@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConfiguracion));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtMonto = new System.Windows.Forms.MaskedTextBox();
+            this.txtMonto = new System.Windows.Forms.TextBox();
             this.btnGuardarDinero = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -78,12 +78,11 @@
             // txtMonto
             // 
             this.txtMonto.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.txtMonto.Location = new System.Drawing.Point(95, 17);
-            this.txtMonto.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMonto.Mask = "9999999999";
+            this.txtMonto.Location = new System.Drawing.Point(86, 18);
             this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(163, 27);
-            this.txtMonto.TabIndex = 6;
+            this.txtMonto.Size = new System.Drawing.Size(173, 27);
+            this.txtMonto.TabIndex = 3;
+            this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
             // 
             // btnGuardarDinero
             // 
@@ -211,6 +210,7 @@
             this.txtNumero3.Name = "txtNumero3";
             this.txtNumero3.Size = new System.Drawing.Size(263, 27);
             this.txtNumero3.TabIndex = 14;
+            this.txtNumero3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero1_KeyPress);
             // 
             // txtNumero1
             // 
@@ -221,6 +221,7 @@
             this.txtNumero1.Name = "txtNumero1";
             this.txtNumero1.Size = new System.Drawing.Size(263, 27);
             this.txtNumero1.TabIndex = 12;
+            this.txtNumero1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero1_KeyPress);
             // 
             // txtNumero2
             // 
@@ -231,6 +232,7 @@
             this.txtNumero2.Name = "txtNumero2";
             this.txtNumero2.Size = new System.Drawing.Size(261, 27);
             this.txtNumero2.TabIndex = 13;
+            this.txtNumero2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero1_KeyPress);
             // 
             // groupBox3
             // 
@@ -406,7 +408,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.MaskedTextBox txtMonto;
         private System.Windows.Forms.Button btnGuardarDinero;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -431,5 +432,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbSorteoPeor;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtMonto;
     }
 }
