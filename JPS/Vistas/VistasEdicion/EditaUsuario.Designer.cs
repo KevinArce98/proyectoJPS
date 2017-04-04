@@ -43,7 +43,6 @@
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.txtClave = new System.Windows.Forms.TextBox();
             this.txtConfirmacionClave = new System.Windows.Forms.TextBox();
-            this.ckbAdmin = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -198,24 +197,11 @@
             this.txtConfirmacionClave.Size = new System.Drawing.Size(228, 27);
             this.txtConfirmacionClave.TabIndex = 14;
             // 
-            // ckbAdmin
-            // 
-            this.ckbAdmin.AutoSize = true;
-            this.ckbAdmin.Font = new System.Drawing.Font("Modern No. 20", 11.25F);
-            this.ckbAdmin.Location = new System.Drawing.Point(436, 135);
-            this.ckbAdmin.Margin = new System.Windows.Forms.Padding(4);
-            this.ckbAdmin.Name = "ckbAdmin";
-            this.ckbAdmin.Size = new System.Drawing.Size(116, 21);
-            this.ckbAdmin.TabIndex = 15;
-            this.ckbAdmin.Text = "Administrador";
-            this.ckbAdmin.UseVisualStyleBackColor = true;
-            // 
             // EditaUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(583, 316);
-            this.Controls.Add(this.ckbAdmin);
             this.Controls.Add(this.txtConfirmacionClave);
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.txtCorreo);
@@ -257,6 +243,5 @@
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.TextBox txtConfirmacionClave;
-        private System.Windows.Forms.CheckBox ckbAdmin;
     }
 }

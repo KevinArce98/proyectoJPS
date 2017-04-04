@@ -24,7 +24,7 @@ namespace JPS.Vistas.VistasEdicion
             this.txtNombre.Text = nombre;
             this.txtApellido.Text = apellido;
             this.txtCorreo.Text = correo;
-            this.ckbAdmin.Checked = admin;
+         
         }
         private string verificaClave()
         {
@@ -62,12 +62,8 @@ namespace JPS.Vistas.VistasEdicion
                     string contra = this.verificaClave();
                     if (!contra.Equals(""))
                     {
-                        bool admin = false;
-                        if (ckbAdmin.Checked == true)
-                        {
-                            admin = true;
-                        }
-                        this.oUsuario.Insert(txtNombre.Text, txtApellido.Text, admin, txtCorreo.Text, contra);
+
+                        this.oUsuario.Insert(txtNombre.Text, txtApellido.Text, false, txtCorreo.Text, contra);
                         if (this.oUsuario.isError)
                         {
                             MessageBox.Show(this.oUsuario.errorDescription);
@@ -97,12 +93,11 @@ namespace JPS.Vistas.VistasEdicion
                     string nombre = txtNombre.Text;
                     string apellido = txtApellido.Text;
                     string correo = txtCorreo.Text;
-                    bool admin = ckbAdmin.Checked;
                     string contra = this.verificaClave();
 
                     if (!contra.Equals(""))
                     {
-                        this.oUsuario.Update(id, nombre, apellido, admin, correo, contra);
+                        this.oUsuario.Update(id, nombre, apellido, false, correo, contra);
                         if (this.oUsuario.isError)
                         {
                             MessageBox.Show(this.oUsuario.errorDescription);

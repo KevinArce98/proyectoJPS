@@ -39,7 +39,17 @@ namespace JPS.Vistas
         {
             var row = this.dtgSorteos.CurrentRow.Cells[0];
             int id = Convert.ToInt32(row.Value);
-            this.oSorteo.Delete(id);
+            Apuesta oapuest = new Apuesta();
+            if (oapuest.SelectTotal(id).Count == 0)
+            {
+                this.oSorteo.Delete(id);
+               
+            }
+            else
+            {
+                MessageBox.Show("Tiene apuestas activas", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+           
             if (this.oSorteo.isError)
             {
                 MessageBox.Show(this.oSorteo.errorDescription);

@@ -127,24 +127,34 @@ namespace JPS.Vistas
             {
                 Modelos.Sorteo oSorteo = (Modelos.Sorteo)cmbSorteo.SelectedItem;
                 int idSorteo = oSorteo.id;
+                Sorteo oSorteoC = new Sorteo();
+                ;
                 if (oGanador.Select(idSorteo).id == -1 )
                 {
-                    int num1 = int.Parse(txtNumero1.Text);
-                    int num2 = int.Parse(txtNumero2.Text);
-                    int num3 = int.Parse(txtNumero3.Text);
-                    if ((num1 != num2) && (num2 != num3) && (num3 != num1))
+                    if (oSorteoC.SelectInactive(idSorteo).id != -1)
                     {
-                        oGanador.Insert(num1, num2, num3, oSorteo);
-                        this.resetFields();
-                        MessageBox.Show("Numeros Agregados para " + oSorteo.descripcion, "INFO", MessageBoxButtons.OK, 
-                            MessageBoxIcon.Information);
-                        double montoCasa = oConfig.Select() - Bets.restarMontoCasa(num1, num2, num3, idSorteo);
-                        oConfig.Update(montoCasa);
-                        Bets.enviarCorreo(num1, num2, num3, idSorteo);
+                        int num1 = int.Parse(txtNumero1.Text);
+                        int num2 = int.Parse(txtNumero2.Text);
+                        int num3 = int.Parse(txtNumero3.Text);
+                        if ((num1 != num2) && (num2 != num3) && (num3 != num1))
+                        {
+                            oGanador.Insert(num1, num2, num3, oSorteo);
+                            this.resetFields();
+                            MessageBox.Show("Numeros Agregados para " + oSorteo.descripcion, "INFO", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            double montoCasa = oConfig.Select() - Bets.restarMontoCasa(num1, num2, num3, idSorteo);
+                            oConfig.Update(montoCasa);
+                            Bets.enviarCorreo(num1, num2, num3, idSorteo);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Los numero no pueden ser iguales", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Los numero no pueden ser iguales", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("La fecha del sorteo no ha expirado", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.resetFields();
                     }
                    
                 }

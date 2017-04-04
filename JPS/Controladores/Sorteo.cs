@@ -95,16 +95,30 @@ namespace JPS.Controladores
             return oList;
         }
 
-        public DataTable SelectInactive(int idSorteo)
+        public Modelos.Sorteo SelectInactive(int idSorteo)
         {
             DataTable result = new DataTable();
             result = this.oSorteo.selectInactive(idSorteo);
+            if (result.Rows.Count > 0)
+            {
+                    DataRow row = result.Rows[0];
+                    oSorteo = new Modelos.Sorteo();
+                    oSorteo.id = int.Parse(row["id_sorteo"].ToString());
+                    oSorteo.fecha_hora = DateTime.Parse(row["fecha_hora"].ToString());
+                    oSorteo.activo = bool.Parse(row["activo"].ToString());
+                    oSorteo.descripcion = row["descripcion"].ToString();
+            }
+            else
+            {
+                oSorteo = new Modelos.Sorteo();
+                oSorteo.id = -1;
+            }
             if (this.oSorteo.isError)
             {
                 this.isError = true;
                 this.errorDescription = this.oSorteo.errorDescription;
             }
-            return result;
+            return oSorteo;
         }
     }
 }

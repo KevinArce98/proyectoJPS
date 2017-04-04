@@ -56,33 +56,38 @@ namespace JPS.Vistas
                 Modelos.Sorteo oSorteoM = (Modelos.Sorteo)cmbSorteos.SelectedItem;
 
 
-                    if (oSorteo.SelectInactive(oSorteoM.id).Rows.Count == 0)
+                    if (oSorteo.SelectInactive(oSorteoM.id).id == -1)
                     {
                         MessageBox.Show("La fecha del sorteo ha expirado", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         resetFields();
                     }
                     else
                     {
-                        Program.da.BeginTransaction();
-                        
-                        oApuesta.Insert(RuntimeData.oUsuario, oSorteoM, num, monto);
-                        montoCasa = oConfig.Select() + monto;
-                        oConfig.Update(montoCasa);
-                        MessageBox.Show( oConfig.Select().ToString());
-                        double peorCaso = Bets.calcularApuesta();
-                        if (montoCasa >= peorCaso)
+                        if (oConfig.Select() != -1)
                         {
-                            Program.da.CommitTransaction();
-                            this.resetFields();
-                            MessageBox.Show("Apuesta Agregada", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Program.da.BeginTransaction();
+                            oApuesta.Insert(RuntimeData.oUsuario, oSorteoM, num, monto);
+                            montoCasa = oConfig.Select() + monto;
+                            oConfig.Update(montoCasa);
+                            double peorCaso = Bets.calcularApuesta();
+                            if (montoCasa >= peorCaso)
+                            {
+                                Program.da.CommitTransaction();
+                                this.resetFields();
+                                MessageBox.Show("Apuesta Agregada", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                Program.da.RollbackTransaction();
+                                double maxima = Bets.mostarApuestaMaximaa(oSorteoM.id, monto, num);
+                                this.resetFields();
+                                MessageBox.Show("Apuesta Denegada (La casa nunca pierde)" + " \nPuede apostar ₡" + maxima, "ERROR",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                         else
                         {
-                            Program.da.RollbackTransaction();
-                            double maxima = Bets.mostarApuestaMaxima(oSorteoM.id);
-                            this.resetFields();
-                            MessageBox.Show("Apuesta Denegada (La casa nunca pierde)" + " \nPuede apostar ₡" + maxima, "ERROR",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("No hay dinero en casa", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }

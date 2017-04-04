@@ -1,5 +1,6 @@
 ﻿using JPS.Utils;
 using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 
 namespace JPS.Controladores
@@ -173,6 +174,44 @@ namespace JPS.Controladores
                     }
 
                     oList.Add(montoTotal);
+                }
+            }
+
+            if (this.oApuesta.isError)
+            {
+                this.isError = true;
+                this.errorDescription = this.oApuesta.errorDescription;
+            }
+            return oList;
+        }
+        public List<Modelos.Apuesta> SelectPeorCase(int idSorteo)
+        {
+            DataTable result = new DataTable();
+            List<Modelos.Apuesta> oList = new List<Modelos.Apuesta>();
+            result = this.oApuesta.SelectPeorCaso(idSorteo);
+
+            if (result.Rows.Count > 0)
+            {
+                for (int j = 0; j < result.Rows.Count; j++)
+                {
+                    DataRow row = result.Rows[j];
+                    oApuesta = new Modelos.Apuesta();
+                    oApuesta.numero = int.Parse(row["numero"].ToString());
+                    oApuesta.monto = double.Parse(row["monto"].ToString());
+                    if (j == 0)
+                    {
+                        oApuesta.montoGanado += double.Parse(row["monto"].ToString()) * 60;
+                    }
+                    else if (j == 1)
+                    {
+                        oApuesta.montoGanado += double.Parse(row["monto"].ToString()) * 10;
+                    }
+                    else if (j == 2)
+                    {
+                        oApuesta.montoGanado += double.Parse(row["monto"].ToString()) * 5;
+                    }
+
+                    oList.Add(oApuesta);
                 }
             }
 

@@ -1,5 +1,6 @@
 ﻿using JPS.Controladores;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace JPS.Utils
 {
@@ -131,7 +132,7 @@ namespace JPS.Utils
             }
             return total;
         }
-        public static double mostarApuestaMaxima(int idSorteo)
+        public static double mostarApuestaMaxima(int idSorteo, double monto)
         {
             Apuesta oApuesta = new Apuesta();
             Configuracion oConfig = new Configuracion();
@@ -152,6 +153,58 @@ namespace JPS.Utils
             }
             peorCaso = (montoCasa - peorCaso) / division;
             return peorCaso;
+        }
+
+        public static double mostarApuestaMaximaa(int idSorteo, double monto, int numero)
+        {
+            Apuesta oApuesta = new Apuesta();
+            Configuracion oConfig = new Configuracion();
+            List<Modelos.Apuesta> oList = oApuesta.SelectPeorCase(idSorteo);
+            double montoCasa = oConfig.Select();
+            double peorCaso = calcularApuesta();
+            double montoSugerido = 0;
+            int posicion = 0;
+            
+                foreach (var apuesta in oList)
+                {
+                if (apuesta.numero == numero)
+                {
+                    if (posicion == 0)
+                    {
+                        montoSugerido = (montoCasa - peorCaso) / 60;
+                        break;
+                    }
+                    else if (posicion == 1)
+                    {
+                        montoSugerido = (montoCasa - peorCaso) / 10;
+                        break;
+                    }
+                    else if (posicion == 2)
+                    {
+                        montoSugerido = (montoCasa - peorCaso) / 5;
+                        break;
+                    }
+                }
+                posicion++;
+            }
+            if (oList.Count == 3)
+            {
+                montoSugerido = oList[2].monto;
+            }
+            else if(oList.Count == 2)
+            {
+                montoSugerido = (montoCasa - peorCaso) / 5;
+            }
+            else if (oList.Count == 1)
+            {
+                montoSugerido = (montoCasa - peorCaso) / 10;
+            }
+            else if (oList.Count == 0)
+            {
+                montoSugerido = (montoCasa - peorCaso) / 60;
+            }
+
+            return montoSugerido;
         }
     }
 }
